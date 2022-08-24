@@ -1,0 +1,158 @@
+.card {
+  position: relative;
+  perspective: 150rem;
+  -moz-perspective: 150rem; // for mozilla browser
+  height: 50rem;
+
+  &-cta {
+    @include b-red;
+    z-index: 3;
+    padding: 6rem;
+    text-align: center;
+    &-text {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 4rem;
+      margin-bottom: 6rem;
+    }
+
+    &-price {
+      font-size: 12rem;
+      margin-bottom: 6rem;
+    }
+
+    &-btn {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      //   position: relative;
+      box-shadow: $shadow-dark;
+      padding: 2rem;
+      border-radius: 25px;
+      background-color: rgb(107, 109, 107);
+      transition: all 0.2s;
+      font : {
+        size: 3rem;
+      }
+      &:hover {
+        box-shadow: $shadow-light;
+        transform: scale(1.25) translateY(-6px);
+      }
+      &:active {
+        transform: translateY(0);
+        box-shadow: $shadow-dark;
+      }
+
+      &::after {
+        content: ""; // must set
+        height: 100%; // 100% of the parent btn
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        position: absolute; // place to relative position of btn
+      }
+
+      &-white {
+        &:hover::after {
+          content: "";
+          transform: scale(1.5);
+          border-radius: 1em;
+          transition: all 0.5s linear;
+          background-color: white;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &-details {
+    ul {
+      padding-top: 28rem;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      list-style: none;
+      display: table;
+      li {
+        color: gray;
+        font-size: 2rem;
+        padding: 1rem 1rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($color: rgb(61, 61, 61), $alpha: 0.2);
+        }
+      }
+    }
+  }
+  &-side {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s ease;
+    box-shadow: $shadow-light;
+
+    &-front {
+      color: red;
+      background-color: white;
+    }
+
+    &-back {
+      color: white;
+      transform: rotateY(-180deg);
+      &-gold {
+        background-image: $color-linear-gradient-gold;
+      }
+      &-blue {
+        background-image: $color-linear-gradient-blue;
+      }
+      &-green {
+        background-image: $color-linear-gradient-green;
+      }
+    }
+  }
+  &-header {
+    &-background {
+      position: absolute;
+      z-index: 1;
+      clip-path: polygon(0 0%, 100% 0%, 100% 80%, 0% 100%);
+      top: 0;
+      left: 0;
+      height: 25rem;
+      width: 100%;
+      background-blend-mode: color;
+      &-1 {
+        background-image: $color-linear-gradient-gold, url("../img/place1.jpg");
+        background-size: cover;
+      }
+    }
+    &-text-1 {
+      z-index: 2;
+      position: absolute;
+      -webkit-box-decoration-break: clone; // to clone the text element so that paddding can be added for multi lines
+      box-decoration-break: clone;
+      text-align: right;
+      padding: 1rem 1.5rem;
+      max-width: 40%;
+      height: 10rem;
+      top: 30%;
+      right: 5%;
+      font-size: 4rem;
+      color: white;
+      background-image: $color-linear-gradient-gold;
+    }
+  }
+
+  // syntax: hover then side
+  &:hover &-side-front {
+    transform: rotateY(180deg);
+    cursor: pointer;
+  }
+  &:hover &-side-back {
+    transform: rotateY(0);
+    cursor: pointer;
+  }
+}

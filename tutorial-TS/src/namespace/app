@@ -1,0 +1,17 @@
+/* 
+"outFile": "./dist/namespace/bundle.js", 
+"module": "amd", 
+ */
+
+
+/// <reference path ="./components/project-input"/>
+/// <reference path ="./components/project-list"/>
+
+
+namespace App {
+
+  // instantiate
+  new ProjectInput();
+  new ProjectList("active");
+  new ProjectList("finished");
+}

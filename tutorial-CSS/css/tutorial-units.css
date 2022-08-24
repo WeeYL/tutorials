@@ -1,0 +1,69 @@
+.container1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 6px;
+}
+
+.percentage {
+  width: 50%;
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+}
+
+.px {
+  width: 100px;
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+}
+
+.px {
+  width: 100px;
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+}
+
+.vhvw {
+  height: 25vh;
+  width: 25vw;
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+}
+
+.parent {
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+  font-size: 30px;
+  width: 50%;
+}
+
+.em1 {
+  font-size: 1em;
+}
+
+.em2 {
+  font-size: 2em;
+}
+
+.rem1 {
+  font-size: 1rem;
+}
+
+.rem2 {
+  font-size: 2rem;
+}
+
+.box2 {
+  border: black 1px solid;
+  padding: inherit;
+  font-size: 24px;
+  font-size: unset;
+  width: 40%;
+}
+
+/*# sourceMappingURL=tutorial-units.css.map */

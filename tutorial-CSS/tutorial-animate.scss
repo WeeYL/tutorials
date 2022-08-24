@@ -1,0 +1,28 @@
+$text-front-size: 10px;
+
+.btn-signup {
+  &:link,
+  &:visited {
+    color: green;
+    font-size: 10;
+    text-decoration: none;
+    border: 1px green solid;
+    border-radius: 1.5rem;
+    padding: 6px;
+    display: inline-block; // inline-block for transform to work
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+  }
+
+  &:active {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); // active placed after hover to work
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,145 @@
+@import "./abstract";
+
+$text-front-size: 10px;
+
+.container-flex {
+  flex-flow: row;
+  border-bottom: 1px solid black;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+}
+
+.title {
+  clear: both;
+}
+
+// active and link
+.active {
+  @include blueBox;
+
+  a:active {
+    color: red;
+  }
+}
+
+// hover
+.hover {
+  @include blueBox;
+
+  a:hover {
+    color: red;
+  }
+}
+
+// visited > Change the href and clear history
+
+.visited {
+  @include blueBox;
+  a:link {
+    /* Specify non-transparent defaults to certain properties,
+       allowing them to be styled with the :visited state */
+    background: blue;
+    color: white;
+  }
+
+  a:visited {
+    background-color: white;
+    color: hotpink;
+  }
+}
+
+// focus
+.focus {
+  &:focus {
+    color: darkgreen;
+    background-color: lightgreen;
+  }
+}
+
+// autofill for form
+
+.auto {
+  input {
+    border: 3px solid red;
+    &:-webkit-autofill {
+      border: 3px solid blue;
+    }
+  }
+}
+
+// enabled for form
+
+.enabled {
+  input:enabled {
+    color: green;
+    background-color: lightgreen;
+  }
+  input:disabled {
+    color: gray;
+  }
+}
+
+//default
+input:default {
+  box-shadow: 0px 0px 5px 2px green;
+}
+
+input:default + label {
+  color: green;
+}
+
+// valid
+.valid {
+  input {
+    &:invalid {
+      background-color: pink;
+      color: red;
+    }
+    &:valid {
+      background-color: lightcyan;
+      color: green;
+    }
+  }
+}
+
+// required
+.required {
+  input {
+    &:required {
+      border: 2px dashed red;
+    }
+    &:valid {
+      border: 2px dashed green;
+    }
+  }
+}
+
+// Target
+
+#p1:target {
+  background-color: gold;
+}
+
+// nth-child
+.child-1 {
+  color: green;
+  &:not(:last-child) {
+    color: blue;
+  }
+  &:nth-child(odd) {
+    color: red;
+  }
+  &:first-child {
+    font-size: 20px;
+  }
+}
+
+//nth-type
+.nthType {
+  p{
+    margin: 0px;
+  }
+  p:nth-of-type(4) {
+    color: green;
+  }
+}

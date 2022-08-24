@@ -1,0 +1,21 @@
+{
+  "name": "tutorial-CSS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch    udemy/styles.scss:udemy/css/styles.css    examples/scroll-snap.scss:examples/css/scroll-snap.css   tutorial-pseudo-element.scss:css/tutorial-pseudo-element.css   tutorial-animate.scss:css/tutorial-animate.css   tutorial-pseudo-class.scss:css/tutorial-pseudo-class.css  tutorial-Basic.scss:css/tutorial-Basic.css tutorial-flex.scss:css/tutorial-flex.css   tutorial-grid.scss:css/tutorial-grid.css  tutorial-position.scss:css/tutorial-position.css   tutorial-SCSS.scss:css/tutorial-SCSS.css   tutorial-units.scss:css/tutorial-units.css ",
+    "live": "live-server",
+    "dev": "concurrently --kill-others \"npm run sass\" \"npm run live\""
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  }
+}

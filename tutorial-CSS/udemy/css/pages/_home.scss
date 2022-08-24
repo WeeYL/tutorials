@@ -1,0 +1,67 @@
+.section {
+  &-header {
+    position: relative;
+    z-index: 100;
+    height: 85vh;
+    text-align: center;
+    padding-top: 100px;
+
+    // background
+    background-image: linear-gradient(
+        to left bottom,
+        rgba(129, 240, 129, 0.5),
+        rgba(96, 112, 3, 0.5)
+      ),
+      url("../img/building.jpg"); // need to start url from "../."
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 75%,
+      0% 100%
+    ); // crop image 0 0 is top left
+  }
+  &-about {
+    background-color: $color-background-about;
+    margin-top: -30vh;
+    padding: 45rem;
+    height: 45vh;
+    z-index: 1;
+  }
+
+  &-features {
+    margin-top: -8%;
+    padding:6rem;
+    height: 75vh;
+    background-image: $color-linear-gradient-gold,
+    url("../img/yoga.png"); // need to start url from "../."
+    background-size: cover;
+    transform: skewY(-7deg);
+    & > * {
+      transform: skewY(7deg);
+    }
+  }
+
+  &-tours {
+    padding:25rem;
+    height: 75vh;
+    background-color: $color-background-about;
+  }
+  &-stories {
+    position: relative;
+    padding:25rem;
+    height: 75vh;
+  }
+  
+  &-book {
+    position: relative;
+    background-image: $color-linear-gradient-green;
+    padding: 6rem;
+    height: 75vh;
+    // @include b-red;
+
+  }
+
+}

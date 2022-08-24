@@ -1,0 +1,38 @@
+const { Mongoose } = require("mongoose");
+const auth = require("./middleware/auth");
+const { MyModel: userModel } = require("./model-user");
+const mongoose = require('Mongoose')
+
+// test 
+describe('auth middleware',()=>{
+  it('should populate req.user with the payload of a valid JWT', ()=> {
+    
+      // create a user
+      const user = {
+          _id: mongoose.Types.ObjectId().toHexString(), // generate an objectId
+          isAdmin:false
+      }
+
+    // req
+    const token = new userModel(user).generateAuthToken()
+    const req = {
+        header:jest.fn().mockReturnValue(token)
+    }
+    // res
+    const res = {}
+
+    // next
+    const next = jest.fn()
+    
+    // result
+    auth(req,res,next)
+    
+    console.log('req.user',req.user);
+    console.log('user',user);
+    expect(req.user).toMatchObject(user)
+
+
+  });
+
+})
+  

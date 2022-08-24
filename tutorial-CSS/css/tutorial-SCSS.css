@@ -1,0 +1,112 @@
+/* $variablename: value;*/
+/* Use the variables */
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: red;
+}
+
+p {
+  color: darkblue;
+}
+
+/* nested */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+/* @import */
+body {
+  background-color: green;
+}
+
+/* @mixin: As a container that returns properties
+    @mixin name {
+    property: value;
+    property: value;
+    ...
+    }
+ @include: to let you call mixin */
+.danger {
+  color: red;
+  font-size: 2.5 rem;
+  font-weight: bold;
+  border: 1px solid blue;
+  background-color: green;
+}
+
+/* @mixin nested @mixin 
+sequence matter
+*/
+.special-text {
+  color: red;
+  font-size: 2.5 rem;
+  font-weight: bold;
+  border: 1px solid blue;
+  border: 1px solid red;
+}
+
+/*  Mixin as a function 
+allows default values*/
+.thickRedBorder {
+  border: red solid 3px;
+  color: black;
+  font-size: 24px;
+}
+
+.thinWhiteBorder {
+  border: white solid 1px;
+  color: black;
+  font-size: 24px;
+}
+
+/* Using a Mixin For Vendor Prefixes
+ */
+.myBox {
+  -webkit-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+  font-size: 24px;
+  color: black;
+  position: relative;
+  top: 250px;
+}
+
+/* The @extend directive lets you share class properties from one selector to another.
+
+ */
+.button-basic, .button-submit, .button-report {
+  border: none;
+  padding: 1.5 rem 30px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.button-report {
+  background-color: red;
+}
+
+.button-submit {
+  background-color: #29421f;
+  color: #b0e461;
+}
+
+/* string module. @use "sass:string" */
+.quote {
+  color: blue;
+}
+
+/*# sourceMappingURL=tutorial-SCSS.css.map */

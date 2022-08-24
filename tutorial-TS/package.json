@@ -1,0 +1,36 @@
+{
+  "name": "tutorial-TS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc --watch",
+    "live": "live-server",
+    "dragdrop": "live-server --port=8080 --entry-file=./HTML/HTML-dragdrop.html",
+    "namespace": "live-server --port=8080 --entry-file=./HTML/HTML-namespace.html",
+    "module-export": "live-server --port=8080 --entry-file=./HTML/HTML-module-export.html",
+    "dev": "concurrently --kill-others \"npm run tsc\" \"npm run live\"",
+    "dev-dragdrop": "concurrently --kill-others \"npm run tsc\" \"npm run dragdrop\"",
+    "dev-namespace": "concurrently --kill-others \"npm run tsc\" \"npm run namespace\"",
+    "dev-module-export": "concurrently --kill-others \"npm run tsc\" \"npm run module-export\"",
+    "dev-webpack": "webpack serve",
+    "build-webpack": "webpack",
+    "build-webpack-prod": "webpack --config webpack.config.prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^15.0.3",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "concurrently": "^6.1.0",
+    "live-server": "^1.2.1",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

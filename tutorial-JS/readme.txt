@@ -1,0 +1,2 @@
+- Run > npm run dev
+- Opens the browser > select HTML folder > select the tutorial-xx 

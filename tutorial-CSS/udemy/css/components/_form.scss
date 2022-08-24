@@ -1,0 +1,60 @@
+.form {
+  margin-top: 6rem;
+
+  &-group-radio{
+    margin-left: 3rem;
+    position: relative;
+    float: left;
+  }
+  
+
+  &-group {
+    margin-bottom: 2rem;
+  }
+
+  &-input {
+    position: relative;
+    display: block;
+    width: 80%;
+    border-radius: 0 15px 0 0;
+    font-size: 1.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border: none;
+    background-color: rgba(gray, 0.5);
+    border-bottom: 2px solid transparent; // so that the input box do not jump
+    &:focus{
+        transition: all 1s ;
+        outline: none;
+        border-bottom: 5px solid green;
+
+        &:invalid{
+            outline: none;
+            border-bottom: 5px solid orange;
+        }
+    }
+
+ 
+  }
+
+  &-label {
+    font : {
+      size: 1.5rem;
+      weight: 700;
+    }
+    text-align: right;
+    margin-top: 1rem;
+    margin-right: 14rem;
+    display: block;
+    transition: all 0.2s ease;
+  }
+
+  // animate label
+  // when placeholder is shown then label hidden, when type then label appears
+  &-input:placeholder-shown + &-label {
+    opacity: 0; // for animation
+    visibility: hidden; // element gone from page
+    transform: translateY(-4rem);
+  }
+}
+

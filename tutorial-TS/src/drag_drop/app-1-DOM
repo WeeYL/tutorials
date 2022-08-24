@@ -1,0 +1,26 @@
+
+ 
+class ProjectInput1 {
+    
+    templateEl : HTMLTemplateElement
+    hostEl : HTMLElement
+    elementForm : HTMLElement
+
+    // form import template, 
+    // form attached to div#app
+    constructor() {
+        this.templateEl = <HTMLTemplateElement> document.getElementById('project-input') // get template location
+        const importedNode = document.importNode(this.templateEl.content,true) // get template content
+        console.log("i",importedNode); // fragment
+        
+        this.elementForm =<HTMLElement> importedNode.firstElementChild // get the first child elements ie form
+        
+        this.elementForm.id = "user-input" // set id 
+        this.hostEl = <HTMLElement> document.getElementById('app') // get div#app location
+        this.attach()
+    }
+    attach(){
+        this.hostEl.insertAdjacentElement('afterbegin',this.elementForm) // attach form
+    }
+  }
+

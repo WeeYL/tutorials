@@ -1,0 +1,140 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+$bgcolor: gray;
+
+@mixin uppercaseText {
+  border: 1px solid black;
+  padding: 6px;
+  font: {
+    size: 24px;
+    variant: small-caps; // convert to uppercase
+  }
+  color: white;
+  background-color: $bgcolor;
+  
+  
+}
+
+.evenColumns {
+  display: flex;
+  gap: 1em;
+  // all children
+  > * {
+    @include uppercaseText;
+    flex-basis: 100%; // same width
+  }
+}
+
+/* flex: 
+This is the shorthand for flex-grow, flex-shrink and flex-basis combined. 
+The second and third parameters (flex-shrink and flex-basis) are optional.  
+
+flex-basis
+This defines the default size of 
+an element before the remaining space is distributed. 
+
+*/
+// flex-wrap + flex
+.gridish1 {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    @include uppercaseText;
+    flex: 1 1 33%;
+    height: 15vh;
+  }
+}
+
+.gridish2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em; // added gap
+  > * {
+    @include uppercaseText;
+    flex: 1 1 33%;
+    height: 15vh;
+  }
+}
+
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+
+  > *:nth-child(1) {
+    @include uppercaseText;
+    flex: 1 1 70%;
+    min-width: 25ch; // if text has less than min width chr, then content is collapsible
+}
+> *:nth-child(2) {
+    @include uppercaseText;
+    flex: 1 1 30%;
+    min-width: 3ch;
+  }
+}
+
+
+
+/* 
+flex 
+[flex-grow] [flex-shrink] [flex-basis]
+[max]       [min]         [ideal size]
+*/
+.parent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.child1 {
+  @include uppercaseText;
+  flex-grow: 0; // growing not allowed, take only req spaces
+  flex-shrink: 1; // and shrink allowed, within viewport
+  flex-basis: auto;
+}
+.child2 {
+  @include uppercaseText;
+  flex-grow: 1; // grow as much, take up all spaces
+  flex-shrink: 1; // and shrink allowed, within viewport
+  flex-basis: auto;
+}
+.child3 {
+  @include uppercaseText;
+  flex-grow: 3; // grow more than others
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+.child4 {
+  @include uppercaseText;
+  flex-grow: 0; // growing not allowed, take only req spaces
+  flex-shrink: 0; // shrinking not allowed 
+  flex-basis: auto;
+}
+.child5 {
+  @include uppercaseText;
+  flex-grow: 0; // growing not allowed, take only req spaces
+  flex-shrink: 1; // and shrink allowed, within viewport
+  flex-basis: 500px; // ideal size before leaving gaps between
+}
+.child6 {
+  @include uppercaseText;
+  flex-grow: 0; // growing not allowed, take only req spaces
+  flex-shrink: 0; // shrinking not allowed 
+  flex-basis: 500px; // ideal size is fixed
+}
+
+
+.parent2 {
+  display: flex;
+  flex-wrap: wrap; // go to next row
+}
+.child7 {
+  @include uppercaseText;
+  flex-grow: 0; // growing not allowed, take only req spaces
+  flex-shrink: 0; // shrinking not allowed 
+  flex-basis: 500px; // ideal size is fixed
+}
+
+
+
+

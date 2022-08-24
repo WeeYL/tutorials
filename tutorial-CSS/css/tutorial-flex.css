@@ -1,0 +1,180 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+.evenColumns {
+  display: flex;
+  gap: 1em;
+}
+.evenColumns > * {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-basis: 100%;
+}
+
+/* flex: 
+This is the shorthand for flex-grow, flex-shrink and flex-basis combined. 
+The second and third parameters (flex-shrink and flex-basis) are optional.  
+
+flex-basis
+This defines the default size of 
+an element before the remaining space is distributed. 
+
+*/
+.gridish1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gridish1 > * {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex: 1 1 33%;
+  height: 15vh;
+}
+
+.gridish2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.gridish2 > * {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex: 1 1 33%;
+  height: 15vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sidebar > *:nth-child(1) {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex: 1 1 70%;
+  min-width: 25ch;
+}
+.sidebar > *:nth-child(2) {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex: 1 1 30%;
+  min-width: 3ch;
+}
+
+/* 
+flex 
+[flex-grow] [flex-shrink] [flex-basis]
+[max]       [min]         [ideal size]
+*/
+.parent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.child1 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.child2 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.child3 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 3;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.child4 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.child5 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 500px;
+}
+
+.child6 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 500px;
+}
+
+.parent2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child7 {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 24px;
+  font-variant: small-caps;
+  color: white;
+  background-color: gray;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 500px;
+}
+
+/*# sourceMappingURL=tutorial-flex.css.map */

@@ -1,0 +1,3 @@
+- npm install --save-dev jest
+- in package, change test: jest --watchAll
+- https://jestjs.io/

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="windowSize.js" defer></script>
+  <link rel="stylesheet" href="../css/tutorial-pseudo-class.css" />
+  <head>
+    <div id="window"></div>
+  </head>
+  <body>
+
+
+
+    <h3 class="title">Basic</h3>
+    <div class="container-flex">
+      <button class="active"><a href="">click me</a></button>
+      <button class="hover"><a href="">hover me</a></button>
+      <button class="visited"><a href="#aaaaa">visited. </a></button>
+      <br>
+      <br>
+      <div><input class="focus" placeholder="focused 1"></div>      
+      <div><input class="focus" placeholder="focused 2"></div>      
+      <br>
+    </div>
+
+    <h3 class="title ">Autofill</h3>
+      <form method="post" action="" class="auto">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" autocomplete="email">
+      </form>
+
+    <h3 class="title">Enabled</h3>
+    <form method="post" action="" class="enabled container-flex">
+      <input type="text" value="enabled"><br>
+      <input type="text" value="disabled" disabled><br>
+    </form> 
+    
+    
+    <h3 class="title">Default</h3>
+    <div class="container-flex">
+      <input type="radio" name="season" id="spring">
+      <label for="spring">Spring</label>
+      <input type="radio" name="season" id="summer" checked>
+      <label for="summer">Summer</label>
+    </div>
+    
+
+    <h3 class="title">valid and invalid</h3>
+    <div class="valid container-flex">
+      <label >email: </label>
+      <input type="email" placeholder="type to see color changes">
+    </div>
+
+    <h3 class="title">required</h3>
+    <div class="required container-flex">
+      <label >email: </label>
+      <input type="email" required>
+    </div>
+
+
+      <h3 class="title">Target</h3>
+      <button><a href="#p1">click to change below button</a></button><br><br>
+      <button id="p1">Target button</button>
+
+      <h3 class="title">nth-child</h3>
+      <div class="container-flex">
+        <div class="child-1">first child large</div>
+        <div class="child-1">even child blue</div>
+        <div class="child-1">child</div>
+        <div class="child-1">even child blue</div>
+        <div class="child-1">child</div>
+        <div class="child-1">last child green</div>
+      </div>
+
+      <h3 class="title">nth-type</h3>
+      <div class="nthType container-flex">
+        <p >paragraph</p>
+        <p >paragraph</p>
+        <p >paragraph</p>
+        <p >4th paragraph</p>
+        <p >paragraph</p>
+
+      </div>
+      
+    </body>
+
+</html>

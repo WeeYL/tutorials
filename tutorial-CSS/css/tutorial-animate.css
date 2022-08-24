@@ -1,0 +1,22 @@
+.btn-signup:link, .btn-signup:visited {
+  color: green;
+  font-size: 10;
+  text-decoration: none;
+  border: 1px green solid;
+  border-radius: 1.5rem;
+  padding: 6px;
+  display: inline-block;
+  transition: all 0.5s;
+}
+.btn-signup:hover {
+  background-color: green;
+  color: white;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+.btn-signup:active {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+}
+
+/*# sourceMappingURL=tutorial-animate.css.map */

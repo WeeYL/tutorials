@@ -1,0 +1,21 @@
+const { fizzBuzz } = require("./ex1");
+
+// only numbers
+describe("ex1", () => {
+  const args = [null, NaN, ""];
+  test("only numbers", () => {
+    args.map((a) => {
+      () => fizzBuzz(a).toThrow();
+    });
+  });
+
+  // fizzbuzz
+  const myNumberList = [3, 5, 15];
+  const myResultList = [];
+  myNumberList.map((n) => {
+    myResultList.push(fizzBuzz(n));
+  });
+  test("fizzbuzz", () => {
+    expect(myResultList).toEqual(["Fizz", "Buzz", "FizzBuzz"]);
+  });
+});

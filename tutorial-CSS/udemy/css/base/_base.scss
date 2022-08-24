@@ -1,0 +1,11 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-background;
+}
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}

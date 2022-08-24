@@ -1,0 +1,87 @@
+.section-stories {
+  position: relative;
+  &-box {
+    background-color: white;
+    padding: 6rem;
+    @include clear-fix;
+    box-shadow: $shadow-dark;
+    border-radius: 2rem;
+  }
+  &-box:hover &-caption {
+    transition: all 0.25s ease;
+    opacity: 1;
+    transform: translateX(-50%) scale(1.25);
+  }
+  &-box:hover &-img {
+    transition: all 0.25s ease;
+    filter: blur(3px);
+    transform: scale(1);
+  }
+
+  &-title {
+    margin-left: 20rem;
+    position: relative; // req for separator
+    font-size: 6rem;
+    padding-bottom: 1rem;
+    &::after {
+      content: "";
+      left: 1rem;
+      bottom: 1rem;
+      right: 1rem;
+      position: absolute;
+      border-bottom: $line-bottom-separator;
+    }
+  }
+  &-text {
+    text-align: left;
+    padding-left: 3rem;
+    font-size: 3rem;
+  }
+  &-img {
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/place1.jpg);
+    transform: scale(1.25);
+    backface-visibility: hidden;
+    background-size: cover;
+  }
+  &-caption {
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translatey(100%) scale(1);
+    opacity: 0;
+    backface-visibility: hidden;
+  }
+
+  &-shape {
+    position: relative;
+    float: left;
+    height: 20rem;
+    width: 20rem;
+    shape-outside: circle(50% at 50% 50%); // create a boundary outside shape
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3em);
+  }
+}
+
+.bg-video {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+  text-align: center;
+  &-content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter:sepia(.8) blur(5px);
+  }
+}

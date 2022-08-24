@@ -1,0 +1,24 @@
+@mixin typo($font-size, $font-weight, $letter-spacing) {
+    display: block;
+    font : {
+      size: $font-size;
+      weight: $font-weight;
+    }
+    letter-spacing: $letter-spacing;
+  }
+
+  // clear floats, make element in-line block
+  @mixin clear-fix {
+    &::after {
+      content:"";
+      display: table;
+      clear: both;
+    }
+  }
+
+  @mixin b-red{
+    border: 2px red solid
+  }
+  @mixin b-blue{
+    border: 2px solid blue
+  }

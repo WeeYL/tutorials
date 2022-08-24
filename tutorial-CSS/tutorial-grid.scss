@@ -1,0 +1,127 @@
+
+@mixin gridItem {
+  font : {
+    size: 24px;
+  }
+  padding: 6px;
+  color: rgb(250, 249, 249);
+  border: 1px black solid;
+  background-color: rgb(59, 58, 58);
+}
+
+@mixin container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 6px;
+}
+
+.container1 {
+  @include container;
+}
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(4, auto); // more than 4, go next row
+  grid-template-rows: 200px minmax(100px, auto); // height of first 2 row
+  grid-auto-rows: 50px; // default row height
+
+}
+
+.gridItem01 {
+  @include gridItem;
+}
+.gridItem02 {
+  @include gridItem;
+  text-align: center;
+  border: #ff0000 1px solid;
+  height:100%;
+  width: 100%; 
+  box-sizing:border-box;
+}
+
+.gridItem03 {
+  @include gridItem;
+  align-self: start;
+  justify-self: start;
+}
+
+// layout in 3 columns
+.container3 {
+  @include container;
+  grid-template-areas:
+    "header header header"
+    "... content sidebar" // skip first column
+    "footer footer footer";
+}
+
+// assign template area to class
+.gridHeader {
+  @include gridItem;
+  grid-area: header;
+}
+.gridContent {
+  @include gridItem;
+  grid-area: content;
+}
+.gridSiderBar {
+  @include gridItem;
+  grid-area: sidebar;
+}
+.gridFooter {
+  @include gridItem;
+  grid-area: footer;
+}
+
+// column row
+.container4 {
+  @include container; // 3 columns
+}
+
+.colRowHeader {
+  @include gridItem;
+  grid-column: 1 / -1; // -1 means to the end
+}
+.colRowSubHeader {
+  @include gridItem;
+  grid-column: span 2;
+}
+.colRowContent {
+  @include gridItem;
+  grid-column: span 2;
+  grid-row: span 5;
+}
+.colRowSiderBar {
+  @include gridItem;
+  grid-row: span 1;
+}
+.colRowFooter {
+  @include gridItem;
+  grid-row: span 4;
+}
+
+// justify align
+
+.container5 {
+
+  position: relative;
+  background-color: black;
+  height: 400px;
+  padding: 6px;
+
+  // // grids
+  grid-template-columns: 200px 200px;
+  grid-template-rows: repeat(3, 100px); 
+  gap: 6px;
+  display: grid;
+
+  // uncomment
+  // content is the container 
+  // item is the items in the content container, and items becomes inline-block 
+  // Justify(Left Right), Align ( Up Down)
+
+  justify-content: start; 
+  align-content: end;
+  justify-items: end; 
+  align-items: start;
+
+
+}

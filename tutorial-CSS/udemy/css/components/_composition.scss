@@ -1,0 +1,43 @@
+.composition{
+    position: relative;
+    &-photo{
+        transition: all 0.3s ease;
+        width:30rem;
+        height: 17rem;
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.4);
+        border-radius: 25px ; 
+        position: absolute;
+        z-index:1;
+
+        &-1{
+            top: 0;
+            left: 0;
+        }
+        &-2{
+            top: 7.5rem;
+            left: 12.5rem;
+        }
+        &-3{
+            top: 15rem;
+            left: 3.5rem;
+        }
+        &:hover {
+            
+            background-color: rgba(lightgreen, $alpha: 0.4);
+            padding:1.5rem;
+            border: 5px solid rgba($color: green, $alpha: 0.4);
+            transform: scale(1.15);
+            border-radius: 50px ;
+            z-index: 2;
+            // outline-offset: 15px;
+            // outline: 5px solid rgba($color: green, $alpha: 0.5);
+        }
+
+    }
+    // condition (AND) hover over composition and photo not hovered
+    &:hover &-photo:not(:hover){
+        
+        filter: brightness(50%);
+        transform: scale(0.95);
+    }
+}

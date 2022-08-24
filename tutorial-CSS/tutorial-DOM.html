@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h3 class="title">targets</h3>
+    <p id="theTarget">This is a <strong>strong</strong> paragraph</p>
+    <p id="theTargetContent"></p>
+    <hr/>
+
+    <h3 class="title">DragDrop</h3>
+    <div id="dragDiv" >Drag text</div>
+    <div id="dropDiv" style="width: 200px; height: 20px; border: 1px solid red;"></div>
+    <hr/>
+
+    <h3 class="title">template</h3>
+    <template id="template">
+      <p>hello </p>
+      <p>template</p>
+    </template>
+    <div id="template-host"></div>
+    <hr/>
+
+    <h3 >countng 4x4</h3>
+    <div id="counting"></div>
+    <hr/>
+
+    <h3>boxes 4x4</h3>
+    <div id="boxes"></div>
+    <hr/>
+
+    <h3>mouse event</h3>
+    <div>
+      <p class="mouseEvent" id="demo5" >click here addEventListener-click</p>
+    </div>
+    <div>
+      <p class="mouseEvent" id="demo6" onmousedown="demo6()"> on mouse down</p>
+    </div>
+
+    <h3>event target</h3>
+    <div >
+        <p style="color:red" id='eventTarget'> click on i am a boy</p>
+        <div onclick="getEvent(event)" class="p">i</div>
+        <div onclick="getEvent(event)" class="p">am</div>
+        <div onclick="getEvent(event)" class="p">a</div>
+        <div onclick="getEvent(event)" class="p">boy</div>
+    </div>
+    <hr/>
+
+
+    <h3>check box value</h3>
+    <label for="male">male</label>
+    <input type="radio" id="male" name="gender" value="male" />
+    <label for="female">female</label>
+    <input type="radio" id="female" name="gender" value="female" />
+    <button onclick="getGender()">get Gender</button>
+    <p id="checkBox"></p>
+    <hr/>
+
+    <h3>textbox value</h3>
+    <div >
+      <input type="text" id="searchTxt" />
+      <button onclick="getText()">get text</button>
+      <p id="demo2"></p>
+    </div>
+    <hr/>
+
+    <h3>create and append element</h3>
+    <div id="createElement"></div>
+    <hr/>
+
+    <h3>loop</h3>
+    <div class="findAllClass2">Two</div>
+    <div class="findAllClass2">Two</div>
+    <div class="findAllClass2">Two</div>
+    <hr/>
+
+    <h3>querySelectorAll</h3>
+    <div id="findAllDivs"></div>
+    <div class="findAllClass1">One</div>
+    <hr/>
+    
+    <h3>Changing HTML Elements</h3>
+    <a id="mylink1" href="">my link 1</a>
+    <a id="mylink2" href="">my link 2</a>
+    <hr/>
+
+
+    <h3>Finding HTML Elements</h3>
+    <p id="demo1"></p>
+    <p></p>
+    <div class="example"></div>
+    <hr/>
+
+
+
+    <script src='tutorial-DOM-script.js'>
+     
+    </script>
+  </body>
+</html>

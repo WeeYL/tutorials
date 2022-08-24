@@ -1,0 +1,63 @@
+@mixin box {
+    border: black 1px solid;
+    padding: inherit;
+    font : {
+        size: 24px;
+    }
+}
+
+.container1 {
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    padding:6px
+}
+
+.percentage{
+    width: 50%;
+    @include box
+}
+.px{
+    width: 100px;
+    @include box
+}
+.px{
+    width: 100px;
+    @include box
+}
+.vhvw{
+    height: 25vh; // 25% of screen size
+    width: 25vw;
+    @include box
+}
+
+.parent{
+    @include box;
+    font-size: 30px;
+    width: 50%;
+}
+// relative to parent
+.em1{
+    font-size: 1em;
+
+}
+.em2{
+    font-size: 2em;
+    
+}
+// relative to root 
+.rem1{
+    font-size: 1rem;
+
+}
+.rem2{
+    font-size: 2rem;
+
+}
+
+.box2{
+    @include box;
+    font-size: unset;
+    width:40%
+}
+

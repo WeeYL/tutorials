@@ -1,0 +1,41 @@
+const lib = require("./lib");
+const db = require("./db");
+const mail = require("./mail");
+
+describe("apply discount", () => {
+  /* ex 1 check that the total price is reduced */
+  it("10% discount for customer with more than 10 pts", () => {
+    
+    // make a fake getCustomerSync function
+    db.getCustomerSync = function (customerId) {
+      return { id: customerId, points: 20 };
+    };
+
+    // runs and test the actual function
+    const order = { customerId: 1, totalPrice: 10 }; // custmerId:1, points:20, totalPrice:20
+    lib.applyDiscount(order); // function is applied to order totalPrice
+
+    //test
+    expect(order.totalPrice).toBe(9);
+  });
+
+  /* ex 2 check that the mail was sent 
+  notifyCustomer
+  getCustomerSync
+  mail.send
+  */
+
+it("mail is sent", ()=> {
+ 
+    db.getCustomerSync=jest.fn().mockReturnValue({email:'myEmail'}) // returns customer.email
+    mail.send=jest.fn() // no need for placeholder for pure functions
+    lib.notifyCustomer(1) // actual function place at last part
+
+
+    // test
+    expect(mail.send).toHaveBeenCalled()
+    expect(mail.send).toHaveBeenCalledWith('myEmail', 'Your order was placed successfully.')
+
+})
+
+});
