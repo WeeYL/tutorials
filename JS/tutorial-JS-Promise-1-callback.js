@@ -5,7 +5,7 @@ setTimeout(() => {
 }, 500);
 console.log("after");
 
-setTimeout(() => console.log(`\n-----callback-----`), 1000);
+setTimeout(() => console.log(`\n-----callback-----`), 2000);
 
 /* callbacks 
 getUser( specify variable, specify callback handler)  
@@ -61,7 +61,7 @@ let p = new Promise((resolve, reject) => {
 p.then((r) => console.log(r * 10));
 
 // callback function with arg
-let p = new Promise((resolve, reject) => {
+let pp = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve(arg);
   }, 1000);
@@ -69,4 +69,4 @@ let p = new Promise((resolve, reject) => {
 
 // handle
 const arg = "timeOut";
-p.then((arg) => console.log(arg));
+pp.then((arg) => console.log(arg));
