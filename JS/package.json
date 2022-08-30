@@ -1,7 +1,7 @@
 {
-  "name": "tutorial-js",
+  "name": "tutorial",
   "version": "1.0.0",
-  "description": "",
+  "description": "- npm run dev",
   "main": "index.js",
   "scripts": {
     "dev": "live-server",

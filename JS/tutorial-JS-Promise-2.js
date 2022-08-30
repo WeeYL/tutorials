@@ -77,16 +77,21 @@ getUserP(1) // userDB is resolved, send userDB to next
   .then((commitsDB) => console.log(commitsDB))
   .catch((err) => console.log(err.message));
 
-/* 
-function timeOut(t,callback){
-    setTimeout(()=>{
-        callback
-    },t)
+// eg3 
+
+function getName(name) {
+  return new Promise((res,rej)=>{
+    if (name=="leon"){
+      res(name)
+    } else {
+      rej(new Error ("error not leon"))
+    }
+  })
 }
 
-function getUser(id){
-    return new Promise((resolve, reject) => {
-        timeOut(1000,resolve(userDB))
-    });
-} 
- */
+// let leon = getName("leon1") // uncomment to see error
+let leon = getName("leon")
+
+leon
+.then(()=>{console.log("correct, it's leon")})
+.catch((err)=>{console.error(err.message)})
