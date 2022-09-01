@@ -1,9 +1,8 @@
-_______Header______("testing");
+const userDB = { id: 1, name: "YL" };
+const usernameDB = "YL";
+const repoDB = ["repo1", "repo2", "repo3"];
+const commitsDB = ["commitsDB"];
+const timer = 1000;
 
 
 
-// header
-function _______Header______(params) {
-  params = params.toUpperCase();
-  console.log(`--------------- ${params} `);
-}
