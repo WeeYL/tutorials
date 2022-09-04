@@ -1,3 +1,6 @@
+import {_______Header______} from "./utils"
+
+
 _______Header______("constructor");
 class CKV {
   k = "max";
@@ -118,7 +121,7 @@ const MC01 = new MultiClass("YL", 111);
 
 _______Header______("property decorator");
 
-function log1(target: any, propertyName: string | symbol) {
+function log1(target: any, propertyName: string ) {
   console.log("Property Decorator : ");
   console.log(`target:${target} propertyName: ${propertyName}`);
   console.log("---------------");
@@ -178,11 +181,7 @@ console.log(newProduct01.getPriceWithTax(0.1));
 newProduct01.price = 15;
 console.log(newProduct01.getPriceWithTax(0.1));
 
-_______Header______("factory");
 
 
 
-function _______Header______(params: any) {
-  params = params.toUpperCase();
-  console.log(`--------------- ${params} `);
-}
+

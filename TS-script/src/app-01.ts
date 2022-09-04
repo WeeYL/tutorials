@@ -1,7 +1,4 @@
-function _______Header______(params: any) {
-  params = params.toUpperCase();
-  console.log(`--------------- ${params} `);
-}
+import {_______Header______} from "./utils"
 
 _______Header______("type");
 
@@ -20,13 +17,11 @@ _______Header______("type union");
 
 type TypeUnion = number | string;
 type TypeUnionExact = "is-num" | "is-text";
-type listener = (arg: Function) => void;
 
-function reusableType(n4: TypeUnion, n5: TypeUnion, result: TypeUnionExact) {
-  console.log(n4, n5, `conversion: ${result}`);
-}
-
-reusableType(10, "ten", "is-num"); // ok
+type Listener = (arg: Function) => void;
+function addListener() {console.log('addListener')}
+let listener1:Listener = (addListener)
+listener1(addListener)
 
 _______Header______("type Extend");
 
@@ -43,7 +38,7 @@ let input: unknown; // input is of unknown type
 
 input = "YL"; // implicit any
 let usernameAny: any = input; // OK. same type : any
-// let usernameString: string = input; // doesn't permit any type 
+let usernameString = input; 
 // let usernameBoolean: boolean = input; // doesn't permit any type 
 
 // type guard, we only accept input of string
@@ -94,13 +89,13 @@ function handler(k: number, v: number, cb: (i: number) => void) {
 }
 
 // run
-handler(10, 11, function (res) {
+handler(10, 11, (res) => {
   console.log(res);
 });
 
-_______Header______("function rest");
+_______Header______("function, rest as arg");
 
-// ...props converts numbers to array
+// ...props converts args to array
 
 function F_rest(...props: number[]) {
   const res = props.reduce((prev, cur) => {
@@ -113,196 +108,139 @@ function F_rest(...props: number[]) {
 // run
 console.log(F_rest(99, 12, 33, 74));
 
-_______Header______("Function generic");
+_______Header______("function, func as param");
+// define func type
 
-function FG_01<T>(num: T[]): void {
-  console.log(num);
+type funcParam = (a:number,b:number) => number // define type func
+function add (a:number, b:number) { return a+b } // func
+function fnParam(k:number,v:number,cb:funcParam){ // accepts only specific func 
+  const a = k 
+  const b = v
+  console.log(cb(a,b))
 }
 
-// run
-FG_01<number>([1000, 2000]);
+fnParam(1,2,add) // run
 
-_______Header______("function from interface");
+_______Header______("function, interface as arg");
 
-interface I_user {
-  k?: string;
-  v?: number;
+interface Coord {
+  x:number,
+  y:number, 
 }
 
-function F_09(user: I_user) {
-  console.log(`${user.k} ${user.v}`);
+function calDist(coord:Coord) {
+  console.log(Math.pow(coord.x,2)+Math.pow(coord.y,2))
 }
 
-let user = {
-  k: "run",
-  v: 15,
+calDist({x:2,y:2})
+
+let coordTest:Coord = {
+  x: 5,
+  y: 8
 };
-F_09(user);
+calDist(coordTest)
+
+_______Header______("Function generic - fn <T> (arg: T>");
+
+// function expects <Type> ( for arg )
+function fnGen <T> (numList:T[]): void { 
+  console.log(...numList)
+}
+
+fnGen<number>([111,222])
 
 _______Header______("Interface");
 // interface is the contract that the type, function, class has to follow
 
-// interface
-interface I_num {
-  num: number;
-}
-
+// config interface to variables
+interface I_num { num: number;}
 let V_01: I_num = { num: 1 };
 console.log(V_01);
 
-// interface
-interface G_num<T> {
-  num: T;
-}
-
+// config generics to interface
+interface G_num<T> { num: T; }
 let V_02: G_num<number> = { num: 1 };
 console.log(V_02);
 
-_______Header______("Interface function");
+_______Header______("Interface + Generic function");
 
-// interface
-interface I_move {
-  v?: number;
-  move(k: string, v?: number): void;
-}
-let V_03: I_move = {
-  v: 100,
-  move: (k: string, v?: number) => {
-    console.log(`${k} runs `, v ?? 10); // if empty then 10
-  },
-};
-
-// run
-V_03.move("donny");
-
-// interface
-interface G_move<T, U> {
-  move(k: T, v?: U): void;
+// define function
+interface CoordInterface <T,U> {
+  calc(x:T,y:U):void // define func type
 }
 
-let V_04: G_move<string, number> = {
-  move: (k: string, v: number) => {
-    console.log(`${k} runs`, v ?? 10);
-  },
-};
+let coordInterface:CoordInterface <number,number> = {
+  calc:(x:number, y:number) => console.log(Math.pow(x,2)+Math.pow(y,2)) // define actual func
+}
 
-// run
-V_04.move("Donnie", 100);
+coordInterface.calc(2,2)
+
+
+// interface
+// ? option param, ?? 10 if missing
+interface CoordInterfaceOptionCalc <T,U> {
+  calc(x:T,y?:U):void
+}
+
+let coordInterfaceOptionCalc:CoordInterfaceOptionCalc <number,number> = {
+  calc:(x:number, y:number) => console.log(Math.pow(x,2)+Math.pow(y ?? 10,2))
+
+}
+
+coordInterfaceOptionCalc.calc(2)
 
 _______Header______("Interface extends");
 
-interface I_num_move extends I_num, I_move {}
-let V_05: I_num_move = {
-  num: 9,
-  move(k) {
-    console.log(k);
-  },
-};
+interface CoordInterfaceExtend extends Coord,  CoordInterfaceOptionCalc <number,number> { }
 
-// run
-console.log(V_05.num);
-V_05.move("bob");
-
-// have to specify all 3 types
-interface G_num_move<N, S> extends G_num<N>, G_move<S, N> {}
-
-let V06: G_num_move<number, string> = {
-  num: 99,
-  move(v: string, k: number) {
-    console.log(`${v} moves ${k}`);
-  },
-};
-
-// run
-console.log(V06.num);
-V06.move("bob", 99);
-
-_______Header______(" generic Interface function");
-
-function F_02<T>(num: T): T {
-  return num;
+let coordInterfaceExtend:CoordInterfaceExtend = {
+  x:10,
+  y:20,
+  calc:(x, y?) => console.log(Math.pow(x,2)+Math.pow(y ?? 10,2)),
 }
 
-interface Generic_type<T> {
-  (arg: T): T;
-}
-
-let V_07: Generic_type<number> = F_02; // T is defined
-console.log(V_07(12));
-
-_______Header______("Class without constructor");
-class C_wo_constr {
-  x: number;
-  disp() {
-    console.log(this.x);
-  }
-}
-
-// run
-let C_01 = new C_wo_constr();
-C_01.x = 111;
-C_01.disp();
+coordInterfaceExtend.calc(10,10)
 
 _______Header______("Class with constructor");
-class C_w_constr {
-  constructor(public x: number, public y: number) {}
-  add2() {
-    return this.x + this.y;
-  }
+class CoordClass {
+  constructor(public x: number, public y: number) {} 
+  add() { return this.x + this.y; }
 }
 
 // run
-let C_02 = new C_w_constr(222, 111);
+let CoordClass1 = new CoordClass(222, 111);
+console.log(CoordClass1.add());
 
-console.log(C_02.add2());
 
-_______Header______("Class extends class"); // add arg in constructor and super
-class C_w_constr_02 extends C_w_constr {
+_______Header______("Class Extend"); // add arg in constructor and super
+class CoordClassExtend extends CoordClass {
   constructor(public y: number, public x: number, public z: number) {
-    super(x, y);
+    super(x, y);   // super.constructor
   }
-  add3() {
-    // run and return extended class result
-    return super.add2() + this.z;
-  }
+  add() { return super.add() + this.z;} // super.func
 }
 
-let C_03 = new C_w_constr_02(11, 333, 55);
-console.log(C_03.add3());
+let CoordClassExtend1 = new CoordClassExtend(11, 333, 55);
+console.log(CoordClassExtend1.add());
+
 
 _______Header______("Class implements Interface");
 
-// class
-class CI_num implements I_num {
-  addTen: I_num ={
-    num:10
+class classImplement implements Coord {
+  // implements Coord
+  Origin: Coord = {
+      x:2,
+      y:2,
   }
-  constructor(public num: number) {}
-  disp() {
-    console.log(this.num+ this.addTen.num);
-  }
+  // Then config Class 
+  constructor(public x:number, public y:number){}
+  calc() { console.log(Math.pow(this.x-this.Origin.x,2)+Math.pow(this.y-this.Origin.y,2)) }// define actual func
 }
 
-// run
-let V07 = new CI_num(100);
-V07.disp();
 
-// class
-class CG_num<T = number> implements G_num<T> {
-  addTen:G_num<number>={
-    num:10
-  }
-  constructor(public num: T) {}
-  disp() {
-    const n = this.num
-    const m = this.addTen.num
-    console.log(n+m);
-  }
-}
+let classImplement1 = new classImplement(5,5)
+classImplement1.calc()
 
-// run
-let V08 = new CG_num(100);
-V08.disp();
 
 _______Header______("Class generic");
 
@@ -318,14 +256,14 @@ _______Header______("abstract class");
 
 
 // abstract class can only be used for class extends
-abstract class AbstractClass<T extends number> {
+abstract class AbstractClass<T> {
   constructor(public val: T) {}
   abstract config(): void; // abstract functions are general and user has to defined
 }
 
 class InheritClass extends AbstractClass<number> {
   constructor() {
-    super(10); // assign argument
+    super(10); // assign argument at constructor level
   }
   config() {
     console.log(this.val);

@@ -1,3 +1,4 @@
+import {_______Header______} from "./utils"
 
 
 _______Header______("validate interface function");
@@ -66,9 +67,3 @@ userState.getUserDetail()
 
 
 
-
-
-function _______Header______(params: any) {
-  params = params.toUpperCase();
-  console.log(`--------------- ${params} `);
-}

@@ -7,6 +7,7 @@
 
 ### RUN
 - terminal > ...\src> npx tsc
+- terminal > ...\src> npx ts-node diff.ts 
 - terminal > ...\src> npx tsc && ts-node index.ts
 - Open ts-scipting.html
 
