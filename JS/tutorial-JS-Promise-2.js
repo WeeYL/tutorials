@@ -1,7 +1,4 @@
-/* promise resolve and reject 
-
-
-*/
+// promise resolve and reject 
 
 // variables
 const userDB = { id: 1, name: "YL" };

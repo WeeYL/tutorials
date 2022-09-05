@@ -65,7 +65,7 @@ async function displayError() {
 }
 
 // result. uncomment to see result
-// displayResult()
+displayResult()
 displayError();
 
 
