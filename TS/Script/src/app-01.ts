@@ -1,5 +1,11 @@
 import {_______Header______} from "./utils"
 
+
+_______Header______("syntax");
+// const = function(): returns number => {  }
+const displayNum = ():number =>{return(1+2)}
+console.log(displayNum())
+
 _______Header______("type");
 
 console.log(
@@ -20,7 +26,7 @@ type TypeUnionExact = "is-num" | "is-text";
 
 type Listener = (arg: Function) => void;
 function addListener() {console.log('addListener')}
-let listener1:Listener = (addListener)
+let listener1:Listener = addListener
 listener1(addListener)
 
 _______Header______("type Extend");

@@ -7,9 +7,9 @@
 
 ### RUN
 note: have to run from root folder
-- terminal > npx tsc
-- terminal > npx ts-node src/diff.ts 
-- terminal > npx tsc && ts-node src/index.ts
+- terminal Script> npx tsc
+- terminal Script> npx ts-node src/test.ts 
+- terminal Script> npx tsc && ts-node src/index.ts
 - Open ts-scipting.html
 
 ### ERROR
