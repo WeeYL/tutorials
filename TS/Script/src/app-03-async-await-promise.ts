@@ -15,32 +15,35 @@ interface Pokemon {
 
 // ############# Basic 
 
-// const basicTest = fetch(url)
-//       .then(res => (res.json())) 
-//       .then(data => { console.log(data['results'][5])
-//       })
+const basicTest = fetch(url)
+      .then(res => (res.json())) 
+      .then(data => { console.log(data['results'][5])
+      })
 
 // ############# GET FULL LIST
 
 const getFullPokemon_List = async()=>{
       const listResp = await fetch(url)
       const data = await listResp.json()
-      console.log (data) // console log within the function to see result
+      console.log (data) // console log the json within the function to see result
 }
 
 // ############# SEPARATE GET FULL LIST INTO 2 PARTS
 
+// A promise of full list
 const getPokemonFullList = async():Promise<Pokemon> => {
       const listResp = await fetch(url)
       const fullList = await listResp.json() 
       return fullList
 }     
 
+// promise of pokemon based on URL
 const getPokemonFromUrl = async(url:string):Promise<Pokemon> =>{
       const dataResp = await fetch (url)
       return await dataResp.json()
 }
 
+// creates a new promise to resolve and reject
 const getFirstPokemon = async ():Promise<Pokemon> => new Promise (async (resolve,reject)=>{
       try {
             const list = await getPokemonFullList()
@@ -52,6 +55,7 @@ const getFirstPokemon = async ():Promise<Pokemon> => new Promise (async (resolve
 })
 
 
+// function to run getFirstPokemon()
 async function returnFirstPokemon (){
       try {
             const result = await getFirstPokemon()
@@ -69,9 +73,32 @@ async function pokemonLoop () {
       }
 }
 
+// ############# create promise
+async function newPromise  ()  {
+      return new Promise((resolve,reject)=>{
+            resolve("new promise")
+      })
+}
 
-// ############# Runs
+async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
+      const list = await getPokemonFullList() 
+      return new Promise(async (resolve,reject)=>{
+            resolve (await getPokemonFromUrl(list.results[0].url))
+      })
+}
+// ############# Run the below in testbed
 // basicTest
 // getFullPokemon_List()
 // returnFirstPokemon()
-pokemonLoop()
+// pokemonLoop()
+// newPromise  ()
+
+// testbed
+( async function (){
+      try {            
+            const result = await newPromiseGetFirstPokemon()
+            console.log(result)
+      } catch (error) {
+           console.error(error) 
+      }
+})()

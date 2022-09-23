@@ -294,28 +294,3 @@ module P40 {
     }
   }
 }
-
-// export class C_05 {
-//   constructor(public id: number, ) {}
-//   printDetails() {
-//     console.log(`${this.id}`);
-//   }
-// }
-
-/* 
-// test.js 
-// cmd > node dist/test.js
-
-import { C_05} from "./app-01";
-let X = new C_05(10);
-X.printDetails() */
-
-// new
-let P42 = new P40.P41(33, 22).add();
-console.log("new ", P42);
-
-// import
-import P43 = P40;
-let P44 = new P43.P41(33, 22).add();
-console.log("import ", P44);
-
