@@ -1,5 +1,4 @@
 import fetch from "node-fetch"
-import { resolve } from "path";
 import {_______Header______} from './utils'
 
 const url = "https://pokeapi.co/api/v2/pokemon/"
@@ -16,9 +15,9 @@ interface Pokemon {
 // ############# Basic 
 
 const basicTest = fetch(url)
-      .then(res => (res.json())) 
-      .then(data => { console.log(data['results'][5])
-      })
+      .then(res => res.json()) 
+      .then(data => console.log(data['results'][5]))
+      .catch(err=> console.log(err))
 
 // ############# GET FULL LIST
 
@@ -96,7 +95,7 @@ async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
 // testbed
 ( async function (){
       try {            
-            const result = await newPromiseGetFirstPokemon()
+            const result = await basicTest
             console.log(result)
       } catch (error) {
            console.error(error) 
