@@ -15,4 +15,8 @@ functions:
         route: $connect
     - websocket:
         route: $disconnect
-
+  sendMessageHandler:
+    handler: handler.sendMessageHandler
+    events:
+      - websocket:
+          route: sendMessage
