@@ -95,9 +95,22 @@ async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
 // testbed
 ( async function (){
       try {            
-            const result = await basicTest
-            console.log(result)
+            const result = await newPromise()
+            console.log(`testbed 1: ${result}`)
       } catch (error) {
            console.error(error) 
       }
 })()
+
+
+// testBed
+
+  async function testBed2() {
+      // const res = await getFullPokemon_List()
+      // const res = await returnFirstPokemon()
+      // const res = await pokemonLoop()
+      const res = await newPromise ()
+      console.log(`testbed 2: ${res}`)
+  }
+
+  testBed2()
