@@ -14,17 +14,17 @@ interface Pokemon {
 
 // ############# Basic 
 
-const basicTest = fetch(url)
-      .then(res => res.json()) 
-      .then(data => console.log(data['results'][5]))
-      .catch(err=> console.log(err))
+// const basicTest = fetch(url)
+//       .then(res => res.json()) 
+//       .then(data => console.log(data['results'][5]))
+//       .catch(err=> console.log(err))
 
 // ############# GET FULL LIST
 
-const getFullPokemon_List = async()=>{
+const getFullPokemonList_exe = async()=>{
       const listResp = await fetch(url)
-      const data = await listResp.json()
-      console.log (data) // console log the json within the function to see result
+      const fullList = await listResp.json() 
+      console.log (fullList) // console log the json within the function to see result
 }
 
 // ############# SEPARATE GET FULL LIST INTO 2 PARTS
@@ -64,7 +64,6 @@ async function returnFirstPokemon (){
       }
 }
 // ############# Loop
-
 async function pokemonLoop () {
       const list = await getPokemonFullList()
       for (const item of list.results) {
@@ -81,36 +80,21 @@ async function newPromise  ()  {
 
 async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
       const list = await getPokemonFullList() 
+      const firstPokemon = await getPokemonFromUrl(list.results[0].url)
       return new Promise(async (resolve,reject)=>{
-            resolve (await getPokemonFromUrl(list.results[0].url))
+            resolve (firstPokemon)
       })
 }
-// ############# Run the below in testbed
-// basicTest
-// getFullPokemon_List()
-// returnFirstPokemon()
-// pokemonLoop()
-// newPromise  ()
-
-// testbed
-( async function (){
-      try {            
-            const result = await newPromise()
-            console.log(`testbed 1: ${result}`)
-      } catch (error) {
-           console.error(error) 
-      }
-})()
-
-
-// testBed
-
-  async function testBed2() {
-      // const res = await getFullPokemon_List()
+// ### TESTBED
+  async function testBed() {
+      // const res = await getPokemonFullList()
       // const res = await returnFirstPokemon()
       // const res = await pokemonLoop()
-      const res = await newPromise ()
-      console.log(`testbed 2: ${res}`)
+      // const res = await newPromise ()
+      const res = await newPromiseGetFirstPokemon ()
+      console.log( res)
   }
 
-  testBed2()
+  // ### RUN
+  testBed()
+//   getFullPokemonList_exe()
