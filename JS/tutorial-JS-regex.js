@@ -92,10 +92,6 @@ console.log(txt.match(pattern))
 // /^/         Start of input
 // /$/         End of input
 
-
-
-
-
 // Header
 function _______Header______(params) {
     params = params.toUpperCase();

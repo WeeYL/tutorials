@@ -53,7 +53,6 @@ const getFirstPokemon = async ():Promise<Pokemon> => new Promise (async (resolve
       }
 })
 
-
 // function to run getFirstPokemon()
 async function returnFirstPokemon (){
       try {
