@@ -1,5 +1,7 @@
 type ButtonProps = {
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void
+  // SPECIFIY OWN FUNCTION AT APP LEVEL
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void 
+  // mouseOver: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void 
 }
 
 export const Button = (props: ButtonProps) => {

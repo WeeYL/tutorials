@@ -1,3 +1,4 @@
+// TYPE IS CALL FROM FILE
 import { PersonProps } from './Person.types'
 
 export const Person = (props: PersonProps) => {

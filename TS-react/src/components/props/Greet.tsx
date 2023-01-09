@@ -1,4 +1,5 @@
-type GreetProps = {
+// BASIC INTERFACE
+type GreetProps = { 
   name: string
   messageCount?: number
   isLoggedIn: boolean
