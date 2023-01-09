@@ -6,7 +6,7 @@ const server = http.createServer((req,res)=>{
     const url = req.url;
     const method = req.method;
     
-    // main page and send response to /message
+    // main page and action set to /message
     if (url === '/') {
         res.write('<html>');
         res.write('<head><title>Enter Message</title><head>');

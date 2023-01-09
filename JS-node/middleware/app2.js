@@ -1,6 +1,13 @@
+// **************************************************************************
+// NOTE: 
+// GO TO URL http://localhost:3000/add-product
+// GO TO URL http://localhost:3000/product
+// **************************************************************************
+
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); // It exposes four express middlewares for parsing text, JSON, url-encoded and raw data set through an HTTP request body.
 const app = express();
+
 
 // without the parser, the req.body from the form (add-product) is undefined
 app.use(bodyParser.urlencoded({extended: false}));
@@ -8,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // because the url always starts with '/' hence this will always runs
 app.use('/', (req, res, next) => {
   console.log('This always runs!');
-  next();
+  next(); // without next, the other url will not work
 });
 
 // define a route

@@ -1,3 +1,9 @@
+// **************************************************************************
+// NOTE: 
+// GO TO URL http://localhost:3000/add-product
+// GO TO URL http://localhost:3000/product
+// **************************************************************************
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
