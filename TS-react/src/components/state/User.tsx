@@ -5,22 +5,51 @@ type AuthUser = {
   email: string
 }
 
+// export const User = () => {
+//   // STATE
+//   const [user, setUser] = useState<AuthUser | null>(null)
+
+//   // FUNC
+//   const handleLogin = () => {
+//     setUser({
+//       name: 'Leon',
+//       email: 'Leon@example.com'
+//     })
+//   }
+//   const handleLogout = () => {
+//     setUser(null)
+//   }
+//   return (
+//     <div>
+//       <button onClick={handleLogin}>Login</button>
+//       <button onClick={handleLogout}>Logout</button>
+//       <div>User name is {user?.name}</div> {/* optional chaining */}
+//     </div>
+//   )
+// }
+
+// *******************
+// TYPE ASSERTION IF VALUE IS NEVER NULL, CANNOT LOGOUT SINCE NULL IS UNAVAILABLE, AND NO OPTIONAL CHAINING
+// *******************
+
 export const User = () => {
-  const [user, setUser] = useState<AuthUser | null>(null)
+  // STATE
+  const [user, setUser] = useState<AuthUser >({} as AuthUser)
+
+  // FUNC
   const handleLogin = () => {
     setUser({
-      name: 'Vishwas',
-      email: 'vishwas@example.com'
+      name: 'Leon',
+      email: 'Leon@example.com'
     })
   }
-  const handleLogout = () => {
-    setUser(null)
-  }
+
   return (
     <div>
       <button onClick={handleLogin}>Login</button>
-      <button onClick={handleLogout}>Logout</button>
-      <div>User name is {user?.name}</div>
+      <div>User name is {user.name}</div> {/* optional chaining */}
     </div>
   )
 }
+
+
