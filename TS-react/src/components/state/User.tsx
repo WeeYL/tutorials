@@ -5,6 +5,9 @@ type AuthUser = {
   email: string
 }
 
+// *******************
+// BASIC
+// *******************
 // export const User = () => {
 //   // STATE
 //   const [user, setUser] = useState<AuthUser | null>(null)
@@ -29,7 +32,8 @@ type AuthUser = {
 // }
 
 // *******************
-// TYPE ASSERTION IF VALUE IS NEVER NULL, CANNOT LOGOUT SINCE NULL IS UNAVAILABLE, AND NO OPTIONAL CHAINING
+// TYPE ASSERTION 
+// VALUE IS NEVER NULL, CANNOT LOGOUT SINCE NULL IS UNAVAILABLE, AND NO OPTIONAL CHAINING
 // *******************
 
 export const User = () => {

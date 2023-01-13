@@ -10,8 +10,8 @@ import reportWebVitals from './reportWebVitals';
 // import App from './App02';
 // import App from './App03';
 // import App from './App04';
-import App from './App05-hooks'
-
+// import App from './App05-useState'
+// import App from './App06-useReducer'
 
 // ************************************
 

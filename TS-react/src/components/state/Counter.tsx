@@ -1,9 +1,11 @@
 import { useReducer } from 'react'
 
+// SET STATE
 type CounterState = {
   count: number
 }
 
+// SET DISCRIMINATED UNION BOTH ACTIONS UNDER COUNTERACTION 
 type UpdateAction = {
   type: 'increment' | 'decrement'
   payload: number
@@ -13,11 +15,14 @@ type ResetAction = {
   type: 'reset'
 }
 
+// FOR INCREMENT AND DECREMENT AND RESET
 type CounterAction = UpdateAction | ResetAction
 
+// FUNCTION
 const initialState = { count: 0 }
 
 function reducer(state: CounterState, action: CounterAction) {
+  // BASED ON ACTION TYPE, RETURN PAYLOAD
   switch (action.type) {
     case 'increment':
       return { count: state.count + action.payload }
@@ -30,6 +35,7 @@ function reducer(state: CounterState, action: CounterAction) {
   }
 }
 
+  // SET DISPATCH TYPE AND PAYLOAD
 export const Counter = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
