@@ -7,11 +7,10 @@ type CounterState = {
   count: number
 }
 
-/** The count value is 5 */
+// PASS THE TYPE TO THE CLASS COMPONENT <PROPS THEN STATE, IN THIS ORDER>
 export class Counter extends Component<CounterProps, CounterState> {
-  state = {
-    count: 0
-  }
+ 
+  state = {count: 0 }
 
   handleClick = () => {
     this.setState(prevState => ({ count: prevState.count + 1 }))

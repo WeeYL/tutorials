@@ -4,11 +4,13 @@ export const MutableRef = () => {
   const [timer, setTimer] = useState(0)
   const interValRef = useRef<number | null>(null)
 
+  // ON CLICK
   const stopTimer = () => {
-    if (interValRef.current) {
-      window.clearInterval(interValRef.current)
-    }
+    if (interValRef.current) window.clearInterval(interValRef.current) // use if to clear error
+    console.log(interValRef.current)
   }
+
+  // COUNT AND STOP UPON STOPTIMER()
   useEffect(() => {
     interValRef.current = window.setInterval(() => {
       setTimer(timer => timer + 1)

@@ -30,7 +30,9 @@ export const RandomNumber = ({
 }: RandomNumberProps) => {
   return (
     <div>
-      {value} {isPositive && 'positive'} {isNegative && 'negative'}{' '}
+      {value} 
+      {isPositive && 'positive'} 
+      {isNegative && 'negative'}{' '}
       {isZero && 'zero'}
     </div>
   )

@@ -2,18 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
-// ************************************
-// IMPORT APP FROM SPECIFIC APP FILE
-// ************************************
-// import App from './App01';
-// import App from './App02';
-// import App from './App03';
-// import App from './App04';
-// // import App from './App05-useState'
-// import App from './App06-useReducer'
-import App from './App07-usecontext'
-// import App from './App08-usecontext-future'
 
 // ************************************
 

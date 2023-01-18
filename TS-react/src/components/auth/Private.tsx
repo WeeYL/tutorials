@@ -1,14 +1,18 @@
 import { Login } from './Login'
 import { ProfileProps } from './Profile'
 
+// TYPE FOR COMPONENT TYPE
+// IMPORT AND SET PROFILEPROPS TO COMPONENT 
 type PrivateProps = {
   isLoggedIn: boolean
-  Component: React.ComponentType<ProfileProps>
+  component: React.ComponentType<ProfileProps>
 }
 
-export const Private = ({ isLoggedIn, Component }: PrivateProps) => {
+// component:MyComponent > TO KEEP PROPS IN LOWERCASE
+// COMPONENT TO BE UPPERCASE
+export const Private = ({ isLoggedIn, component:MyComponent }: PrivateProps) => {
   if (isLoggedIn) {
-    return <Component name='Vishwas' />
+    return <MyComponent name='Vishwas' />
   } else {
     return <Login />
   }
