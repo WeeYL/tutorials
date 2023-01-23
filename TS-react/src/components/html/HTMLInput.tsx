@@ -1,5 +1,5 @@
 type InputProps = React.ComponentProps<'input'>
 
-export const Input = (props: InputProps) => {
+export const HTMLInput = (props: InputProps) => {
   return <input {...props} />
 }

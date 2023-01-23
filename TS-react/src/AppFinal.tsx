@@ -17,7 +17,7 @@ import './App.css'
 import { Counter } from './components/class/Counter'
 import { List } from './components/generics/List'
 import { Toast } from './components/templateliterals/Toast'
-import { CustomButton } from './components/html/Button'
+import { CustomButton } from './components/html/HTMLButton'
 import { RandomNumber } from './components/restriction/RandomNumber'
 import { Text } from './components/polymorphic/Text'
 

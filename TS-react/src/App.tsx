@@ -13,6 +13,11 @@ import { RandomNumber } from "./components/restriction/RandomNumber"
 import { Toast } from "./components/templateliterals/Toast"
 import { Private } from "./components/auth/Private"
 import { Profile } from "./components/auth/Profile"
+import { HTMLButton, MyHTMLButton, HTMLInput } from './components/html/HTMLButton'
+import { CustomComponent } from './components/html/CustomComponent'
+
+
+
 
 function App() {
 // **************************
@@ -116,12 +121,8 @@ function App() {
 // SEE CONSOLE IN BROWSER FOR RESULT
 
   // let myList = [
-  //   { id:1,
-  //     name:"Leon"
-  //   },
-  //   { id:2,
-  //     name:"Pauline"
-  //   }
+  //   { id:1, name:"Leon"  },
+  //   { id:2, name:"Pauline" }
   // ]
   //   return (
   //     <div className='App'>
@@ -129,20 +130,40 @@ function App() {
   //     </div>
   //   )
 
-// // **************************
-// // TEMPLATE LITERAL
-// // **************************
-//   return (
-//     <Toast position={"center"} />
-//   )
+// **************************
+// TEMPLATE LITERAL
+// **************************
+  // return (
+  //   <Toast position={"center"} />
+  // )
 
+// **************************
+// WRAPPING HTML ELEMENT
+// USE React.ComponentProps<"button">
+// **************************
+  // return (
+  //     <div className='App'>
+  //       <HTMLButton variant="primary" onClick={()=>console.log("clicked")}>
+  //         Primary Button
+  //       </HTMLButton>
 
+  //       <MyHTMLButton variant="primary" onClick={()=>console.log("MYbUTTON")}>
+  //         Secondary Button
+  //       </MyHTMLButton>
 
+  //       <HTMLInput placeholder={"TYPE HERE"}></HTMLInput>
+  //     </div>
+  // )
 
+// **************************
+// EXTRACT HTML ELEMENT PROPS
+// USE React.ComponentProps<"button">
+// **************************
+// USE TYPEOF TO EXTRACT THE TYPE FROM THE RESULT FROM A FUNCTION
 
-
-
+return ( 
+    <CustomComponent name={"yl"}/>
+  )
 
 }
-
 export default App
