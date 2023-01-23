@@ -13,6 +13,14 @@ import { RandomNumber } from "./components/restriction/RandomNumber"
 import { Toast } from "./components/templateliterals/Toast"
 import { Private } from "./components/auth/Private"
 import { Profile } from "./components/auth/Profile"
+import UseStateComponent from './components/hooks/UseStateComponent'
+import UseContextComponent from './components/hooks/UseContextComponent'
+import { ThemeContextProvider } from "./components/context/ThemeContext"
+import { Box } from "./components/context/Box"
+import { User } from "./components/context/User"
+import { UserContextProvider } from "./components/context/UserContext"
+import { MutableRef } from './components/refs/MutableRef'
+import UseRefComponent from './components/hooks/UseRefComponent'
 
 function App() {
 // **************************
@@ -71,22 +79,6 @@ function App() {
 // )
 
 // **************************
-// PASS CONTAINER CSS AND PEROSNLIST ARRAY
-// **************************
-  // const nameList = [
-  //   { first: 'Bruce',last: 'Wayne'},
-  //   { first: 'Clark', last: 'Kent'},
-  //   { first: 'Princess', last: 'Diana' }
-  // ]
-  // return (
-  //   <div className='App'>
-  //     <Container styles={{border:'1px black solid', color:'red', fontSize:'10px'}}>
-  //       <PersonList names={nameList}/>
-  //     </Container>
-  //   </div>
-  // )  
-
-// **************************
 // EXTENDS COMPONENT TO THE CLASS 
 // **************************
 // EXTENDS COMPONENT TO THE CLASS 
@@ -129,20 +121,50 @@ function App() {
   //     </div>
   //   )
 
-// // **************************
-// // TEMPLATE LITERAL
-// // **************************
-//   return (
-//     <Toast position={"center"} />
-//   )
+// **************************
+// TEMPLATE LITERAL
+// **************************
+  // return (
+  //   <Toast position={"center"} />
+  // )
 
+// **************************
+// USE STATE
+// **************************
+//  return (
+//    <UseStateComponent/>
+//  )
 
+// **************************
+// USE CONTEXT
+// **************************
+// return (
+//   <div>
 
+//       <UseContextComponent/>
 
+//       <ThemeContextProvider>
+//       <Box />
+//       </ThemeContextProvider>
 
+//       <UserContextProvider>
+//         <User />
+//       </UserContextProvider>
+//   </div>
+// )
+
+// **************************
+// USE REF
+// **************************
+  // return (
+  //   <div>
+  //     <MutableRef />
+  //     <UseRefComponent/>
+  //   </div>
+  // )
+  
 
 
 
 }
-
 export default App
