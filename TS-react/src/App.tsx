@@ -76,22 +76,6 @@ function App() {
 // )
 
 // **************************
-// PASS CONTAINER CSS AND PEROSNLIST ARRAY
-// **************************
-  // const nameList = [
-  //   { first: 'Bruce',last: 'Wayne'},
-  //   { first: 'Clark', last: 'Kent'},
-  //   { first: 'Princess', last: 'Diana' }
-  // ]
-  // return (
-  //   <div className='App'>
-  //     <Container styles={{border:'1px black solid', color:'red', fontSize:'10px'}}>
-  //       <PersonList names={nameList}/>
-  //     </Container>
-  //   </div>
-  // )  
-
-// **************************
 // EXTENDS COMPONENT TO THE CLASS 
 // **************************
 // EXTENDS COMPONENT TO THE CLASS 
