@@ -8,13 +8,16 @@ type CounterState = {
 }
 
 // PASS THE TYPE TO THE CLASS COMPONENT <PROPS THEN STATE, IN THIS ORDER>
-export class Counter extends Component<CounterProps, CounterState> {
+export class ClassCounter extends Component<CounterProps, CounterState> {
  
-  state = {count: 0 }
+  // STATE
+  state = {count: 0}
 
+  // FUNCTION
   handleClick = () => {
     this.setState(prevState => ({ count: prevState.count + 1 }))
   }
+  // RENDER()
   render() {
     return (
       <div>
