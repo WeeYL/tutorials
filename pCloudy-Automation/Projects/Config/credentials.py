@@ -1,0 +1,2 @@
+emailId = ""
+apiKey = ""

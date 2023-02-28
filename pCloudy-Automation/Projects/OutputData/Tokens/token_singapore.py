@@ -1,0 +1,1 @@
+generatedToken_singapore =""
