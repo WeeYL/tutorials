@@ -1,6 +1,0 @@
---variable automationName:
---variable USERNAME:
---variable PASSWORD:
---variable platformName:
---variable APIKEY:   
---variable APIURL:
