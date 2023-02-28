@@ -1,0 +1,1 @@
+remotePath = "https://ind-west.pcloudy.com/appiumcloud/wd/hub"

@@ -1,0 +1,11 @@
+queue = [ "Samsung_GalaxyJ7Pro_Android_8.1.0_42e4e", 
+"Samsung_GalaxyJ7Prime_Android_8.1.0_1b940",
+"Samsung_GalaxyM20_Android_8.1.0_258bd", 
+"Samsung_GalaxyNote9_Android_8.1.0_73ab0", 
+"Xiaomi_RedmiGo_Android_8.1.0_1d174", 
+"Xiaomi_Redmi5_Android_8.1.0_c6a5d", 
+"Xiaomi_Redmi5_Android_8.1.0_186df", 
+"Motorola_MotoG5SPlus_Android_8.1.0_e9cf8", 
+"Xiaomi_Redmi6Pro_Android_8.1.0_2c1ec", 
+"Google_GooglePixelC_Android_8.1.0_74c3d", 
+"Huawei_nova3i_Android_8.1.0_fbfe1" ]
