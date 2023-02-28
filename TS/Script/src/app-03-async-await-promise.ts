@@ -86,11 +86,11 @@ async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
 }
 // ### TESTBED
   async function testBed() {
-      // const res = await getPokemonFullList()
+      const res = await getPokemonFullList()
       // const res = await returnFirstPokemon()
       // const res = await pokemonLoop()
       // const res = await newPromise ()
-      const res = await newPromiseGetFirstPokemon ()
+      // const res = await newPromiseGetFirstPokemon ()
       console.log( res)
   }
 
