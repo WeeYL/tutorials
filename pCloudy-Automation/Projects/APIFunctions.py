@@ -2,6 +2,7 @@ from ast import Continue
 from time import sleep
 import requests
 import sys
+from Config.projectsPath import projectsPath
 
 ERROR = '\33[91m'
 SUCCESS = '\33[92m'
@@ -12,6 +13,9 @@ END = '\33[0m'
 
 # This is used to clear the console for improved readability
 clearConsole = lambda: print('\n' * 50)
+
+# set python import path
+sys.path.append(projectsPath)
 
 # This function is used to upload any build to the pCloudy cloud. User must specify the path of the build he/she would like to upload.
 def uploadBuild(choice):
@@ -26,7 +30,8 @@ def uploadBuild(choice):
         token = generatedToken_india
         while True:
             while True:
-                filePath = input("Enter the path of the file you wish to upload: ")
+                # filePath = input("Enter the path of the file you wish to upload: ")
+                filePath = f"{projectsPath}/Builds/app-singpass-stg-release-protected.apk"
                 try:
                     open(filePath)
                     break
@@ -60,6 +65,7 @@ def uploadBuild(choice):
 
         while True:
 
+            filePath = f"{projectsPath}/Builds/app-singpass-stg-release-protected.apk"
             data = {
                 'file': open(filePath, 'rb'),
                 'source_type': (None, 'raw'),
@@ -78,7 +84,6 @@ def uploadBuild(choice):
 
 # This funciton is used to ask user to select either an android/iOS build and display all the build available on the cloud
 def viewBuild(build):
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     from OutputData.Tokens.token_india import generatedToken_india
     token = generatedToken_india
@@ -128,7 +133,6 @@ def viewBuild(build):
 
 # This function does not have any API calls, rather it just print out message and take user input on which file to delete
 def getDeleteBuild():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     filesList = []
     filesList = viewBuild(0)                 # Stores the returned list in a list
@@ -161,7 +165,6 @@ def getDeleteBuild():
 
 # This function is used to execute the deletion of the build from the pCloudy server
 def deleteBuild():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     from OutputData.Tokens.token_india import generatedToken_india
     token = generatedToken_india
@@ -191,7 +194,6 @@ def deleteBuild():
             print("> " + ERROR + "Delete unsuccessful." + END)
 
 def getDevicesByVersion(android_version):
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     # For retrieving the device list, there are 4 end points to retrieve the device. 
     from OutputData.Tokens.token_india import generatedToken_india
     from OutputData.Tokens.token_india_west import generatedToken_india_west
@@ -243,7 +245,6 @@ def getDevicesByVersion(android_version):
 
 # This function is used to display all the devices available on 4 different endpoints
 def getDevices():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     # For retrieving the device list, there are 4 end points to retrieve the device. 
     from OutputData.Tokens.token_india import generatedToken_india
     from OutputData.Tokens.token_india_west import generatedToken_india_west
@@ -289,10 +290,10 @@ def getDevices():
         }
 
         json_data = {
-            'token': token_list[i],
-            'duration': 10,
-            'platform': 'android',      # Hardcoded as regression testing only requires android ATM
-            'available_now': 'true'
+            "token": token_list[i],
+            "duration": 10,
+            "platform": "android",      # Hardcoded as regression testing only requires android ATM
+            "available_now": "true"
         }
 
         response.append(requests.post(API_URL_LIST[i], headers=headers, json=json_data))
@@ -310,7 +311,6 @@ def getDevices():
 
 # This function is used to delete a script immediately after script execution
 def deleteBuildAfterScript(build_name):
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     from OutputData.Tokens.token_india import generatedToken_india
     token = generatedToken_india
@@ -339,7 +339,6 @@ def deleteBuildAfterScript(build_name):
 # This method is used to book the device on the pcloudy server. 
 def bookDevice(id, region, deviceFullName):
 
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     from generateToken import generateNewIndiaToken, generateNewIndiaWestToken, generateNewSgToken, generateNewUsToken
 
@@ -381,7 +380,6 @@ def bookDevice(id, region, deviceFullName):
 
 # This method is used to "remove" the booked device
 def releaseDevice(rid, token, region):
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Functions import deleteGeneratedFiles
     headers = {
         'Content-Type': 'application/json',
@@ -398,7 +396,7 @@ def releaseDevice(rid, token, region):
 
 # For automation script. This is so that no user selection is required
 def getFirstBuild():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Functions import deleteGeneratedFiles
     from OutputData.Tokens.token_india import generatedToken_india
     token = generatedToken_india
@@ -423,7 +421,7 @@ def getFirstBuild():
 
 # This API is required after booking
 def executeAppium(token, app, region):
-    # sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Functions import deleteGeneratedFiles
 
     headers = {

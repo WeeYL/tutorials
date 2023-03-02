@@ -7,8 +7,9 @@ from os.path import isfile, join
 import shutil
 from datetime import datetime
 import sys
+from Config.projectsPath import projectsPath
 
-sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+sys.path.append('.f/{projectsPath}')
 from APIFunctions import clearConsole
 
 ERROR = '\33[91m'
@@ -21,12 +22,11 @@ TIMESTART = '\33[44m'
 def runAutomationScript():
     clearConsole()
     import APIFunctions
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    sys.path.append('.f/{projectsPath}')
     from APIFunctions import uploadBuild, deleteBuildAfterScript, executeAppium, executeADB, getFirstBuild, bookDevice
     
     # Add queues here if needed
     from Config.Queues.eight_queue import queue as eight_queue
-    from Config.Queues.seven_queue import queue as seven_queue
     from Config.Queues.nine_queue import queue as nine_queue
     from Config.Queues.ten_queue import queue as ten_queue
     from Config.Queues.eleven_queue import queue as eleven_queue
@@ -35,7 +35,7 @@ def runAutomationScript():
     from Config.androidOSList import androidVersionList as queue_order_name
     from Functions import writeBuildToFile, writeDeviceIdToFile, writeDeviceToFile, getDeviceId, getDeviceRegion, setRemotePath
 
-    queue_order = [seven_queue, eight_queue, nine_queue, ten_queue, eleven_queue, twelve_queue]
+    queue_order = [eight_queue, nine_queue, ten_queue, eleven_queue, twelve_queue]
 
     # Force new tokens to be generated
     # Tokens needs to be force generated as booking a device requires a fresh token
@@ -126,7 +126,7 @@ def runAutomationScript():
 
             # Script execution begins here
             logFile = open('LOG_TXT.txt', 'w') 
-            startScript = "pabot --verbose --argumentfile SPA/Robot-files/pCloudy-Automation/Projects/RobotDataFiles/arg.txt SPA/Robot-files/pCloudy-Automation/Projects/RobotDataFiles/" + script_to_run
+            startScript = f"pabot --verbose --argumentfile {projectsPath}/RobotDataFiles/arg.txt {projectsPath}/RobotDataFiles/" + script_to_run
             startScript = startScript.split(" ")
             result = subprocess.run(startScript, stdout=logFile)
             result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
@@ -145,16 +145,16 @@ def runAutomationScript():
                 state = "FAILURE"
             
             # Remove the unncessarry auto generated files
-            os.remove(".pabotsuitenames")
+            # os.remove(".pabotsuitenames")
 
             # Checks if destination folder exists
             currentDate = datetime.today().strftime('%Y-%m-%d')
             currentTime = datetime.today().strftime('%H%M')
-            parent_directory = "SPA/Robot-files/pCloudy-Automation/Projects/Logs"
+            parent_directory = f"{projectsPath}/Logs"
 
             # Checks if the directory exists
             # This is used to create a folder for the log extracted according to the current date
-            if os.path.isdir("SPA/Robot-files/pCloudy-Automation/Projects/Logs/" + currentDate):
+            if os.path.isdir(f"{projectsPath}Logs/" + currentDate):
                 Continue
             else:
                 path = os.path.join(parent_directory, currentDate)
@@ -162,7 +162,7 @@ def runAutomationScript():
 
             # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
             # SUCCESS AND FAILURE according to the state
-            if os.path.isdir("SPA/Robot-files/pCloudy-Automation/Projects/Logs/" + currentDate + "/" + state):
+            if os.path.isdir(f"{projectsPath}Logs/" + currentDate + "/" + state):
                 Continue
             else:
                 newPath = parent_directory + "/" + currentDate    
@@ -170,12 +170,12 @@ def runAutomationScript():
                 os.makedirs(path1)
 
             # Store the txtlog file into the created directory
-            shutil.move('LOG_TXT.txt',  'SPA/Robot-files/pCloudy-Automation/Projects/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + deviceFullName + "_" + currentTime + '.txt')
+            shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + deviceFullName + "_" + currentTime + '.txt')
 
             # Store each output into the created directory
             outputList = ['log.html', 'report.html', 'output.xml']
             for i in range(len(outputList)):
-                shutil.move(outputList[i], 'SPA/Robot-files/pCloudy-Automation/Projects/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + deviceFullName + "_" + currentTime + '.' + outputList[i].split(".")[1])
+                shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + deviceFullName + "_" + currentTime + '.' + outputList[i].split(".")[1])
 
             # Release the device
             print("> Releasing the device now...")
@@ -193,7 +193,7 @@ def runAutomationScript():
                 break
 
     # Remove the unncessarry auto generated files
-    directory_to_be_removed = ["pabot_results", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/RobotDataFiles/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Config/Queues/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Config/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Output/Devices/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Output/Tokens/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Scripts/__pycache__"]
+    directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
     for i in range(len(directory_to_be_removed)):
         shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)
         

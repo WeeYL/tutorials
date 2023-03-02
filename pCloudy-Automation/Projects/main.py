@@ -1,12 +1,15 @@
 from time import sleep
 import sys
 
-sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+
 from APIFunctions import clearConsole
 from APIFunctions import *
 from Functions import *
 from Scripts.AutomatedScript import runAutomationScript
 from Scripts.ManualScript import runManualScript
+
+# set python import path
+sys.path.append(projectsPath)
 
 START = '\33[104m'
 END = '\33[0m'

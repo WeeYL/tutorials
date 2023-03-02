@@ -2,6 +2,7 @@ from time import sleep
 import requests
 import os
 from Devices.deviceDB import dictionary
+from Config.projectsPath import projectsPath
 
 import sys
 ERROR = '\33[91m'
@@ -17,7 +18,7 @@ def getDeviceRegion(device_fullname):
 
 # This function stores all devices available on 4 different endpoints from pcloudy cloud into a dictionary
 def storeDevices(): 
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    sys.path.append(projectsPath)
     from Tokens.token_india import generatedToken_india
     from Tokens.token_india_west import generatedToken_india_west
     from Tokens.token_singapore import generatedToken_singapore
@@ -26,7 +27,7 @@ def storeDevices():
 
     # API_URL stored in a list, such that it will loop through each endpoint
     # The four different token are stored in a list for each different endpoint
-    # region is used to print out which device is in which region
+    # /region is used to print out which device is in which region
     # reponse list is used to store the 4 different response from the 4 different endpoints
     API_URL_LIST = ["https://device.pcloudy.com/api/devices", "https://ind-west.pcloudy.com/api/devices", "https://sg.pcloudy.com/api/devices", "https://us.pcloudy.com/api/devices"]
     token_list = [generatedToken_india, generatedToken_india_west, generatedToken_singapore, generatedToken_us]
@@ -37,7 +38,7 @@ def storeDevices():
     numOfDevices = []
 
     # Sets the starting codes for the file
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Devices/deviceDB.py', "w") as file:
+    with open(f'{projectsPath}/OutputData/Devices/deviceDB.py', "w") as file:
         file.write("dictionary = { ")
         file.close()
 
@@ -69,12 +70,12 @@ def storeDevices():
 
                 # If it matches, it will store into the deviceDB.py
                 if (response.json()["result"]["models"][x]['version']) == androidOSVersion[n]:
-                    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Devices/deviceDB.py', "a") as file:
+                    with open(f'{projectsPath}/OutputData/Devices/deviceDB.py', "a") as file:
                         file.write('"' + str(device_fullName) + '": [' + str(device_id) + ', "' + region[i] + '", "' + androidOSVersion[n] + '"], ')
                         file.close()
 
     # Removes the last two character and replace with a } to close the dictionary
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Devices/deviceDB.py', "a") as file:
+    with open(f'{projectsPath}/OutputData/Devices/deviceDB.py', "a") as file:
         file.seek(file.tell() - 2, os.SEEK_SET)
         file.truncate()
         file.write(" }")
@@ -82,7 +83,6 @@ def storeDevices():
 
 # This is used to convert the data in deviceDB to multiple list according to the required android versions
 def storeDevicesIntoQueue(): 
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Config.androidOSList import androidVersionList as androidOSVersion
     from Config.androidOSList import fileName as fileName
 
@@ -91,7 +91,7 @@ def storeDevicesIntoQueue():
 
         # Using i as an index, it will check for android version 7.0.0, and create seven_queue.py first
         # Writes the starting codes in each py files
-        with open('SPA/Robot-files/pCloudy-Automation/Projects/Config/Queues/' + fileName[i], "w") as file:
+        with open(f'{projectsPath}/Config/Queues/' + fileName[i], "w") as file:
                 file.write("queue = [ ")
                 file.close()
 
@@ -101,12 +101,12 @@ def storeDevicesIntoQueue():
         for key, value in dictionary.items():
             # For example, value[2]==7.0.0 matches androidOSVersion[0]==7.0.0
             if value[2] == androidOSVersion[i]:
-                with open('SPA/Robot-files/pCloudy-Automation/Projects/Config/Queues' + '/' +fileName[i], "a") as file:
+                with open(f'{projectsPath}/Config/Queues' + '/' +fileName[i], "a") as file:
                             file.write('"' + str(key) + '", \n')
                             file.close()
 
         # Remove the last 2 character in the py file, and replace with ] to close the list
-        with open('SPA/Robot-files/pCloudy-Automation/Projects/Config/Queues' + '/' +fileName[i], "a") as file:
+        with open(f'{projectsPath}/Config/Queues' + '/' +fileName[i], "a") as file:
             file.seek(file.tell() - 3, os.SEEK_SET)
             file.truncate()
             file.write(" ]")
@@ -116,17 +116,14 @@ def storeDevicesIntoQueue():
 # This is used to check against the deviceDB
 def verifyQueue():
     clearConsole()
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
     from Config.Queues.eight_queue import queue as eight_queue
-    from Config.Queues.seven_queue import queue as seven_queue
     from Config.Queues.nine_queue import queue as nine_queue
     from Config.Queues.ten_queue import queue as ten_queue
     from Config.Queues.eleven_queue import queue as eleven_queue
     from Config.Queues.twelve_queue import queue as twelve_queue
-    from Config.Queues.six_queue import queue as six_queue
     from Config.androidOSList import fileName as test_queue_result
 
-    test_queue = [six_queue, seven_queue, eight_queue, nine_queue, ten_queue, eleven_queue, twelve_queue]
+    test_queue = [eight_queue, nine_queue, ten_queue, eleven_queue, twelve_queue]
     indicator = 0
 
     try:

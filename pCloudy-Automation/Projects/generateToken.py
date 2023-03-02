@@ -1,9 +1,13 @@
 import requests
 import sys
+from Config.projectsPath import projectsPath
+
+# set python import path
+sys.path.append(projectsPath)
 
 # Generate 4 new tokens all at once
 def generateNewToken():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from APIFunctions import clearConsole
     clearConsole()
     from Config.credentials import emailId, apiKey
@@ -17,7 +21,7 @@ def generateNewToken():
     for i in range(4):
         response.append(requests.get(API_URL_REGION[i], auth=(emailId, apiKey)))
         tokensList.append(response[i].json()["result"]["token"])
-        with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Tokens/' + fileName[i], "w") as file:
+        with open(f'{projectsPath}/OutputData/Tokens/' + fileName[i], "w") as file:
             file.write(tokens_name[i] + ' ="' + tokensList[i] + '"')
             file.close()
             
@@ -25,7 +29,7 @@ def generateNewToken():
 
 # Generate a new India token
 def generateNewIndiaToken():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Config.credentials import emailId, apiKey
     API_URL_REGION = "https://device.pcloudy.com/api/access"
     fileName = "token_india.py"
@@ -33,14 +37,14 @@ def generateNewIndiaToken():
 
     response = requests.get(API_URL_REGION, auth=(emailId, apiKey))
     token = response.json()["result"]["token"]
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Tokens/' + fileName, "w") as file:
+    with open(f'{projectsPath}/OutputData/Tokens/' + fileName, "w") as file:
         file.write(tokens_name + ' ="' + token + '"')
         file.close()    
     return token
 
 # Generate a new India-West token
 def generateNewIndiaWestToken():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Config.credentials import emailId, apiKey
     API_URL_REGION = "https://ind-west.pcloudy.com/api/access"
     fileName = "token_india_west.py"
@@ -48,14 +52,14 @@ def generateNewIndiaWestToken():
 
     response = requests.get(API_URL_REGION, auth=(emailId, apiKey))
     token = response.json()["result"]["token"]
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Tokens/' + fileName, "w") as file:
+    with open(f'{projectsPath}/OutputData/Tokens/' + fileName, "w") as file:
         file.write(tokens_name + ' ="' + token + '"')
         file.close()      
     return token
 
 # Generate a new SG token
 def generateNewSgToken():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Config.credentials import emailId, apiKey
     API_URL_REGION = "https://sg.pcloudy.com/api/access"
     fileName = "token_singapore.py"
@@ -63,14 +67,14 @@ def generateNewSgToken():
 
     response = requests.get(API_URL_REGION, auth=(emailId, apiKey))
     token = response.json()["result"]["token"]
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Tokens/' + fileName, "w") as file:
+    with open(f'{projectsPath}/OutputData/Tokens/' + fileName, "w") as file:
         file.write(tokens_name + ' ="' + token + '"')
         file.close()    
     return token
 
 # Generate a new US token
 def generateNewUsToken():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+    
     from Config.credentials import emailId, apiKey
     API_URL_REGION = "https://us.pcloudy.com/api/access"
     fileName = "token_us.py"
@@ -78,7 +82,7 @@ def generateNewUsToken():
 
     response = requests.get(API_URL_REGION, auth=(emailId, apiKey))
     token = response.json()["result"]["token"]
-    with open('SPA/Robot-files/pCloudy-Automation/Projects/OutputData/Tokens/' + fileName, "w") as file:
+    with open(f'{projectsPath}/OutputData/Tokens/' + fileName, "w") as file:
         file.write(tokens_name + ' ="' + token + '"')
         file.close()  
     return token

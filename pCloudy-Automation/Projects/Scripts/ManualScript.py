@@ -5,9 +5,11 @@ import os
 import shutil
 from datetime import datetime
 import sys
-
-sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+from Config.projectsPath import projectsPath
 from APIFunctions import clearConsole
+
+# set python import path
+sys.path.append(projectsPath)
 
 ERROR = '\33[91m'
 SUCCESS = '\33[92m'
@@ -17,7 +19,7 @@ DEVICEAVAILABLE = '\33[42m'
 TIMESTART = '\33[44m'
 
 def runManualScript():
-    sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
+
     from Functions import writeBuildToFile, writeDeviceIdToFile, writeDeviceToFile, getDeviceId, getDeviceRegion, selectLocalScript, setRemotePath
     from APIFunctions import getDevices, bookDevice, releaseDevice, executeAppium, uploadBuild, deleteBuildAfterScript, getFirstBuild, getDevicesByVersion, executeADB
     from OutputData.Tokens.token_india import generatedToken_india
@@ -90,15 +92,20 @@ def runManualScript():
     writeDeviceIdToFile(deviceId)                   # This is so that the robot script can reference the device ID
     executeADB(token, rid, device_region1)
     sleep(1)
+
+    input("pause")
     print("> Executing script now...")
 
     # Script execution starts here
-    logFile = open('LOG_TXT.txt', 'w') 
-    startScript = "pabot --verbose --argumentfile SPA/Robot-files/pCloudy-Automation/Projects/RobotDataFiles/arg.txt SPA/Robot-files/pCloudy-Automation/Projects/RobotDataFiles/" + script_to_run
-    startScript = startScript.split(" ")
-    result = subprocess.run(startScript, stdout=logFile)
-    result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
+    # logFile = open('LOG_TXT.txt', 'w') 
+    # startScript = f"pabot --verbose --argumentfile {projectsPath}/RobotDataFiles/arg.txt {projectsPath}/RobotDataFiles/" + script_to_run
 
+    # startScript = startScript.split(" ")
+    # result = subprocess.run(startScript, stdout=logFile)
+    # result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
+
+    startScript = f"robot {projectsPath}/RobotDataFiles/" + script_to_run
+    subprocess.call(startScript, shell=True)
     # Calculate time the testing ends
     device_time = datetime.now()
     duration = device_time - time_now
@@ -114,16 +121,16 @@ def runManualScript():
         state = "FAILURE"
 
     # Remove the unncessarry auto generated files
-    os.remove(".pabotsuitenames")
+    # os.remove(".pabotsuitenames")
 
     # Create the values for storing the generated files (log, output, report)
     currentDate = datetime.today().strftime('%Y-%m-%d')
     currentTime = datetime.today().strftime('%H%M')
-    parent_directory = "SPA/Robot-files/pCloudy-Automation/Projects/Logs"
+    parent_directory = f"{projectsPath}/Logs"
 
     # Checks if the directory exists
     # This is used to create a folder for the log extracted according to the current date
-    if os.path.isdir("SPA/Robot-files/pCloudy-Automation/Projects/Logs/" + currentDate):
+    if os.path.isdir(f"{projectsPath}/Logs/" + currentDate):
         Continue
     else:
         path = os.path.join(parent_directory, currentDate)
@@ -131,7 +138,7 @@ def runManualScript():
 
     # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
     # SUCCESS AND FAILURE according to the state
-    if os.path.isdir("SPA/Robot-files/pCloudy-Automation/Projects/Logs/" + currentDate + "/" + state):
+    if os.path.isdir(f"{projectsPath}/Logs/" + currentDate + "/" + state):
         Continue
     else:
         newPath = parent_directory + "/" + currentDate    
@@ -139,12 +146,12 @@ def runManualScript():
         os.makedirs(path1)
 
     # Store the txtlog file into the created directory
-    shutil.move('LOG_TXT.txt',  'SPA/Robot-files/pCloudy-Automation/Projects/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + user_input_device_name + "_" + currentTime + '.txt')
+    shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + user_input_device_name + "_" + currentTime + '.txt')
 
     # Store each output into the created directory
     outputList = ['log.html', 'report.html', 'output.xml']
     for i in range(len(outputList)):
-        shutil.move(outputList[i], 'SPA/Robot-files/pCloudy-Automation/Projects/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + user_input_device_name + "_" + currentTime + '.' + outputList[i].split(".")[1])
+        shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + user_input_device_name + "_" + currentTime + '.' + outputList[i].split(".")[1])
 
     # Relase the device
     print("> Releasing the device now...")
@@ -161,6 +168,6 @@ def runManualScript():
         print('> Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
 
     # Remove the unncessarry auto generated files
-    directory_to_be_removed = ["pabot_results", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/RobotDataFiles/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Config/Queues/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Config/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Output/Devices/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Output/Tokens/__pycache__", "SPA/Robot-files/pCloudy-Automation/Projects/Logs/Projects/Scripts/__pycache__"]
+    directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
     for i in range(len(directory_to_be_removed)):
         shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)

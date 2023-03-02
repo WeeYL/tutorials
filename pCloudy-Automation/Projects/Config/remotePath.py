@@ -1,1 +1,1 @@
-remotePath = ""
+remotePath = "https://device.pcloudy.com/appium/hubble/rmfbjsbbkr88-461448/wd/hub"
