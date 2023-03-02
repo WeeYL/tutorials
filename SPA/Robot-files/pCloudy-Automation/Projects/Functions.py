@@ -40,11 +40,6 @@ def writeBuildToFile(build):
 
 # Confirmation page to confirm user wish to generate new tokens
 def requestNewToken():
-<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
-    
-=======
-    sys.path.append('.f/{projectsPath}')
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from generateToken import generateNewToken
     from APIFunctions import clearConsole
     

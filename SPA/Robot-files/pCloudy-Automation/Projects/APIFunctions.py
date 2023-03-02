@@ -31,12 +31,8 @@ def uploadBuild(choice):
         while True:
             while True:
                 # filePath = input("Enter the path of the file you wish to upload: ")
-<<<<<<< HEAD:pCloudy-Automation/Projects/APIFunctions.py
-                filePath = f"{projectsPath}/Builds/app-singpass-stg-release-protected.apk"
-=======
                 filePath = f"{projectsPath}\\Builds\\app-singpass-stg-release-protected.apk"
                 # filePath=r"C:\Users\User\Desktop\tutorials\pCloudy-Automation\Projects\Builds\app-singpass-stg-release-protected.apk"
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/APIFunctions.py
                 try:
                     open(filePath)
                     break
