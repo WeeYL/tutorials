@@ -34,9 +34,10 @@ def runManualScript():
 
     # Let user choose a build that is available on the pCloudy cloud
     uploadBuild(0)
-
+    print(uploadBuild(0))
     # Get the first build on the cloud user just uploaded
     buildName = getFirstBuild()
+    print(buildName)
     print("> Automation script will run on [" + SUCCESS + buildName + END + "]")
     writeBuildToFile(buildName)
     sleep(1)
@@ -121,8 +122,15 @@ def runManualScript():
         state = "FAILURE"
 
     # Remove the unncessarry auto generated files
+<<<<<<< HEAD:pCloudy-Automation/Projects/Scripts/ManualScript.py
     # os.remove(".pabotsuitenames")
 
+=======
+    try:
+        os.remove(".pabotsuitenames")
+    except:
+        pass
+>>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Scripts/ManualScript.py
     # Create the values for storing the generated files (log, output, report)
     currentDate = datetime.today().strftime('%Y-%m-%d')
     currentTime = datetime.today().strftime('%H%M')

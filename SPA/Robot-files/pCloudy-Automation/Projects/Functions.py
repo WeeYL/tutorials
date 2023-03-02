@@ -8,6 +8,7 @@ SUCCESS = '\33[92m'
 END = '\33[0m'
 DEVICEBOOKED = '\33[41m'
 DEVICEAVAILABLE = '\33[42m'
+from Config.projectsPath import projectsPath
 
 # set python import path
 sys.path.append(projectsPath)
@@ -39,7 +40,11 @@ def writeBuildToFile(build):
 
 # Confirmation page to confirm user wish to generate new tokens
 def requestNewToken():
+<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
     
+=======
+    sys.path.append('.f/{projectsPath}')
+>>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from generateToken import generateNewToken
     from APIFunctions import clearConsole
     
@@ -73,6 +78,10 @@ def selectLocalScript():
 
 # Returns the device ID based on the dictionary in deviceDB
 def getDeviceId(device_fullname):
+<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
+=======
+    sys.path.append('.f/{projectsPath}')
+>>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from OutputData.Devices.deviceDB import dictionary
     try:
         deviceId = dictionary[device_fullname][0] 
@@ -82,6 +91,10 @@ def getDeviceId(device_fullname):
     
 # Returns the device region based on the dictionary in deviceDB
 def getDeviceRegion(device_fullname):
+<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
+=======
+    sys.path.append('.f/{projectsPath}')
+>>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from OutputData.Devices.deviceDB import dictionary
     return dictionary[device_fullname][1]
 

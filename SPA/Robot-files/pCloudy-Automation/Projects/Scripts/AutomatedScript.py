@@ -145,7 +145,14 @@ def runAutomationScript():
                 state = "FAILURE"
             
             # Remove the unncessarry auto generated files
+<<<<<<< HEAD:pCloudy-Automation/Projects/Scripts/AutomatedScript.py
             # os.remove(".pabotsuitenames")
+=======
+            try:
+                os.remove(".pabotsuitenames")
+            except:
+                pass
+>>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Scripts/AutomatedScript.py
 
             # Checks if destination folder exists
             currentDate = datetime.today().strftime('%Y-%m-%d')

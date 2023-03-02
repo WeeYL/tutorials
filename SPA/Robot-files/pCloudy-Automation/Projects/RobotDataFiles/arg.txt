@@ -1,0 +1,6 @@
+--variable automationName:uiAutomator2
+--variable USERNAME:T1233284F
+--variable PASSWORD:P@ssw0rd3
+--variable platformName:Android
+--variable APIKEY:510dd9a96b2d4e218677a0198f62fb06   
+--variable APIURL:https://ld05tg01t2.execute-api.ap-southeast-1.amazonaws.com/prod/v1

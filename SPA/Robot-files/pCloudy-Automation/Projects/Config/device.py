@@ -1,0 +1,1 @@
+devicefullname = "Samsung_GalaxyNote10_Android_10.0.0_f34e3"
