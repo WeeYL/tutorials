@@ -73,10 +73,7 @@ def selectLocalScript():
 
 # Returns the device ID based on the dictionary in deviceDB
 def getDeviceId(device_fullname):
-<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
-=======
     sys.path.append('.f/{projectsPath}')
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from OutputData.Devices.deviceDB import dictionary
     try:
         deviceId = dictionary[device_fullname][0] 
@@ -86,10 +83,7 @@ def getDeviceId(device_fullname):
     
 # Returns the device region based on the dictionary in deviceDB
 def getDeviceRegion(device_fullname):
-<<<<<<< HEAD:pCloudy-Automation/Projects/Functions.py
-=======
     sys.path.append('.f/{projectsPath}')
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Functions.py
     from OutputData.Devices.deviceDB import dictionary
     return dictionary[device_fullname][1]
 

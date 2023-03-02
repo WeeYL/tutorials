@@ -1,21 +1,11 @@
 import requests
 import sys
 from Config.projectsPath import projectsPath
-<<<<<<< HEAD:pCloudy-Automation/Projects/generateToken.py
-
-# set python import path
-sys.path.append(projectsPath)
-
-# Generate 4 new tokens all at once
-def generateNewToken():
-    
-=======
 
 # Generate 4 new tokens all at once
 def generateNewToken():
     print()
     sys.path.append('./SPA/Robot-files/pCloudy-Automation/Projects')
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/generateToken.py
     from APIFunctions import clearConsole
     clearConsole()
     from Config.credentials import emailId, apiKey
