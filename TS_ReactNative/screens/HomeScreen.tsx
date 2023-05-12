@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 export function HomeScreen({navigation}: any) {
 
+
   useEffect(()=>{
     console.log("rendering Home")
     return ()=> console.log("unmounting Home")

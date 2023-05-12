@@ -5,7 +5,9 @@ import { useEffect } from "react";
 
 export function PlannerScreen({navigation}: any) {
     useEffect(()=>{
-        console.log("rendering Planner")
+        // mounting  
+      console.log("rendering Planner")
+        // unmount
         return ()=> console.log("unmounting Planner")
       },[])  
       
@@ -14,6 +16,7 @@ export function PlannerScreen({navigation}: any) {
       <Text> I Am Planner </Text>
       <Button 
         title="Go to Home"
+        // navigate function as other components are in a nested navigator
         onPress={()=>navigation.navigate("Home")}/>
     </View>
   );
