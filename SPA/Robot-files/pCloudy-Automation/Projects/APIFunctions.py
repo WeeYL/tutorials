@@ -435,14 +435,28 @@ def executeAppium(token, app, region):
     }
 
     while True:
+
+               # get endpoint
+        headers = {
+        'Content-Type': 'application/json',
+        }
+
+        json_data = {
+            'token': token,
+        }
+        getNewEndPt = requests.post('https://device.pcloudy.com/api/appium/endpoint', headers=headers, json=json_data)
+
+        print("appium/endpoint", getNewEndPt.json()['result'])
+
         response = requests.post('https://'+region+'.pcloudy.com/api/appium/execute', headers=headers, json=json_data)
-        
+        print('/appium/execute',response.json())
         if "endpoint" in response.json()["result"]:
             endpoint = response.json()["result"]["endpoint"]
             break
         else:
             sleep(10)
 
+ 
     # The json file returns URL link with \\, hence code will correct the json errors and return the new end point
     string_replaced = endpoint.replace('\\','')
     string_to_be_appended = '/wd/hub'

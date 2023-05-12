@@ -1,1 +1,1 @@
-devicefullname = "Samsung_GalaxyNote10_Android_10.0.0_f34e3"
+devicefullname = "Vivo_Y15_Android_11.0.0_6bc8e"

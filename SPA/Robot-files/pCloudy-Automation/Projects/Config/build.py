@@ -1,1 +1,1 @@
-buildfullname = "app-singpass-stg-release-protected-1677576407.apk"
+buildfullname = "app-singpass-stg-release-protected-1677749058.apk"

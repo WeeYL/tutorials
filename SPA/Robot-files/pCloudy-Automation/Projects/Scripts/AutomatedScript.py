@@ -126,102 +126,100 @@ def runAutomationScript():
 
             # Script execution begins here
             logFile = open('LOG_TXT.txt', 'w') 
-            startScript = f"pabot --verbose --argumentfile {projectsPath}/RobotDataFiles/arg.txt {projectsPath}/RobotDataFiles/" + script_to_run
+            # startScript = f"pabot --verbose --argumentfile {projectsPath}/RobotDataFiles/arg.txt {projectsPath}/RobotDataFiles/" + script_to_run
+            startScript = f"robot {projectsPath}/RobotDataFiles/" + script_to_run
+
             startScript = startScript.split(" ")
             result = subprocess.run(startScript, stdout=logFile)
-            result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
+    #         result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
 
-            # Gets the time
-            minutes, seconds = divmod((datetime.now() - time_now).total_seconds(),60)
+    #         # Gets the time
+    #         minutes, seconds = divmod((datetime.now() - time_now).total_seconds(),60)
 
-            # Inform how many errors during the execution
-            if result_string == "0":
-                print("> [" + SUCCESS + "Test completed without any errors." + END + "]")
-                numOfSuccessRuns += 1
-                state = "SUCCESS"
-            else:
-                print("> [" + ERROR + "There are " + result_string + " errors found. Please refer to the logs." + END + "]")
-                numOfFailureRuns += 1
-                state = "FAILURE"
+    #         # Inform how many errors during the execution
+    #         if result_string == "0":
+    #             print("> [" + SUCCESS + "Test completed without any errors." + END + "]")
+    #             numOfSuccessRuns += 1
+    #             state = "SUCCESS"
+    #         else:
+    #             print("> [" + ERROR + "There are " + result_string + " errors found. Please refer to the logs." + END + "]")
+    #             numOfFailureRuns += 1
+    #             state = "FAILURE"
             
-            # Remove the unncessarry auto generated files
-<<<<<<< HEAD:pCloudy-Automation/Projects/Scripts/AutomatedScript.py
-            # os.remove(".pabotsuitenames")
-=======
-            try:
-                os.remove(".pabotsuitenames")
-            except:
-                pass
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Scripts/AutomatedScript.py
+    #         # Remove the unncessarry auto generated files
+    #         try:
+    #             os.remove(".pabotsuitenames")
+    #         except:
+    #             pass
 
-            # Checks if destination folder exists
-            currentDate = datetime.today().strftime('%Y-%m-%d')
-            currentTime = datetime.today().strftime('%H%M')
-            parent_directory = f"{projectsPath}/Logs"
+    #         # Checks if destination folder exists
+    #         currentDate = datetime.today().strftime('%Y-%m-%d')
+    #         currentTime = datetime.today().strftime('%H%M')
+    #         parent_directory = f"{projectsPath}/Logs"
 
-            # Checks if the directory exists
-            # This is used to create a folder for the log extracted according to the current date
-            if os.path.isdir(f"{projectsPath}Logs/" + currentDate):
-                Continue
-            else:
-                path = os.path.join(parent_directory, currentDate)
-                os.makedirs(path)
+    #         # Checks if the directory exists
+    #         # This is used to create a folder for the log extracted according to the current date
+    #         if os.path.isdir(f"{projectsPath}Logs/" + currentDate):
+    #             Continue
+    #         else:
+    #             path = os.path.join(parent_directory, currentDate)
+    #             os.makedirs(path)
 
-            # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
-            # SUCCESS AND FAILURE according to the state
-            if os.path.isdir(f"{projectsPath}Logs/" + currentDate + "/" + state):
-                Continue
-            else:
-                newPath = parent_directory + "/" + currentDate    
-                path1 = os.path.join(newPath, state)
-                os.makedirs(path1)
+    #         # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
+    #         # SUCCESS AND FAILURE according to the state
+    #         if os.path.isdir(f"{projectsPath}Logs/" + currentDate + "/" + state):
+    #             Continue
+    #         else:
+    #             newPath = parent_directory + "/" + currentDate    
+    #             path1 = os.path.join(newPath, state)
+    #             os.makedirs(path1)
 
-            # Store the txtlog file into the created directory
-            shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + deviceFullName + "_" + currentTime + '.txt')
+    #         # Store the txtlog file into the created directory
+    #         shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + deviceFullName + "_" + currentTime + '.txt')
 
-            # Store each output into the created directory
-            outputList = ['log.html', 'report.html', 'output.xml']
-            for i in range(len(outputList)):
-                shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + deviceFullName + "_" + currentTime + '.' + outputList[i].split(".")[1])
+    #         # Store each output into the created directory
+    #         outputList = ['log.html', 'report.html', 'output.xml']
+    #         for i in range(len(outputList)):
+    #             shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + deviceFullName + "_" + currentTime + '.' + outputList[i].split(".")[1])
 
-            # Release the device
-            print("> Releasing the device now...")
-            APIFunctions.releaseDevice(rid, token, device_region1)
-            print("> Device released\n")
+    #         # Release the device
+    #         print("> Releasing the device now...")
+    #         APIFunctions.releaseDevice(rid, token, device_region1)
+    #         print("> Device released\n")
 
-            if (f'{minutes:0.0f}'.format(minutes)) == "0":
-                print('> Total time taken: ' + TIMESTART + ' ' + f'{seconds:0.0f} sec ' + END.format(seconds))
-            else:
-                print('> Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
-            print("")
+    #         if (f'{minutes:0.0f}'.format(minutes)) == "0":
+    #             print('> Total time taken: ' + TIMESTART + ' ' + f'{seconds:0.0f} sec ' + END.format(seconds))
+    #         else:
+    #             print('> Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
+    #         print("")
             
-            if android_version == len_of_android_version-1:
-                print("=========================\n")
-                break
+    #         if android_version == len_of_android_version-1:
+    #             print("=========================\n")
+    #             break
 
-    # Remove the unncessarry auto generated files
-    directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
-    for i in range(len(directory_to_be_removed)):
-        shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)
+    # # Remove the unncessarry auto generated files
+    # directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
+    # for i in range(len(directory_to_be_removed)):
+    #     shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)
         
-    # Delete the build
-    print("> Deleting the build now...")
-    deleteBuildAfterScript(buildName)
+    # # Delete the build
+    # print("> Deleting the build now...")
+    # deleteBuildAfterScript(buildName)
 
-    time_then = datetime.now()
-    duration = time_then - time_now_2
-    duration_in_seconds = duration.total_seconds()
-    minutes, seconds = divmod(duration_in_seconds, 60)
+    # time_then = datetime.now()
+    # duration = time_then - time_now_2
+    # duration_in_seconds = duration.total_seconds()
+    # minutes, seconds = divmod(duration_in_seconds, 60)
 
-    print("\n+------------------------+")
-    print("|        SUMMARY         |")
-    print("+------------------------+")
-    print("| " + SUCCESS + "Success runs: "+str(numOfSuccessRuns) + END + "        |")
-    print("| " + ERROR + "Failed runs: "+str(numOfFailureRuns) + END + "         |")
-    print("+------------------------+")
+    # print("\n+------------------------+")
+    # print("|        SUMMARY         |")
+    # print("+------------------------+")
+    # print("| " + SUCCESS + "Success runs: "+str(numOfSuccessRuns) + END + "        |")
+    # print("| " + ERROR + "Failed runs: "+str(numOfFailureRuns) + END + "         |")
+    # print("+------------------------+")
 
-    end_time = time_then.strftime("%H:%M")
-    print("Program ended at: " + TIMESTART + " " + str(end_time) + " " + END)
+    # end_time = time_then.strftime("%H:%M")
+    # print("Program ended at: " + TIMESTART + " " + str(end_time) + " " + END)
 
-    minutes, seconds = divmod((time_then-time_now_2).total_seconds(),60)
-    print('Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
+    # minutes, seconds = divmod((time_then-time_now_2).total_seconds(),60)
+    # print('Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))

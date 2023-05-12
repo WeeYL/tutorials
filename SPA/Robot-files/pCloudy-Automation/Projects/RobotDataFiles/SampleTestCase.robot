@@ -1,26 +1,42 @@
 *** Settings ***
+
 Library         AppiumLibrary
+Library         BuiltIn
+Library         OperatingSystem
+Library         Collections
+Library         String
+Library         Dialogs
+Variables       data.py
+
 Variables       ../Config/device.py
 Variables       ../Config/build.py
 Variables       ../Config/credentials.py
 Variables       ../Config/remotePath.py
 Variables       ../Config/deviceId.py
-Library         Dialogs
 
 *** Test Cases ***
+
 Open Test Application
-    Log to Console      ${apiKey}
-    Open Application    ${remotePath}   pCloudy_Username=${emailId}     pCloudy_ApiKey=${apiKey}    platformName=android	  deviceName=${deviceId}       pCloudy_ApplicationName=${buildfullname}       pCloudy_DeviceFullName=${devicefullname}     newCommandTimeout=600    appPackage=com.example.android.testing.unittesting.BasicSample  appActivity=com.example.android.testing.unittesting.BasicSample.MainActivity    automationName=UiAutomator2
-#   Open Application    http://localh÷ost:4756/wd/hub     platformName=Android  platformVersion=10  deviceName=emulator-5554  udid=emulator-5554  automationName=Uiautomator2  app=%{PWD}/temp/artifact/app-debug.apk  appPackage=com.example.android.testing.unittesting.BasicSample  appActivity=com.example.android.testing.unittesting.BasicSample.MainActivity
+    # Open Application    ${remotePath}   pCloudy_Username=${emailId}     pCloudy_ApiKey=${apiKey}    platformName=android	  deviceName=${deviceId}       pCloudy_ApplicationName=${buildfullname}       pCloudy_DeviceFullName=${devicefullname}     newCommandTimeout=6000   launchTimeout=90000  appPackage=com.pcloudy.appiumdemo  	appActivity=com.ba.mobile.LaunchActivity    automationName=UiAutomator2
+    
+    Open Application    ${remotePath}   pCloudy_Username=${emailId}     pCloudy_ApiKey=${apiKey}   platformName=android	 pCloudy_ApplicationName=pCloudyAppiumDemo.apk   pCloudy_DeviceManafacturer=Samsung   appPackage=com.pcloudy.appiumdemo  	appActivity=com.ba.mobile.LaunchActivity    automationName=uiAutomator2
 
-# Click into Animation
-#     Sleep           5
-#     Click Element	//android.widget.TextView[@content-desc="Animation"]
+Book A Flight
 
-DesiredCapabilities capabilities = new DesiredCapabilities();
-capabilities.setCapability("pCloudy_Username", "Enter your email-id");
-capabilities.setCapability("pCloudy_ApiKey", "Enter your APIKey");
-capabilities.setCapability("pCloudy_DurationInMinutes", 5);
-capabilities.setCapability("pCloudy_DeviceManafacturer", "Samsung");
-capabilities.setBrowserName("Chrome");
-driver = new AndroidDriver(new URL("https://device.pcloudy.com/appiumcloud/wd/hub"), capabilities);
+    Click Element	id=com.pcloudy.appiumdemo:id/accept 
+    Log To Console	Accept Button is clicked
+
+    Click Element	id=com.pcloudy.appiumdemo:id/flightButton
+    Log To Console	Book a flight button clicked
+
+    Click Element	id=com.pcloudy.appiumdemo:id/spinnerfrom
+    Log To Console	From location drop down is clicked
+
+    Click Element	//*[@id='android:id/text1' or @text='Bangalore, India (BLR)']
+    Log To Console	From Location is selected
+Close All Apps
+	
+	Close All Applications
+
+
+

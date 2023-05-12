@@ -14,9 +14,9 @@ Variables       ../Config/remotePath.py
 Variables       ../Config/deviceId.py
 
 Resource        functions.robot
-Library         ../../../../Resources/PageLibrary/PageObject/_Common/ComponentElementLocator.py
-Library         ../../../../Resources/Libraries/universal_swipe.py
-Resource        ../../../../Resources/PageLibrary/PageObject/Onboarding/2FAWebViewPage.robot
+# Library         ../../../../Resources/PageLibrary/PageObject/_Common/ComponentElementLocator.py
+# Library         ../../../../Resources/Libraries/universal_swipe.py
+# Resource        ../../../../Resources/PageLibrary/PageObject/Onboarding/2FAWebViewPage.robot
 
 Suite Setup       Run Keywords      Set Suite Variable    ${SUITE_NAME}             Onboarding
 ...               AND               Set Suite Variable    ${TEST_ID}                setup
@@ -38,7 +38,7 @@ ${onShip}=                      true
 *** Test Cases ***
 Open Test Application
     Open Application    ${remotePath}   pCloudy_Username=${emailId}     pCloudy_ApiKey=${apiKey}    platformName=android	  deviceName=${deviceId}       pCloudy_ApplicationName=${buildfullname}       pCloudy_DeviceFullName=${devicefullname}     newCommandTimeout=6000   launchTimeout=90000  appPackage=sg.ndi.sp  appActivity=sg.ndi.activity.DashBoardActivity    automationName=UiAutomator2
-    # Open Application    ${localhost}     platformName=Android  platformVersion=9  deviceName=Galaxy  udid=3357534132583398     automationName=${automationName}   app=/Users/zi.hao.ng/ndispcp-auto-testing-pom/SPA/Robot-files/pCloudy-Automation/Projects/Builds/app-singpass-stg-release-protected-126.apk  appPackage=sg.ndi.sp  appActivity=sg.ndi.activity.DashBoardActivity
+#     Open Application    ${localhost}     platformName=Android  platformVersion=9  deviceName=Galaxy  udid=3357534132583398     automationName=${automationName}   app=/Users/zi.hao.ng/ndispcp-auto-testing-pom/SPA/Robot-files/pCloudy-Automation/Projects/Builds/app-singpass-stg-release-protected-126.apk  appPackage=sg.ndi.sp  appActivity=sg.ndi.activity.DashBoardActivity
 
 # Close popups
 #     Wait Until Page Contains    	${text1}      90

@@ -34,10 +34,8 @@ def runManualScript():
 
     # Let user choose a build that is available on the pCloudy cloud
     uploadBuild(0)
-    print(uploadBuild(0))
     # Get the first build on the cloud user just uploaded
     buildName = getFirstBuild()
-    print(buildName)
     print("> Automation script will run on [" + SUCCESS + buildName + END + "]")
     writeBuildToFile(buildName)
     sleep(1)
@@ -71,7 +69,9 @@ def runManualScript():
         deviceId = getDeviceId(user_input_device_name)                          # Retrieves the id of the device based on the build full name
         if deviceId != 0:
             device_region = getDeviceRegion(user_input_device_name)                 # Retrieves the region the phone build in
-            device_region1 = setRemotePath(device_region, 0)                        # Based on the region of the device, the function will return the specific param for the API URL
+            print(f"device_region {device_region}")  
+            device_region1 = setRemotePath(device_region, 0)   
+            print(f"device_region1 {device_region1}")                     # Based on the region of the device, the function will return the specific param for the API URL
             status = bookDevice(deviceId, device_region1, user_input_device_name)   # Books the device for execution
 
             # Error handling: When user is shown a list of devices and someone managed to book the device before the user can select
@@ -86,27 +86,29 @@ def runManualScript():
 
     rid = status[2]
     token = status[1]
+    print(f"status token {status}")
     writeDeviceToFile(user_input_device_name)       # This is so that the robot script can reference the device full name
     print("> Reservation ID: " + str(status[2]))
     endpoint_url = executeAppium(token, buildName, device_region1)  # This is neccessary to execute the script on the booked device
+    print(f"endpoint_url: {endpoint_url}")
     setRemotePath(endpoint_url, 1)                  # This is so that the robot script can point to the correct endpoint URL                               
     writeDeviceIdToFile(deviceId)                   # This is so that the robot script can reference the device ID
     executeADB(token, rid, device_region1)
     sleep(1)
-
     input("pause")
     print("> Executing script now...")
 
     # Script execution starts here
     # logFile = open('LOG_TXT.txt', 'w') 
     # startScript = f"pabot --verbose --argumentfile {projectsPath}/RobotDataFiles/arg.txt {projectsPath}/RobotDataFiles/" + script_to_run
+    startScript = f"robot {projectsPath}/RobotDataFiles/" + script_to_run
 
-    # startScript = startScript.split(" ")
-    # result = subprocess.run(startScript, stdout=logFile)
+    startScript = startScript.split(" ")
+    subprocess.run(startScript)
     # result_string = str(result).split("returncode=")[1][:-1]    # Extract the number of errors
 
-    startScript = f"robot {projectsPath}/RobotDataFiles/" + script_to_run
-    subprocess.call(startScript, shell=True)
+    # startScript = f"robot {projectsPath}/RobotDataFiles/" + script_to_run
+    # subprocess.call(startScript, shell=True)
     # Calculate time the testing ends
     device_time = datetime.now()
     duration = device_time - time_now
@@ -114,68 +116,64 @@ def runManualScript():
     minutes, seconds = divmod(duration_in_seconds, 60)
 
     # Inform how many errors during the execution
-    if result_string == "0":
-        print("> [" + SUCCESS + "Test completed without any errors." + END + "]")
-        state = "SUCCESS"
-    else:
-        print("> [" + ERROR + "There are " + result_string + " errors found. Please refer to the logs." + END + "]")
-        state = "FAILURE"
+    # if result_string == "0":
+    #     print("> [" + SUCCESS + "Test completed without any errors." + END + "]")
+    #     state = "SUCCESS"
+    # else:
+    #     print("> [" + ERROR + "There are " + result_string + " errors found. Please refer to the logs." + END + "]")
+    #     state = "FAILURE"
 
     # Remove the unncessarry auto generated files
-<<<<<<< HEAD:pCloudy-Automation/Projects/Scripts/ManualScript.py
-    # os.remove(".pabotsuitenames")
+    # try:
+    #     os.remove(".pabotsuitenames")
+    # except:
+    #     pass
+    # # Create the values for storing the generated files (log, output, report)
+    # currentDate = datetime.today().strftime('%Y-%m-%d')
+    # currentTime = datetime.today().strftime('%H%M')
+    # parent_directory = f"{projectsPath}/Logs"
 
-=======
-    try:
-        os.remove(".pabotsuitenames")
-    except:
-        pass
->>>>>>> b6d3c76345127e9c22bee96a45effe489d7feb3e:SPA/Robot-files/pCloudy-Automation/Projects/Scripts/ManualScript.py
-    # Create the values for storing the generated files (log, output, report)
-    currentDate = datetime.today().strftime('%Y-%m-%d')
-    currentTime = datetime.today().strftime('%H%M')
-    parent_directory = f"{projectsPath}/Logs"
+    # # Checks if the directory exists
+    # # This is used to create a folder for the log extracted according to the current date
+    # if os.path.isdir(f"{projectsPath}/Logs/" + currentDate):
+    #     Continue
+    # else:
+    #     path = os.path.join(parent_directory, currentDate)
+    #     os.makedirs(path)
 
-    # Checks if the directory exists
-    # This is used to create a folder for the log extracted according to the current date
-    if os.path.isdir(f"{projectsPath}/Logs/" + currentDate):
-        Continue
-    else:
-        path = os.path.join(parent_directory, currentDate)
-        os.makedirs(path)
+    # # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
+    # # SUCCESS AND FAILURE according to the state
+    # state="FAILURE"
+    # if os.path.isdir(f"{projectsPath}/Logs/" + currentDate + "/" + state):
+    #     Continue
+    # else:
+    #     newPath = parent_directory + "/" + currentDate    
+    #     path1 = os.path.join(newPath, state)
+    #     os.makedirs(path1)
 
-    # Creates a directory to check if sub folder has been crated, if not it will create a subfolder
-    # SUCCESS AND FAILURE according to the state
-    if os.path.isdir(f"{projectsPath}/Logs/" + currentDate + "/" + state):
-        Continue
-    else:
-        newPath = parent_directory + "/" + currentDate    
-        path1 = os.path.join(newPath, state)
-        os.makedirs(path1)
+    # # Store the txtlog file into the created directory
+    # shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + user_input_device_name + "_" + currentTime + '.txt')
 
-    # Store the txtlog file into the created directory
-    shutil.move('LOG_TXT.txt',  f'{projectsPath}/Logs/' + currentDate + "/" + state + "/TXT_LOG_" + user_input_device_name + "_" + currentTime + '.txt')
+    # # Store each output into the created directory
+    # outputList = ['log.html', 'report.html', 'output.xml']
+    # for i in range(len(outputList)):
+    #     shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + user_input_device_name + "_" + currentTime + '.' + outputList[i].split(".")[1])
 
-    # Store each output into the created directory
-    outputList = ['log.html', 'report.html', 'output.xml']
-    for i in range(len(outputList)):
-        shutil.move(outputList[i], f'{projectsPath}/Logs/' + currentDate + "/" + state + "/" + outputList[i].split(".")[0].upper() + '_' + user_input_device_name + "_" + currentTime + '.' + outputList[i].split(".")[1])
+    # # Relase the device
+    # print("> Releasing the device now...")
+    # releaseDevice(rid, token, device_region1)
+    # print("> Device released")
 
-    # Relase the device
-    print("> Releasing the device now...")
-    releaseDevice(rid, token, device_region1)
-    print("> Device released")
+    # # Relase the device
+    # print("> Deleting the build now...")
+    # deleteBuildAfterScript(buildName)
 
-    # Relase the device
-    print("> Deleting the build now...")
-    deleteBuildAfterScript(buildName)
+    # if (f'{minutes:0.0f}'.format(minutes)) == "0":
+    #     print('> Total time taken: ' + TIMESTART + ' ' + f'{seconds:0.0f} sec ' + END.format(seconds))
+    # else:
+    #     print('> Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
 
-    if (f'{minutes:0.0f}'.format(minutes)) == "0":
-        print('> Total time taken: ' + TIMESTART + ' ' + f'{seconds:0.0f} sec ' + END.format(seconds))
-    else:
-        print('> Total time taken: ' + TIMESTART + ' ' + f'{minutes:0.0f} min {seconds:0.0f} sec ' + END.format(minutes, seconds))
-
-    # Remove the unncessarry auto generated files
-    directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
-    for i in range(len(directory_to_be_removed)):
-        shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)
+    # # Remove the unncessarry auto generated files
+    # directory_to_be_removed = ["pabot_results", f"{projectsPath}/Logs/Projects/RobotDataFiles/__pycache__", f"{projectsPath}/Logs/Projects/__pycache__", f"{projectsPath}/Logs/Projects/Config/Queues/__pycache__", f"{projectsPath}/Logs/Projects/Config/__pycache__", f"{projectsPath}/Logs/Projects/Output/Devices/__pycache__", f"{projectsPath}/Logs/Projects/Output/Tokens/__pycache__", f"{projectsPath}/Logs/Projects/Scripts/__pycache__"]
+    # for i in range(len(directory_to_be_removed)):
+    #     shutil.rmtree(directory_to_be_removed[i], ignore_errors=True)
