@@ -5,12 +5,14 @@ import { useEffect } from "react";
 import * as types from '../types/data'
 import data from '../data.json'
 import WorkoutItem from "../components/WorkoutItem";
+import {useCachedResources} from "../hooks/useCachedResources";
 
 export function HomeScreen({navigation}:{navigation:NativeStackHeaderProps['navigation']}) {
 
   useEffect(()=>{
     console.log("rendering Home")
     return ()=> console.log("unmounting Home")
+    useCachedResources()
   },[])  
 
 
