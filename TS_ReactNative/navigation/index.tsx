@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Text } from 'react-native'
 import { HomeScreen, PlannerScreen } from '../screens';
 import { FontAwesome } from '@expo/vector-icons';
+import { WorkoutDetailScreen } from "../screens/WorkoutDetailScreen";
 
 // NOTE 
 // https://reactnavigation.org/docs/navigating
@@ -26,6 +27,7 @@ function RootNavigator(){
     return (
           <Stack.Navigator>
             <Stack.Screen name="root" component={BottomTabNavigator} options={{headerShown: false}}/>
+            <Stack.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{ title:"Workout Details"}}/>
           </Stack.Navigator>
       );
 }

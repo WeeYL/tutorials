@@ -18,3 +18,11 @@ export interface SequenceItem {
   duration: number,
   reps?: number
 }
+
+export type Slug = {
+  route:{
+    params:{
+      slug:string
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { View, Text, Button } from "react-native";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import { useEffect } from "react";
 
-export function PlannerScreen({navigation}: any) {
+export function PlannerScreen({navigation}:{navigation:NativeStackHeaderProps['navigation']}) {
     useEffect(()=>{
         // mounting  
       console.log("rendering Planner")

@@ -1,12 +1,13 @@
 import { View, Text, FlatList, Button, StyleSheet } from "react-native";
 import * as types from "../types/data";
+import * as utils from "../utils"; 
 
 export default function WorkoutItem({ item }: { item: types.Workout }) {
   return (
       <View style={styles.container}>
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.difficulty}>Difficulty: {item.difficulty}</Text>
-        <Text style={styles.duration}>Duration: {item.duration}</Text>
+        <Text style={styles.duration}>Duration: { utils.secToMins (item.duration)}</Text>
     </View>
   );
 }
