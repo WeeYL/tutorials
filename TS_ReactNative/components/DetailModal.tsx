@@ -1,32 +1,34 @@
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { PressableText } from "./PressableText";
 import { Modal, StyleSheet, Text, View } from "react-native";
 
-export function DetailModal() {
+type ModalProps = {
+    activator?:FunctionComponent 
+}
+
+export function DetailModal({activator:Activator}:ModalProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <View>
-
-      <PressableText
-        text="close"
-        onPress={() => {
-          setIsModalVisible(false);
-        }}
-      />
-      
       <Modal visible={isModalVisible} transparent={false} animationType="none">
         <View style={styles.centerView}>
           <Text>hello</Text>
-
           <PressableText
-            text="Check Sequence"
+            text="close"
             onPress={() => {
-              setIsModalVisible(true);
+              setIsModalVisible(false);
             }}
           />
         </View>
       </Modal>
+
+      { Activator ? <Activator/> : 
+      <PressableText
+        onPress={()=>setIsModalVisible(true)}
+        text="open"
+      />
+      }
     </View>
   );
 }
