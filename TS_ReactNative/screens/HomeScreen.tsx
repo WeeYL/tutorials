@@ -1,27 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import { View, Text, FlatList, Button, StyleSheet, Pressable } from "react-native";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import { useEffect } from "react";
-import * as types from '../types/data'
-import data from '../data.json'
+import { Button, FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import WorkoutItem from "../components/WorkoutItem";
-import {useCachedResources} from "../hooks/useCachedResources";
+import * as hooks from "../hooks";
 
 export function HomeScreen({navigation}:{navigation:NativeStackHeaderProps['navigation']}) {
 
-  useEffect(()=>{
-    console.log("rendering Home")
-    return ()=> console.log("unmounting Home")
-    useCachedResources()
-  },[])  
-
+  // load workouts
+  const workouts = hooks.useWorkouts()
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Work Out</Text>
 
       <FlatList
-        data={data as types.Workout[]}
+        data={workouts}
         // rendering each item from data. item here is infered as types.Workout from data
         renderItem={({item})=>{
           return (

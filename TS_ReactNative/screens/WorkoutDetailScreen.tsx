@@ -1,21 +1,37 @@
-import { StatusBar } from "expo-status-bar";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import { View, Text, FlatList, Button, StyleSheet } from "react-native";
-import { useEffect } from "react";
-import * as types from "../types/data";
-import data from "../data.json";
-import WorkoutItem from "../components/WorkoutItem";
+import { useState } from "react";
+import { Modal, StyleSheet, Text, View } from "react-native";
+import { PressableText } from "../components/PressableText";
+import { useWorkoutBySlug } from "../hooks/useWorkoutBySlug";
 
 export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route']}) {
 
-  useEffect(() => {
-    console.log("rendering WorkoutDetail");
-    return () => console.log("unmounting WorkoutDetail");
-  }, []);
+  // get workout
+  const workout = useWorkoutBySlug((route.params as any).slug);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}> {(route.params as any).slug} </Text>
+      
+      <Text style={styles.header}> {workout?.name} </Text>
+      <PressableText
+        text="Check Sequence"
+        onPress={() => {
+          setIsModalVisible(true);
+        }}
+      />
+
+      <Modal visible={isModalVisible} transparent={false} animationType="none">
+        <View style={styles.centerView}>
+          <Text>hello</Text>
+          <PressableText
+            text="close"
+            onPress={() => {
+              setIsModalVisible(false);
+            }}
+          />
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -23,6 +39,11 @@ export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+  },
+  centerView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   header: {
     fontSize: 20,
