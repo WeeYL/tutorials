@@ -12,16 +12,14 @@ export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route
     <View style={styles.container}>
       <Text style={styles.header}> {workout?.name} </Text>
       <DetailModal
-        activator={({handleOpen}) => // handle Open is retrieved from props
-          (
+        activator={({handleOpen}) => // handle Open from props
             <PressableText
               onPress={handleOpen}
               text="Check Sequence"
             />
-          )
-        }
-      />
-      <DetailModal />
+        }>
+          <Text>Go to Bye</Text>
+      </DetailModal>
     </View>
   );
 }

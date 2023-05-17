@@ -1,25 +1,24 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState, ReactNode } from "react";
 import { PressableText } from "./PressableText";
 import { Modal, StyleSheet, Text, View } from "react-native";
 
 type ModalProps = {
-  // add a fuction
-  activator?: FunctionComponent<{
+  children: ReactNode,
+  activator?: FunctionComponent<{ // add a fuction
     handleOpen?: () => void;
     handleAlert?: () => void;
   }>;
 };
 
-export function DetailModal({ activator: Activator }: ModalProps) {
+export function DetailModal({ activator: Activator, children }: ModalProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <View>
-
-    {/* MODAL CLOSE*/}
+      {/* MODAL CLOSE*/}
       <Modal visible={isModalVisible} transparent={false} animationType="none">
-        <View style={styles.centerView} >
-          <Text>hello</Text>
+        <View style={styles.centerView}>
+          {children}
           <PressableText
             text="close"
             onPress={() => {
@@ -29,7 +28,7 @@ export function DetailModal({ activator: Activator }: ModalProps) {
         </View>
       </Modal>
 
-    {/* INTERACTIVE FOR SCREENDETAILS  */}
+      {/* INTERACTIVE FOR SCREENDETAILS  */}
       {Activator ? (
         <Activator
           handleOpen={() => setIsModalVisible(true)} // pass func to props
@@ -38,7 +37,6 @@ export function DetailModal({ activator: Activator }: ModalProps) {
       ) : (
         <PressableText onPress={() => setIsModalVisible(true)} text="open" />
       )}
-
     </View>
   );
 }
@@ -49,9 +47,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "lightblue",
   },
-  size:{
-      width: 50,
-      height: 50
-  }
-
+  size: {
+    width: 50,
+    height: 50,
+  },
 });
