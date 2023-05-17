@@ -11,13 +11,19 @@ export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route
   return (
     <View style={styles.container}>
       <Text style={styles.header}> {workout?.name} </Text>
-      <DetailModal activator={()=>
-        <PressableText
-          onPress={()=>{alert("opening")}}
-          text="Check Sequence"
-        />
-      }/>
-      <DetailModal/>
+      <DetailModal
+        activator={() => {
+          return (
+            <PressableText
+              onPress={() => {
+                alert("opening");
+              }}
+              text="Check Sequence"
+            />
+          );
+        }}
+      />
+      <DetailModal />
     </View>
   );
 }
