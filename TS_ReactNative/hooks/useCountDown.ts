@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useCountDown(idx: number, initialCount: number) {
   const [countDown, setCountdown] = useState(-1); // to avoid self init
+  const intervalRef = useRef<number>()
 
   // countdown for sequence
   useEffect(() => {
     if (idx == -1) { return; } // do nothing unless init by button
-
-    const intervalId = window.setInterval(() => {
+    // note setinterval runs in background
+    intervalRef.current = window.setInterval(() => {
       setCountdown((count) => {
         console.log(count);
         return count - 1;
       });
     }, 100);
     
-    return () => window.clearInterval(intervalId);
+    return cleanup
   }, [idx]);
 
   // set Count down
@@ -22,6 +23,21 @@ export function useCountDown(idx: number, initialCount: number) {
     setCountdown(initialCount);
   }, [initialCount]);
 
-  console.log(idx)
+
+  // count until zero
+  useEffect(() => {
+    if (countDown === 0)
+    {
+      return cleanup
+    }
+  }, [countDown])
+  
+
+  const cleanup=()=>{
+    if (intervalRef.current) {
+        window.clearInterval(intervalRef.current);
+        intervalRef.current = undefined // reset
+    }
+  }
   return countDown;
 }
