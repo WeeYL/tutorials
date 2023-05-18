@@ -4,9 +4,9 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 
 type ModalProps = {
   children: ReactNode,
-  activator?: FunctionComponent<{ // add a fuction
+  activator?: FunctionComponent<{ // add a component and add fuction
     handleOpen?: () => void;
-    handleAlert?: () => void;
+    handleAlert?: () => void; // not using
   }>;
 };
 
@@ -31,11 +31,13 @@ export function DetailModal({ activator: Activator, children }: ModalProps) {
       {/* INTERACTIVE FOR SCREENDETAILS  */}
       {Activator ? (
         <Activator
-          handleOpen={() => setIsModalVisible(true)} // pass func to props
+        // if activator is called
+        // pass all available func to props
+          handleOpen={() => setIsModalVisible(true)} 
           handleAlert={() => alert("handle alert")}
         />
       ) : (
-        <PressableText onPress={() => setIsModalVisible(true)} text="open" />
+        <PressableText onPress={() => setIsModalVisible(true)} text="In Progress..." />
       )}
     </View>
   );

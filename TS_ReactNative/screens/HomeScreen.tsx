@@ -14,10 +14,10 @@ export function HomeScreen({navigation}:{navigation:NativeStackHeaderProps['navi
 
       <FlatList
         data={workouts}
-        // rendering each item from data. item here is infered as types.Workout from data
+        // rendering each item from data
         renderItem={({item})=>{
           return (
-            // navigation pass screen and object
+            // navigation WorkoutDetailScreen and pass object
             <Pressable onPress={()=> navigation.navigate("WorkoutDetail", {slug:item.slug})}>
               <WorkoutItem item={item}/>
             </Pressable>
