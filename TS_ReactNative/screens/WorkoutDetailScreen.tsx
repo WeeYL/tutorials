@@ -48,8 +48,7 @@ export function WorkoutDetailScreen({
   }, [countDown]);
 
   // sequence end
-  const hasReachedEnd: boolean =
-    sequence.length === workout?.sequence.length && countDown === 0;
+  const hasReachedEnd: boolean = sequence.length === sequence.length && countDown === 0;
 
   return (
     <View style={styles.container}>
@@ -71,7 +70,6 @@ export function WorkoutDetailScreen({
                 {secToMins(si.duration)}
               </Text>
               {
-                // No arrow after last line
                 idx !== workout.sequence.length && (
                   <FontAwesome name="arrow-down" size={20} />
                 )
@@ -80,15 +78,34 @@ export function WorkoutDetailScreen({
           ))}
         </View>
       </DetailModal>
-      {/* Play Button */}
+      {/* Play and Stop Button */}
       <View>
-        {sequence.length === 0 && (
+        {sequence.length === 0 ? (
           <FontAwesome
             name="play-circle-o"
             size={100}
             onPress={() => addItemToSequence(0)}
           />
-        )}
+        ) :
+        isRunning ? 
+        <FontAwesome
+            name="stop-circle-o"
+            size={100}
+            onPress={() => stop()}
+          /> :
+        <FontAwesome
+            name="play-circle-o"
+            size={100}
+            onPress={() => {
+              if (hasReachedEnd) {
+                console.log("restart")
+                
+              } else {
+                start(countDown)
+              }
+            }}
+          />
+      }
       </View>
       {/* COUNTDOWN */}
       {sequence.length > 0 && countDown >= 0 && (
