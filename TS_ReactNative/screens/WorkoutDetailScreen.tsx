@@ -9,23 +9,47 @@ import { useEffect, useState } from "react";
 import { SequenceItem } from "../types/data";
 import { useCountDown } from "../hooks/useCountDown";
 
-export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route']}) {
-  // get workout
+export function WorkoutDetailScreen({
+  route,
+}: {
+  route: NativeStackHeaderProps["route"];
+}) {
   const workout = useWorkoutBySlug((route.params as any).slug);
-  const [trackerIdx, setTrackerIdx] = useState(-1) // to avoid self init
-  const [sequence, setSequence] = useState<SequenceItem[]>([])
+  const [trackerIdx, setTrackerIdx] = useState(-1); // to avoid self init
+  const [sequence, setSequence] = useState<SequenceItem[]>([]);
 
-  // after press play
-  const addItemToSequence = (idx:number) => {
-    setSequence([...sequence,workout!.sequence[idx]])
-    setTrackerIdx(idx)
-  }
-
-  // start countdown
-  const countDown = useCountDown(
+  // start countdown and control timer (isRunning)
+  const {countDown, isRunning, stop, start} = useCountDown(
     trackerIdx,
-    trackerIdx >= 0 ? sequence[trackerIdx].duration: -1)
-  
+    
+  );
+
+  // add workout sequence
+  const addItemToSequence = (idx: number) => {
+    setSequence([...sequence, workout!.sequence[idx]]);
+    setTrackerIdx(idx);
+
+
+    start(workout!.sequence[idx].duration)
+  };
+
+  // countdown for each sequence
+  useEffect(() => {
+    if (!workout) {
+      return;
+    }
+
+    if (trackerIdx === workout.sequence.length - 1) {
+      return;
+    }
+    if (countDown === 0) {
+      addItemToSequence(trackerIdx + 1);
+    }
+  }, [countDown]);
+
+  // sequence end
+  const hasReachedEnd: boolean =
+    sequence.length === workout?.sequence.length && countDown === 0;
 
   return (
     <View style={styles.container}>
@@ -56,14 +80,31 @@ export function WorkoutDetailScreen({route}:{route:NativeStackHeaderProps['route
           ))}
         </View>
       </DetailModal>
+      {/* Play Button */}
+      <View>
+        {sequence.length === 0 && (
+          <FontAwesome
+            name="play-circle-o"
+            size={100}
+            onPress={() => addItemToSequence(0)}
+          />
+        )}
+      </View>
+      {/* COUNTDOWN */}
+      {sequence.length > 0 && countDown >= 0 && (
         <View>
-          { sequence.length === 0 &&
-            <FontAwesome 
-            name="play-circle-o" 
-            size={100} 
-            onPress={()=>addItemToSequence(0)}
-            />
-        }
+          <Text style={styles.header}>{countDown}</Text>
+        </View>
+      )}
+      {/* PROMPT */}
+
+        <View>
+          <Text style={styles.header}>      
+            {
+            sequence.length === 0 ? "prepare": hasReachedEnd ? "Great Job" :
+            sequence[trackerIdx].name
+          }
+          </Text>
         </View>
     </View>
   );
