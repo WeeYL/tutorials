@@ -1,0 +1,1 @@
+if any error goto tsconfig.json and make same changes to "expo/tsconfig.base"
