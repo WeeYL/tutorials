@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { styles } from "../styles/styles";
-import { PressableBtn } from "../component";
+import { PressableTxt } from "../component";
 
 export function HomeScreen({ navigation }: any) {
   const detailList = {
@@ -17,24 +17,28 @@ export function HomeScreen({ navigation }: any) {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
       title: 'Second Item',
     },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
   ];
 
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
-      <PressableBtn
+      <PressableTxt
         title="Detail !"
         onPress={
-          () => navigation.navigate("Detail", detailList, flatListItemFromHome) // pass params to route
+          () => navigation.navigate("Detail", {detailList:detailList, flatListItemFromHome:flatListItemFromHome}) // pass params to route. item and object
         }
       />
-      <PressableBtn
-        title="Timer !"
-        onPress={() => navigation.navigate("Timer")} // user Effect
+      <PressableTxt
+        title="UseEffect !"
+        onPress={() => navigation.navigate("UseEffect")} // user Effect
+      />
+      <PressableTxt
+        title="API !"
+        onPress={() => navigation.navigate("API")} // user Effect
+      />
+        <PressableTxt
+        title="Default1 !"
+        onPress={() => navigation.navigate("Default1")} // user Effect
       />
     </View>
   );

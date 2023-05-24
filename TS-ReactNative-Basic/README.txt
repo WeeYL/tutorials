@@ -1,1 +1,1 @@
-if any error goto tsconfig.json and make same changes to "expo/tsconfig.base"
+- For any error for many files, can try to goto tsconfig.json and make same changes to "expo/tsconfig.base"

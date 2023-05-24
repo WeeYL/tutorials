@@ -1,7 +1,7 @@
 import { Pressable, PressableProps, Text } from "react-native";
 import { styles } from "../styles/styles";
 
-export function PressableBtn(props: PressableProps & { title: string }) {
+export function PressableTxt(props: PressableProps & { title: string }) {
   return (
     <Pressable
       style={styles.button}

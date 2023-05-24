@@ -1,4 +1,10 @@
 // for easy import from other modules
 export * from "./HomeScreen"
+export * from "./UseEffectScreen"
+export * from "./APIScreen"
 export * from "./DetailScreen"
-export * from "./TimerScreen"
+export * from "./DefaultScreen1"
+export * from "./DefaultScreen2"
+export * from "./DefaultScreen3"
+export * from "./DefaultScreen4"
+export * from "./DefaultScreen5"
