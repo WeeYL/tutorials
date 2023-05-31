@@ -1,12 +1,12 @@
 import { Button, FlatList, SafeAreaView, Text, View } from "react-native";
 import { styles } from "../styles/styles";
 
-export function DefaultScreen1() {
+export function DefaultScreen7() {
   
     return (
         <View>
             <Text>
-            DefaultScreen1
+            DefaultScreen5
             </Text>
         </View>
     )

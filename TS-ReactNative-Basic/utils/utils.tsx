@@ -1,7 +1,7 @@
 
 
-export function plog(items:any,print:string = 'yes'){
-  if (print==="yes") {
+export function plog(items:any,pp:string = 'yes'){
+  if (pp==="yes") {
     console.log(items)
   }
 }

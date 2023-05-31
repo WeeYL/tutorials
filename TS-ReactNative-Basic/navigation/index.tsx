@@ -20,7 +20,8 @@ export default function Navigation() {
         <Stack.Screen name="Detail" component={Screens.DetailScreen}  />
         <Stack.Screen name="UseEffect" component={Screens.UseEffectScreen} />
         <Stack.Screen name="API" component={Screens.APISCreen} />
-        <Stack.Screen name="Default1" component={Screens.DefaultScreen1} />
+        <Stack.Screen name="State" component={Screens.StateScreen} />
+        <Stack.Screen name="UseReducer" component={Screens.UseReducerScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>

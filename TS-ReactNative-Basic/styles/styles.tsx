@@ -28,7 +28,12 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-
+  singleRow:{
+    flex: 1,
+    alignItems: "center", // ignore this - we'll come back to it
+    justifyContent: "center", // ignore this - we'll come back to it
+    flexDirection: "row"
+  }
 
   // end
 });

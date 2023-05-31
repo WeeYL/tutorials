@@ -6,21 +6,23 @@ import { PressableTxt } from "../component";
 // useEffect Lifecycle
 // Component => React => Browser
 
+const pp = "yes" // printing
+
 export function UseEffectScreen() {
-  plog("\nSTART");
+  plog("\nSTART",pp);
 
   // run once
   useEffect(() => {
-    plog("run Once: Run once");
+    plog("run Once: Run once",pp);
   }, []);
 
   // see lifecycle
   const [number, setNumber] = useState(0);
   useEffect(() => {
-    plog("useEffect: useEffect runs");
-    plog(`useEffect: useEffect num ${number}`);
+    plog("useEffect: useEffect runs",pp);
+    plog(`useEffect: useEffect num ${number}`,pp);
   }, [number]);
-  plog("useEffect: component renders");
+  plog("useEffect: component renders",pp);
 
   const [name, setName] = useState("");
   const [login, setLogin] = useState({
@@ -37,11 +39,11 @@ export function UseEffectScreen() {
   
   const handleAdd = () => {
     setLogin((prev) => ({ ...prev, name }));
-    plog(`useMemo: login name ${login.name}`);
+    plog(`useMemo: login name ${login.name}`,pp);
   };
   const handleSel = () => {
     setLogin((prev) => ({ ...prev, selected: true }));
-    plog(`useMemo: login selected ${login.selected}`);
+    plog(`useMemo: login selected ${login.selected}`,pp);
   };
 
 
@@ -49,11 +51,11 @@ export function UseEffectScreen() {
   const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
-    plog("cleanup: effect runs")
+    plog("cleanup: effect runs",pp);
     
   return ()=>{
-    plog("cleanup: wait before running the effect i should clean here")
-    plog("cleanup: done, you can run now")
+    plog("cleanup: wait before running the effect i should clean here",pp);
+    plog("cleanup: done, you can run now",pp);
   }
   }, [toggle])
   
@@ -64,7 +66,7 @@ export function UseEffectScreen() {
     const interval = window.setInterval(()=>setCount((prev)=>prev+1),500)
   
     return () => {
-      plog("timer: wait before running the effect i should clean here")
+      plog("timer: wait before running the effect i should clean here",pp);
       clearInterval(interval)
     }
   }, [])
@@ -81,7 +83,7 @@ export function UseEffectScreen() {
         onPress={() => setNumber((prev) => prev + 1)}
       ></PressableTxt>
 
-      {/* TEXTBOX */}
+      {/* USER MEMO */}
       <Text>TextBox</Text>
       <TextInput
         style={styles.textInput}

@@ -23,22 +23,26 @@ export function HomeScreen({ navigation }: any) {
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <PressableTxt
-        title="Detail !"
+        title="Detail"
         onPress={
           () => navigation.navigate("Detail", {detailList:detailList, flatListItemFromHome:flatListItemFromHome}) // pass params to route. item and object
         }
       />
       <PressableTxt
-        title="UseEffect !"
+        title="UseEffect"
         onPress={() => navigation.navigate("UseEffect")} // user Effect
       />
       <PressableTxt
-        title="API !"
+        title="API"
         onPress={() => navigation.navigate("API")} // user Effect
       />
         <PressableTxt
-        title="Default1 !"
-        onPress={() => navigation.navigate("Default1")} // user Effect
+        title="State"
+        onPress={() => navigation.navigate("State")} // user Effect
+      />
+        <PressableTxt
+        title="UseReducer"
+        onPress={() => navigation.navigate("UseReducer")} // user Effect
       />
     </View>
   );
