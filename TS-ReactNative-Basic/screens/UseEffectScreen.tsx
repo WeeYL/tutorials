@@ -31,7 +31,7 @@ export function UseEffectScreen() {
   });
 
   // useMemo
-  const User = useMemo(() => ({login}),[login.name,login.selected]) // because of memory allocation. For non-primitive eg, list, object, use useMemo
+  const User = useMemo(() => ({login}),[login.name,login.selected]) // monitor change only for [login.name,login.selected] because of memory allocation. used for non-primitive eg, list, object, use useMemo
   
   useEffect(() => {
     console.log("useMemo: User Login has changed")
