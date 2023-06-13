@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app03":"ts-node src/app-03-async-await-promise.ts"
+    "app01":"ts-node src/app-01.ts",
+    "app03":"ts-node src/app-03-async-await-promise.ts",
+    "app04":"ts-node src/app-04-advancedTS.ts"
   },
   "keywords": [],
   "author": "",
