@@ -219,16 +219,27 @@ console.log(CoordClass1.add());
 
 
 _______Header______("Class Extend"); // add arg in constructor and super
-class CoordClassExtend extends CoordClass {
-  constructor(public y: number, public x: number, public z: number) {
-    super(x, y);   // super.constructor
+class Base {
+  k=4
+  greet() {
+    console.log("Hello, world!");
   }
-  add() { return super.add() + this.z;} // super.func
 }
-
-let CoordClassExtend1 = new CoordClassExtend(11, 333, 55);
-console.log(CoordClassExtend1.add());
-
+ 
+class Derived extends Base {
+  // variable
+  constructor(){
+      super()
+      console.log(this.k)
+  }
+  // function
+  greet(name?: string) {
+      super.greet();
+      console.log(name)
+  }
+}
+const derivedBase = new Derived()
+derivedBase.greet("derived")
 
 _______Header______("Class implements Interface");
 

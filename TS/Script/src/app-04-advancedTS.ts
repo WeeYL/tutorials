@@ -13,16 +13,16 @@ function transfer(player:playerInfo & club) {
 transfer({name:"john",club:"club FC"})
 
 // KEYOF 
-// update a assigned const value
-interface Menu {drinks:string}
-const originalMenu: Menu = {drinks:"coke"}
+// update a assigned const key value
+interface Menu {drinks:string, food:string}
+const originalMenu: Menu = {drinks:"coke", food:"noodle"}
 console.log(`keyof original menu:${originalMenu.drinks}`)
 function adjustMenu(menu:Menu, newEntry:keyof Menu, change:string) {
     menu[newEntry] = change
 }
 
 adjustMenu(originalMenu,"drinks","beer")
-console.log(`keyof adjusted original menu:${originalMenu.drinks}`)
+console.log(`keyof adjusted original menu:${originalMenu.drinks} ${originalMenu.food}`)
 
 // TYPEOF
 // get the ReturnType from a function
@@ -78,3 +78,4 @@ type ToFlag<T> = {[Property in keyof T]: boolean}
 type PlayMovieFlag = ToFlag<PlayMovies>
 const playMyMovies:PlayMovieFlag = {playFantasyMovie:false,paid:true}
 console.log(`MAPPED ${playMyMovies.playFantasyMovie} ${playMyMovies.paid}`)
+

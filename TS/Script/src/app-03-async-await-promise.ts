@@ -43,15 +43,8 @@ const getPokemonFromUrl = async(url:string):Promise<Pokemon> =>{
 }
 
 // creates a new promise to resolve and reject
-const getFirstPokemon = async ():Promise<Pokemon> => new Promise (async (resolve,reject)=>{
-      try {
-            const list = await getPokemonFullList()
-            resolve (await getPokemonFromUrl(list.results[0].url))
-            
-      } catch (error) {
-            console.error(error)
-      }
-})
+
+
 
 // function to run getFirstPokemon()
 async function returnFirstPokemon (){
@@ -62,31 +55,35 @@ async function returnFirstPokemon (){
             console.error(error)
       }
 }
-// ############# Loop
-async function pokemonLoop () {
-      const list = await getPokemonFullList()
-      for (const item of list.results) {
-            console.log(item.url)
-      }
-}
+
 
 // ############# create promise
-async function newPromise  ()  {
-      return new Promise((resolve,reject)=>{
-            resolve("new promise")
-      })
-}
 
-async function newPromiseGetFirstPokemon ():Promise<Pokemon>  {
-      const list = await getPokemonFullList() 
-      const firstPokemon = await getPokemonFromUrl(list.results[0].url)
-      return new Promise(async (resolve,reject)=>{
-            resolve (firstPokemon)
+const getNewPromisePokemonFullList = () => {
+      const result = new Promise (async (res,rej)=>{
+            const listResp = await fetch(url)
+            const fullList = await listResp.json() 
+            res( fullList)
       })
-}
+      return result
+}    
+
+
+const getFirstPokemon = async ():Promise<Pokemon> => new Promise (async (resolve,reject)=>{
+      try {
+            const list = await getPokemonFullList()
+            resolve (await getPokemonFromUrl(list.results[0].url))
+            
+      } catch (error) {
+            console.error(error)
+      }
+})
+
+
 // ### TESTBED
   async function testBed() {
-      const res = await getPokemonFullList()
+      // const res = await getPokemonFullList()
+      const res = await getNewPromisePokemonFullList()
       // const res = await returnFirstPokemon()
       // const res = await pokemonLoop()
       // const res = await newPromise ()
