@@ -1,0 +1,79 @@
+// ##########
+// IMPORTS
+// ##########
+
+@import "./reset";
+@import "./variables";
+
+// ##########
+// FUNCTIONS
+// ##########
+@function weight($key) {
+  @return map-get($map: $mapFontWeight, $key: $key);
+}
+
+// ##########
+// MIXIN
+// ##########
+
+@mixin flexCenter($direction) {
+  // reuseable object, to use with @include
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($lightMode: true) {
+  // select different styles
+  @if $lightMode {
+    background: lighten($color: $colorPrimary, $amount: 100%);
+    color: darken($color: $colorText, $amount: 100%);
+  }
+}
+
+.lightTheme {
+  @include theme(true);
+}
+.darkTheme {
+  @include theme(false);
+}
+
+@mixin mobile {
+  // specify the behaviour if condition is met
+  @media (max-width: $screenSizeMobile) {
+    @content;
+  }
+}
+
+
+body {
+  background: $colorPrimary;
+  color: white;
+}
+
+.main {
+    @include mobile {
+      flex-direction: column;
+    }
+    @include flexCenter("row");
+    width: 80%;
+    margin: 0 auto;
+    
+  #{&}__paragraph {
+    font-weight: map-get($map: $mapFontWeight, $key: bold); // mapping
+    &:hover {
+      color: pink;
+    }
+  }
+
+  // EXTEND
+  // extend within the same group
+  #{&}__paragraph__green {
+    @extend .main__paragraph; 
+    &:hover {
+      color: $colorAccent;
+    };
+};
+}
+

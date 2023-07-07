@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.lightTheme {
+  background: white;
+  color: black;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: "row";
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+}
+.main .main__paragraph, .main .main__paragraph__green {
+  font-weight: 700;
+}
+.main .main__paragraph:hover, .main .main__paragraph__green:hover {
+  color: pink;
+}
+.main .main__paragraph__green:hover {
+  color: orange;
+}/*# sourceMappingURL=main.css.map */
