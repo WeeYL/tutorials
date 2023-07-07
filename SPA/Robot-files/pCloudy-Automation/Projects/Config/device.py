@@ -1,1 +1,0 @@
-devicefullname = "Vivo_Y15_Android_11.0.0_6bc8e"

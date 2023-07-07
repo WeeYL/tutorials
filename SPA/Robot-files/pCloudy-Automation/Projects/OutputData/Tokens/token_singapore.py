@@ -1,1 +1,0 @@
-generatedToken_singapore ="c2kjwvt6p8g5tv83mk6v83xt"
