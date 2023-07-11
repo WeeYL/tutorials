@@ -1,0 +1,22 @@
+{
+  "name": "mosh-nodeJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "app1": "node app1.js",
+    "app2": "node app2_event.js",
+    "app3": "nodemon app3_HTTP.js",
+    "app4": "nodemon app4_express.js",
+    "app5": "nodemon app4_express2.js",
+    "app6": "nodemon app3_HTTP.js",
+    "app7": "nodemon app4_express.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
