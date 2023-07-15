@@ -1,0 +1,12 @@
+.hideForMobile {
+    @media (max-width:375px) {
+        display: none;
+    }
+};
+
+.hideForDesktop {
+    // small than min-width, do this
+    @media (min-width:375px) {
+        display: none;
+    }
+}

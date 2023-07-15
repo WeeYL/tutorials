@@ -42,7 +42,7 @@
 @mixin mobile {
   // specify the behaviour if condition is met
   @media (max-width: $screenSizeMobile) {
-    @content;
+    @content; // add the content style
   }
 }
 

@@ -1,5 +1,5 @@
 import fetch from "node-fetch"
-import {_______Header______} from './utils'
+const header = require("../../../")
 
 const url = "https://pokeapi.co/api/v2/pokemon/"
 interface Pokemon {

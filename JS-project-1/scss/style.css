@@ -1,0 +1,67 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-family: "Public Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  background-image: linear-gradient(hsl(0, 0%, 98%), hsl(0, 0%, 100%));
+  background-attachment: fixed;
+}
+
+nav {
+  padding: 24px;
+}
+
+.flex__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button, .button {
+  position: relative;
+  display: inline-block;
+  padding: 0.875rem 2.1875rem;
+  color: hsl(0, 0%, 100%);
+  background-image: linear-gradient(to right, rgba(231, 73, 32, 0.5), rgb(231, 73, 32));
+  border: 0;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.header__menu > span {
+  display: block;
+  background-color: hsl(233, 26%, 24%);
+  height: 2px;
+  width: 26px;
+}
+.header__menu > span:not(:last-child) {
+  margin-bottom: 3px;
+}
+.header__links a, .header__links a:visited, .header__links a:hover {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+@media (max-width: 375px) {
+  .hideForMobile {
+    display: none;
+  }
+}
+
+@media (min-width: 375px) {
+  .hideForDesktop {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */

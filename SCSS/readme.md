@@ -1,9 +1,9 @@
 # SETUP
-- LIVE SASS COMPILER
-    - GET FROM EXTENSIONS
-    - CLICK "watch Sass" FROM BOTTOM OF SCREEN
-- FOLDER
-    - CREATE "DIST"
+- Live Sass Compiler
+    - Get from extension
+    - click "watch Sass" from bottom of screen
+    - create "dist" folder
+
 
 # NOTE
 - Partial files to be import to be named as _fileToImport. During import, just ignore underscore eg import fileToImport. 
@@ -12,9 +12,9 @@
 # INFO
 | INFO        |URL  |
 | :---        |:----  |
-| selectors |https://devhints.io/sass
-| functions | https://sass-lang.com/documentation/at-rules/function/
-
+| selectors |https://devhints.io/sass |
+| functions | https://sass-lang.com/documentation/at-rules/function/ |
+| playground | https://developer.mozilla.org/en-US/play |
 # CHEATSHEET
 
 

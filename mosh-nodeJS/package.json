@@ -7,16 +7,30 @@
     "app1": "node app1.js",
     "app2": "node app2_event.js",
     "app3": "nodemon app3_HTTP.js",
-    "app4": "nodemon app4_express.js",
-    "app5": "nodemon app4_express2.js",
-    "app6": "nodemon app3_HTTP.js",
-    "app7": "nodemon app4_express.js"
+    "app4": "nodemon app4_http_get.js",
+    "app5": "nodemon app5_http_post.js",
+    "app6": "nodemon app6_joi.js",
+    "app7": "nodemon app7_http_put.js",
+    "app8": "nodemon app8_http_delete.js",
+    "app9": "nodemon app9_middleware.js",
+    "app10": "set NODE_ENV=development&&nodemon app10_environment.js",
+    "app11": "set NODE_ENV=production&&nodemon app11_config.js",
+    "app12": "set DEBUG=app:startup&&nodemon app12_debug.js",
+    "app13": "nodemon app13_pug.js",
+    "app14": "nodemon app14_routing.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.9",
+    "debug": "^4.3.4",
     "express": "^4.18.2",
-    "nodemon": "^3.0.1"
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2",
+    "rc": "^1.2.8"
   }
 }
