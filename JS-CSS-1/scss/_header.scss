@@ -1,0 +1,68 @@
+.header {
+
+    // mobile 
+    &__menu {
+        >span {
+            display: block; // takes up whole width. border: medium dashed green;
+            background-color: $colorDarkBlue;
+            height: 2px;
+            width: 26px;
+
+            &:not(:last-child) {
+                margin-bottom: 6px;
+            }
+        }
+        &.open {
+            >span:first-child {
+                transform: rotate(45deg)
+            };
+
+            >span:nth-child(1){
+                opacity: 0;
+            };
+
+            >span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__links {
+
+        a, a:visited {
+            text-decoration: none;
+            font-size: $fontMed;
+            color: $colorDarkBlue;
+            transition: color 300ms ease-in-out;
+           position: relative;
+            &:not(:last-child) {
+                margin-right: 52px;
+            };
+
+            &:hover {
+                color: $colorGrayishBlue;
+                opacity: 1;
+                &::before { // for link's bottom green bar
+                    content: "";
+                    opacity: 1;
+                }
+       
+            };
+            &::before {
+                // bottom green bar
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                height: 3px;
+                background-color: $colorLimeGreen;
+                transition: opacity  300ms  ease-in-out;
+                opacity:0;
+            }
+        };
+
+    }
+
+}

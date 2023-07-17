@@ -16,9 +16,9 @@ body {
     // front style-guide   
     font-family: 'Outfit', sans-serif;
     font-family: 'Public Sans', sans-serif;
-    font-size: 12px;
+    font-size: 12px; // form the basis for rem
     line-height: 1.3;
-    background-image: linear-gradient($veryLightGray,$white);
+    background-image: linear-gradient($colorVeryLightGray,$colorWhite);
     background-attachment: fixed;
 }
 
@@ -46,9 +46,12 @@ nav {
     position: relative;
     display: inline-block;
     padding: 0.875rem 2.1875rem;
-    color:$white;
-    background-image: linear-gradient(to right, $darkRed, $red);
+    color:$colorWhite;
+    background-image: linear-gradient(to right, $colorDarkRed, $colorRed);
     border: 0;
     border-radius: 50px;
     font-weight: 700;
+    &:hover {
+        opacity: 0.75;
+    }
  }
