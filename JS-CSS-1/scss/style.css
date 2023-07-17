@@ -43,14 +43,34 @@ button:hover, .button:hover {
   opacity: 0.75;
 }
 
+.header.open .header_menu > span:first-child {
+  transform: rotate(45deg);
+}
+.header.open .header_menu > span:nth-child(2) {
+  opacity: 0;
+}
+.header.open .header_menu > span:last-child {
+  transform: rotate(-45deg);
+}
 .header__menu > span {
   display: block;
   background-color: hsl(233, 26%, 24%);
   height: 2px;
   width: 26px;
+  transition: all 300ms ease-in-out;
+  transform-origin: 2px 1px;
 }
 .header__menu > span:not(:last-child) {
   margin-bottom: 6px;
+}
+.header__menu.open > span:first-child {
+  transform: rotate(45deg);
+}
+.header__menu.open > span:nth-child(2) {
+  opacity: 0;
+}
+.header__menu.open > span:last-child {
+  transform: rotate(-45deg);
 }
 .header__links a, .header__links a:visited {
   text-decoration: none;
@@ -76,11 +96,18 @@ button:hover, .button:hover {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -30px;
+  bottom: -1rem;
   height: 3px;
   background-color: hsl(136, 65%, 51%);
   transition: opacity 300ms ease-in-out;
   opacity: 0;
+}
+
+.overlay {
+  position: fixed;
+  background-image: linear-gradient(hsl(233, 26%, 24%), hsl(233, 8%, 62%));
+  height: 100vh;
+  width: 100vw;
 }
 
 @media (max-width: 375px) {
