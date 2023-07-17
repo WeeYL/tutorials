@@ -43,13 +43,13 @@ button:hover, .button:hover {
   opacity: 0.75;
 }
 
-.header.open .header_menu > span:first-child {
+.header.open .header__menu > span:first-child {
   transform: rotate(45deg);
 }
-.header.open .header_menu > span:nth-child(2) {
+.header.open .header__menu > span:nth-child(2) {
   opacity: 0;
 }
-.header.open .header_menu > span:last-child {
+.header.open .header__menu > span:last-child {
   transform: rotate(-45deg);
 }
 .header__menu > span {
@@ -72,25 +72,30 @@ button:hover, .button:hover {
 .header__menu.open > span:last-child {
   transform: rotate(-45deg);
 }
-.header__links a, .header__links a:visited {
+.header__links a,
+.header__links a:visited {
   text-decoration: none;
   font-size: 1rem;
   color: hsl(233, 26%, 24%);
   transition: color 300ms ease-in-out;
   position: relative;
 }
-.header__links a:not(:last-child), .header__links a:visited:not(:last-child) {
+.header__links a:not(:last-child),
+.header__links a:visited:not(:last-child) {
   margin-right: 52px;
 }
-.header__links a:hover, .header__links a:visited:hover {
+.header__links a:hover,
+.header__links a:visited:hover {
   color: hsl(233, 8%, 62%);
   opacity: 1;
 }
-.header__links a:hover::before, .header__links a:visited:hover::before {
+.header__links a:hover::before,
+.header__links a:visited:hover::before {
   content: "";
   opacity: 1;
 }
-.header__links a::before, .header__links a:visited::before {
+.header__links a::before,
+.header__links a:visited::before {
   content: "";
   display: block;
   position: absolute;

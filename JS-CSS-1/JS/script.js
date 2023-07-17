@@ -7,7 +7,7 @@ btnHamburger.addEventListener('click', function(){
         header.classList.remove("open")
     } else {
         console.log("ham")
-        header.classList.add("open")
+        header.classList.add("open") // update to > .header .open
     }
 })
 
