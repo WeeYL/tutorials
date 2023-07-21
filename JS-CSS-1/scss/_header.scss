@@ -1,8 +1,19 @@
 .header {
 
-    // hamburger open style
+    // overlay
+    .overlay {
+        opacity: 0;
+        position: fixed;
+        top: 3.75rem;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-image: linear-gradient($colorDarkBlue, transparent);
+      }
+
+      // hamburger open style
     &.open {
-        .header__menu {
+        .header__hamburger {
             >span:first-child {
                 transform: rotate(45deg);
             };
@@ -15,8 +26,8 @@
         }
     }
 
-    // mobile 
-    &__menu {
+    // hamburger 
+    &__hamburger {
         >span {
             display: block; // takes up whole width. border: medium dashed green;
             background-color: $colorDarkBlue;
@@ -28,31 +39,10 @@
             &:not(:last-child) {
                 margin-bottom: 6px;
             }
-
-            ;
-        }
-
-        &.open {
-            >span:first-child {
-                transform: rotate(45deg);
-            }
-
-            ;
-
-            >span:nth-child(2) {
-                opacity: 0;
-            }
-
-            ;
-
-            >span:last-child {
-                transform: rotate(-45deg);
-            }
         }
     }
 
-    &__links {
-
+    &__desktop__links {
         a,
         a:visited {
             text-decoration: none;
@@ -63,10 +53,7 @@
 
             &:not(:last-child) {
                 margin-right: 52px;
-            }
-
-            ;
-
+            };
             &:hover {
                 color: $colorGrayishBlue;
                 opacity: 1;
@@ -76,11 +63,7 @@
                     content: "";
                     opacity: 1;
                 }
-
-            }
-
-            ;
-
+            };
             &::before {
                 // bottom green bar
                 content: "";
@@ -94,18 +77,30 @@
                 transition: opacity 300ms ease-in-out;
                 opacity: 0;
             }
-        }
-
-        ;
-
+        };
     }
 
+    &__mobile__links {
+        a {
+            display: block;
+            padding: 0.5rem;
+            color: $colorDarkBlue;
+            text-align: center;
+            font-size: $fontMed;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            margin: 0.5rem 1.5rem;
+            background-color: bisque;
+        }
+        &.container {
+            position: absolute;
+            background-color: lightblue;
+            width: 75%;
+            // centering container
+            left: 50%; // relative to page
+            transform: translateX(-50%) // relative to itself
+
+        }
+    };
 }
 
-// mobile overlay
-.overlay {
-    position: fixed;
-    background-image: linear-gradient($colorDarkBlue, $colorGrayishBlue);
-    height: 100vh;
-    width: 100vw;
-}
