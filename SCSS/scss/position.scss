@@ -1,0 +1,40 @@
+@import 'variables';
+
+.parentStatic{
+    background-color: $colorGrayishBlue;
+    .child1 {
+        background-color: $colorAccent;
+    }
+}
+
+// absolute is positioned to the parent at (0,0)
+.parentRelative{
+    position: relative;
+    background-color: $colorGrayishBlue;
+    .child1{
+        position: absolute;
+        top:15px;
+        left:15px;
+        background-color: $colorRed;
+    }
+
+// relative is positioned to the parent at next line
+    .child2{
+        position: relative;
+        top:15px;
+        left:15px;
+        background-color: $colorRed;
+    }
+
+}
+.parentRelativeBig{
+    position: relative;
+    background-color: $colorGrayishBlue;
+    height: 150vh;
+    .child3 {
+        display: inline;
+        position: sticky;
+        top:30px;
+        background-color: $colorRed;
+    }
+}

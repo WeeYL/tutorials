@@ -1,0 +1,59 @@
+.horLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-top: 6px solid green;
+  background: red;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.verLine {
+  position: absolute;
+  border-left: 6px solid green;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+@font-face {
+  font-family: ultmiaAvatar;
+  src: url(Avatar.ttf);
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
+}
+.container .item1 {
+  font-family: myFirstFont;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  background-color: hsl(0, 0%, 100%);
+  border: 3px solid hsl(233, 26%, 24%);
+  flex-grow: 4;
+}
+.container .item2 {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-color: hsl(0, 0%, 100%);
+  border: 3px solid hsl(233, 26%, 24%);
+  flex-shrink: 4;
+}
+.container .item3 {
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  background-color: hsl(0, 0%, 100%);
+  border: 3px solid hsl(233, 26%, 24%);
+}
+.container .item4 {
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  background-color: hsl(0, 0%, 100%);
+  border: 3px solid hsl(233, 26%, 24%);
+  align-self: center;
+}/*# sourceMappingURL=flex.css.map */

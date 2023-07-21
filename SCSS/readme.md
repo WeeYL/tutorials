@@ -15,18 +15,14 @@
 | selectors |https://devhints.io/sass |
 | functions | https://sass-lang.com/documentation/at-rules/function/ |
 | playground | https://developer.mozilla.org/en-US/play |
+| position | https://www.w3schools.com/css/css_positioning.asp 
+| flex box | https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 # CHEATSHEET
 
 
 | SCSS | ELEMENTS
-| :---        |:----  |
+| :--- |:----  |
 | #{&} | get all parent #{&}__paragraph 
-|  * | get name only eg &:hover
-|  |
-|  |
-
-| SELECTOR | ELEMENTS
-| :---        |:----  |
 |* | all elements
 | div | all div tags
 | div,p | all divs and paragraphs

@@ -1,0 +1,84 @@
+@import 'variables';
+@import 'global';
+
+@mixin box{
+
+    background-color: $colorWhite;
+    border: 3px solid $colorDarkBlue;
+};
+
+
+.container1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr ; // 2 rows
+    grid-template-rows: 100px 250px; // height for each row
+    // grid-auto-rows: 100px; // set default
+    background-color: $colorAccent;
+}
+
+.container2 {
+    display: grid;
+    grid-template-columns: 200px 100px 100px;
+    grid-auto-rows: minmax(100px, auto); 
+    background-color: $colorAccent;
+    gap: 20px;
+}
+.container3 {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-auto-rows: minmax(100px, auto); 
+    background-color: $colorAccent;
+    gap: 20px;
+    grid-template-areas:
+    "HEAD HEAD"
+    "SIDE BODY"
+    "FOOT FOOT"
+}
+
+.container4 {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-auto-rows: minmax(100px, auto); 
+    background-color: $colorAccent;
+    gap: 20px;
+}
+.container5 {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-auto-rows: minmax(100px, auto); 
+    background-color: $colorAccent;
+    // for the boxes
+    justify-content: space-around; 
+    align-content: space-around;
+    // for the items inside the boxes
+    // align-items: center;
+    // justify-items: center
+}
+// ##############################################################
+
+// UNCOMMENT TO USE GRID AREA AND GRID COL
+.item1 {
+    @include box;
+    // grid-area: HEAD;
+    // grid-column: 1 / -1
+};
+.item2 {
+    @include box;
+    // grid-area: SIDE;
+    // grid-row: 2 / 4 
+
+};
+.item3 {
+    @include box;
+    // grid-area: BODY;
+    // grid-row: 2 / 4 
+
+};
+.item4{
+    @include box;
+    // grid-area: FOOT;
+    // grid-row: 2 / 4 
+
+}
+
+

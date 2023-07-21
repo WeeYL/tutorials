@@ -1,0 +1,50 @@
+@import 'variables';
+@import 'global';
+
+// main axis is content
+// cross axis is items
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+
+@mixin container($direction) {
+    display: flex;
+    flex-direction: $direction; 
+    background-color: $colorAccent;
+
+}
+
+@mixin box($height){
+    width:200px;
+    height: $height;
+    margin: 10px;
+    background-color: $colorWhite;
+    border: 3px solid $colorDarkBlue;
+};
+
+// ##############################################################
+
+.container {
+    @include container(row);
+
+    .item1 {
+        font-family: myFirstFont;
+        @include box(100px);
+        flex-grow: 4; // grow to 4x
+    };
+    .item2 {
+        @include box(200px);
+        flex-shrink: 4; // shrink to 4x
+    };
+    .item3 {
+        @include box(300px);
+    };
+    .item4{
+        
+        @include box(100px);
+        align-self:center // overwrite the container
+    }
+}
+
+
+

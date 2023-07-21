@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/grid.css">
+    <title>Grid</title>
+</head>
+<body>
+    <nav>
+        <button type="button" onclick="container1()">BASIC</button>
+        <button type="button" onclick="container2()">MINMAX</button>
+        <button type="button" onclick="container3()">GRIDAREA</button>
+        <button type="button" onclick="container4()">GRIDCOL</button>
+        <button type="button" onclick="container5()">GRID ALIGN</button>
+
+    
+    </nav>
+    <div id="container" >
+        <div class="item1">ONE Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="item2">TWO Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ratione, dolorum aliquid ipsum saepe iste, non aperiam, magni sint tempore atque similique eveniet repellendus eligendi. Mollitia assumenda eaque consectetur sit.</div>
+        <div class="item3">THREE Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia molestias enim numquam aliquam atque debitis a cum odit delectus vel sint obcaecati praesentium ducimus laboriosam similique reprehenderit, nam, commodi minus corrupti mollitia? Iure, accusantium fuga? Laudantium sapiente ullam animi numquam.</div>
+        <div class="item4">FOUR Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia molestias enim numquam aliquam atque debitis a cum odit delectus vel sint obcaecati praesentium ducimus laboriosam similique reprehenderit, nam, commodi minus corrupti mollitia? Iure, accusantium fuga? Laudantium sapiente ullam animi numquam.</div>
+
+    </div>    
+
+<script>
+    function removeall() {
+        const container = document.getElementById("container");
+        container.classList.remove('container')
+        for (let index = 1; index < 10; index++) {
+            container.classList.remove(`container${index}`)
+        }
+    }
+    function container1(){
+        // remove all
+        removeall()
+        container.classList.add('container1')
+        }
+
+    function container2(){
+        // remove all
+        removeall()
+        container.classList.add('container2')
+        }
+    function container3(){
+        // remove all
+        removeall()
+        container.classList.add('container3')
+    }
+    function container4(){
+        // remove all
+        removeall()
+        container.classList.add('container4')
+    }
+    function container5(){
+        // remove all
+        removeall()
+        container.classList.add('container5')
+    }
+    function container6(){
+        // remove all
+        removeall()
+        container.classList.add('container6')
+    }
+</script>
+</body>
+</html>
