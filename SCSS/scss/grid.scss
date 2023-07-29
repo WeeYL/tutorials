@@ -59,24 +59,24 @@
 // UNCOMMENT TO USE GRID AREA AND GRID COL
 .item1 {
     @include box;
-    // grid-area: HEAD;
+    grid-area: HEAD; // for container 3
     // grid-column: 1 / -1
 };
 .item2 {
     @include box;
-    // grid-area: SIDE;
+    grid-area: SIDE; // for container 3
     // grid-row: 2 / 4 
 
 };
 .item3 {
     @include box;
-    // grid-area: BODY;
+    grid-area: BODY; // for container 3
     // grid-row: 2 / 4 
 
 };
 .item4{
     @include box;
-    // grid-area: FOOT;
+    // grid-area: FOOT; // for container 3
     // grid-row: 2 / 4 
 
 }

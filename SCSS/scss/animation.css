@@ -1,0 +1,38 @@
+.parent {
+  background-color: rgb(231, 73, 32);
+  height: 200px;
+  width: 200px;
+}
+
+.child {
+  position: relative;
+  left: 0;
+  top: 0;
+  background-color: orange;
+  height: 100px;
+  width: 100px;
+  transition: transform 1s ease-in-out;
+}
+
+.container1 .child {
+  transform: translateX(100%);
+}
+
+.container2 .child {
+  animation: Left-Right 1s ease-in-out 500ms 3 alternate forwards;
+}
+
+@keyframes Left-Right {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateY(100%);
+  }
+  66% {
+    transform: translateY(100%) translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}/*# sourceMappingURL=animation.css.map */

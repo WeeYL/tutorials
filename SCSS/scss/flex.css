@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: ultmiaAvatar;
-  src: url(Avatar.ttf);
+  src: url(./fonts/Avatar.ttf);
 }
 .container {
   display: flex;

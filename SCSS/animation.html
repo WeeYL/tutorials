@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/animation.css"> <!-- Edit css src -->
+    <title>Animation</title>
+</head>
+<body>
+    <nav>
+        <!-- Edit button name -->
+        <button type="button" onclick="container1()"> transition </button> 
+        <button type="button" onclick="container2()"> keyframe </button>
+        <button type="button" onclick="container3()"> xxx </button>
+        <button type="button" onclick="container4()"> xxx </button>
+        <button type="button" onclick="container5()"> xxx </button>
+        <!--  -->
+    
+    </nav>
+    <div id="container" class="parent" >
+        <div class="child">ONE </div>
+        <div class="item2">TWO </div>
+        <div class="item3">THREE </div>
+        <div class="item4">FOUR </div>
+    </div>    
+
+
+
+<!-- SCRIPT -->
+<script>
+    // Button Function. Remove any existing container class and add new container class
+    function removeall() {
+        const container = document.getElementById("container");
+        container.classList.remove('container')
+        for (let index = 1; index < 10; index++) {
+            container.classList.remove(`container${index}`)
+        }
+    }
+    function container1(){removeall(); container.classList.add('container1')}
+    function container2(){removeall(); container.classList.add('container2')}
+    function container3(){removeall(); container.classList.add('container3')}
+    function container4(){removeall(); container.classList.add('container4')}
+    function container5(){removeall(); container.classList.add('container5')}
+    function container6(){removeall(); container.classList.add('container6')}
+</script>
+</body>
+</html>

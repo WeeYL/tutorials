@@ -4,10 +4,14 @@
     - click "watch Sass" from bottom of screen
     - create "dist" folder
 
+- Steps to create scss.
+    - Import MySCSS in main.scss 
+    - Create MySCSS in ./scss/
+    - link rel="stylesheet" href="./scss/main.css" in html.
+    - turn on Watch Sass
 
 # NOTE
 - Partial files to be import to be named as _fileToImport. During import, just ignore underscore eg import fileToImport. 
-
 
 # INFO
 | INFO        |URL  |

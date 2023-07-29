@@ -1,0 +1,22 @@
+.horLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-top: 6px solid green;
+  background: red;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.verLine {
+  position: absolute;
+  border-left: 6px solid green;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+@font-face {
+  font-family: ultmiaAvatar;
+  src: url(./fonts/Avatar.ttf);
+}/*# sourceMappingURL=template.css.map */
