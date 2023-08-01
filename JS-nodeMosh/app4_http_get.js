@@ -32,4 +32,4 @@ app.get('/params/:year/:month',(req,res)=>{
 // PRODUCTION PORT IS DYNAMIC BY THE HOSTING ENVIRONMENT
 
 const port = process.env.PORT || 3000
-app.listen(port,()=>console.log(`listening to ${port}`))
+app.listen(port, () => console.log(`listening to ${port} http://localhost:3000`));

@@ -7,10 +7,10 @@ const print = require('./printHeader')
 
 print.header("EVENT EMITTER EG1")
 
-const EventEmitter = require("events") // NOTE : The EventEmitter has to turn green
+const EventEmitter = require("events") // NOTE : check that EventEmitter text has to turn green
 const emitter = new EventEmitter();
 
-// REGISTER A LISTENER (name, function)
+// REGISTER A LISTENER (callback name, function)
 emitter.on('eg1',function(){
     console.log('eg1, listener called')
 })
@@ -20,8 +20,13 @@ emitter.emit('eg1')
 ///////////////////////////////////////////////////
 
 print.header("EVENT EMITTER ARGUMENTS")
+
+// allows multi definitions
 emitter.on('eventArg',function(arg){
-    console.log(`id ${arg.id} name ${arg.name}`)
+    console.log(`id ${arg.id}`)
+})
+emitter.on('eventArg',function(arg){
+    console.log(`name ${arg.name}`)
 })
 // RAISE AN EVENT 
 emitter.emit('eventArg',{id:1, name:"Holden"})

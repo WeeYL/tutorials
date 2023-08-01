@@ -71,10 +71,14 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
+// app.get("/", async (req, res) => {
+//   const players = await getPlayers();
+//   res.render("index.ejs", { players });
+// });
 app.get("/", async (req, res) => {
-  const players = await getPlayers();
-  res.render("index.ejs", { players });
-});
+    const players = await getPlayers();
+    res.send({status:"success"}).status(202);
+  });
 
 app.get("/delete/:id", async (req, res) => {
   const id = req.params.id;

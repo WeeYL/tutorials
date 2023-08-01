@@ -1,0 +1,25 @@
+{
+  "name": "tutorials",
+  "version": "1.0.0",
+  "description": "| DESCRIPTION      | LINK | \r | :---        |    :----   |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeeYL/tutorials.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeeYL/tutorials/issues"
+  },
+  "homepage": "https://github.com/WeeYL/tutorials#readme",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2",
+    "nodemon": "^3.0.1"
+  }
+}

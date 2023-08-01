@@ -20,5 +20,6 @@ server.on('connection', ()=>{
 })
 
 server.listen(3000)
-console.log("http://localhost:3000/")
+app.listen(port, () => console.log(`listening to ${port} http://localhost:3000`));
+
 // NOTE: GO TO BROWSER http://localhost:3000/

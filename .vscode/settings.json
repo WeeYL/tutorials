@@ -12,6 +12,20 @@
             "name": "pcweb",
             "database": "book_review",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "sql6.freemysqlhosting.net",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "pcweb5",
+            "database": "sql6636405",
+            "username": "sql6636405",
+            "password": "7PJmXEsZT9"
         }
     ]
 }
