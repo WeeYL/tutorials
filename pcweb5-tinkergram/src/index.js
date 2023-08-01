@@ -1,23 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import PostPageAdd from './views/PostPageAdd';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {PostPageAdd, PostPageDetails, PostPageUpdate} from './views'
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>,
+    path: "/",
+    element: <App />,
   },
   {
-    path:"/add",
-    element:<PostPageAdd/>,
-  }
-  ])
+    path: "/add",
+    element: <PostPageAdd />,
+  },
+  {
+    path: "/post/:id",
+    element: <PostPageDetails />,
+  },
+  { 
+    path: "/update/:id", 
+    element: <PostPageUpdate />, 
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

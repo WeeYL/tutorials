@@ -85,14 +85,14 @@ app.get("/post/:id", async (req,res)=>{
 })
 
 
-app.put("/:id", async (req,res)=>{
+app.put("/update/:id", async (req,res)=>{
   const id = req.params.id
   const {caption, image} = req.body
   const updatedPost = await updatePost(id, caption, image)
   res.send(updatedPost).status(202)
 })
 
-app.post("/delete/:id", async (req, res) => {
+app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id
   const deletedPost = await deletePost(id) 
   res.send({status:"deleted"}).status(202);
