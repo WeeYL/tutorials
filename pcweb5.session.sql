@@ -7,8 +7,6 @@ CREATE TABLE posts (
     image varchar(255) not null
 );
 
---@Block
-DROP TABLE posts
 
 --@Block
 SELECT * FROM posts;

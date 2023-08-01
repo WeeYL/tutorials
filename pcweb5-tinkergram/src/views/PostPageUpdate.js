@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { ADD, API, POST, UPDATE } from "../constants";
+import { API, POST } from "../constants";
 
 export default function PostPageUpdate() {
   const params = useParams();
@@ -63,7 +63,7 @@ export default function PostPageUpdate() {
             onClick={async (e) => {
               const post = { image, caption };
               try {
-                await axios.put(API + UPDATE + "/" + id, post);
+                await axios.put(API + POST + "/" + id, post);
                 navigate("/");
               } catch (error) {
                 console.error(error.message);

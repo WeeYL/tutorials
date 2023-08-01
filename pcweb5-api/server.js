@@ -85,7 +85,7 @@ app.get("/post/:id", async (req,res)=>{
 })
 
 
-app.put("/update/:id", async (req,res)=>{
+app.put("/post/:id", async (req,res)=>{
   const id = req.params.id
   const {caption, image} = req.body
   const updatedPost = await updatePost(id, caption, image)
