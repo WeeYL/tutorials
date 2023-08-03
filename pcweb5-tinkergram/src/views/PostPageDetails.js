@@ -17,8 +17,7 @@ export default function PostPageDetails() {
    const url = API + DELETE + `/${id}`
    await axios.delete(url)
    navigate("/")
-  } 
-  
+  }
 
     async function getPost(id) {
       const url = API + POST + `/${id}`;
