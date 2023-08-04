@@ -20,7 +20,6 @@ export default function PostPageAdd() {
     const imageReference  = ref(storage,`images/${image.name}`)
     const response = await uploadBytes (imageReference,image)
     const imageURL = await getDownloadURL(response.ref)
-    // console.log(imageReference,response.ref,imageURL)
     await addDoc(collection(db,"posts"),{caption, image:imageURL, imageName:imageName});
     navigate("/")
   }
@@ -77,10 +76,8 @@ export default function PostPageAdd() {
               onChange={(e) => {
                 const imageFile = e.target.files[0]
                 const previewImage = URL.createObjectURL(imageFile)
-                console.log(`imageFile ${imageFile}`)
                 setImage(imageFile)
                 setPreviewImage(previewImage)
-                console.log(imageFile.name)
                 setImageName(imageFile.name)
               }}
             />
