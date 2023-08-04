@@ -13,6 +13,7 @@ export default function PostPageAdd() {
     const [user, loading] = useAuthState(auth);
     //   console.log(`useAuthState: user ${user}, loading ${loading}`)
     const [previewImage, setPreviewImage] = useState("")
+    const [imageName, setImageName]=useState("")
     const navigate = useNavigate();
 
   async function addPost() {
@@ -20,7 +21,7 @@ export default function PostPageAdd() {
     const response = await uploadBytes (imageReference,image)
     const imageURL = await getDownloadURL(response.ref)
     // console.log(imageReference,response.ref,imageURL)
-    await addDoc(collection(db,"posts"),{caption, image:imageURL});
+    await addDoc(collection(db,"posts"),{caption, image:imageURL, imageName:imageName});
     navigate("/")
   }
 
@@ -79,6 +80,8 @@ export default function PostPageAdd() {
                 console.log(`imageFile ${imageFile}`)
                 setImage(imageFile)
                 setPreviewImage(previewImage)
+                console.log(imageFile.name)
+                setImageName(imageFile.name)
               }}
             />
             <Form.Text className="text-muted">

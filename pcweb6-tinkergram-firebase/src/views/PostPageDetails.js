@@ -18,6 +18,17 @@ export default function PostPageDetails() {
   
   
   async function deletePost(id) {
+    // delete from storage
+    const postDocument = await getDoc(doc(db,"posts",id))
+    const post = postDocument.data()
+    const desertRef = ref(storage,`images/${post.imageName}`);
+    deleteObject(desertRef).then(async () => {
+      console.log("deleted from firebase storage")
+    }).catch((error) => {
+      console.error(error.message)
+    });
+
+    // delete from firestore
     await deleteDoc(doc(db,"posts",id))
     navigate("/")
   }
@@ -27,6 +38,7 @@ export default function PostPageDetails() {
     const post = postDocument.data()
     setCaption(post.caption);
     setImage(post.image);
+    return post.image
   }
 
   useEffect(() => {
