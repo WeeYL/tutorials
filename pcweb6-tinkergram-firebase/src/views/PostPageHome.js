@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
-import { Container, Image, Nav, Navbar, Row } from "react-bootstrap";
+import { Container, Image, Nav, Navbar, Row, } from "react-bootstrap";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {auth, db} from "../firebase";
 import { Link } from "react-router-dom";
+import {collection, getDocs} from "firebase/firestore"
+
 
 export default function PostPageHome() {
   const [posts, setPosts] = useState([]);
+  const [user, loading] = useAuthState(auth);
 
    async function getAllPosts() {
-    setPosts([]);
+    const query = await getDocs(collection(db,"posts"))
+    const posts = query.docs.map((doc)=>{
+      return {id:doc.id, ...doc.data()}
+    })
+    setPosts(posts);
   }
 
   useEffect(() => {
@@ -14,6 +23,7 @@ export default function PostPageHome() {
   }, []);
 
   const ImagesRow = () => {
+    
     return posts.map((post, index) => <ImageSquare key={index} post={post} />);
   };
 
@@ -22,6 +32,7 @@ export default function PostPageHome() {
       <Navbar variant="light" bg="light">
         <Container>
           <Navbar.Brand href="/">Tinkergram</Navbar.Brand>
+          {user!==null? user.email: <Nav.Link href="/login">login</Nav.Link>}
           <Nav>
             <Nav.Link href="/add">New Post</Nav.Link>
           </Nav>
