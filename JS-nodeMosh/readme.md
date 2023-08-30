@@ -8,9 +8,12 @@
         - download separately mongodb compass >   using version 1.36 > select MSI version. https://www.mongodb.com/try/download/compass
         - download database tool > https://www.mongodb.com/try/download/database-tools
         - add to windows environment variables (path) >  C:\Program Files\MongoDB\Tools\100\bin
+        - run mongodb > powershell > c:\users\user\ > mongod
         - create folder > md c:\data\db
-        - install Mongo Compass > https://github.com/mongodb-js/compass/releases/tag/v1.36.4
-        - extension > mongodb for vscode. when prompt for server is mongodb://localhost/playground
+    - install Mongo Compass > https://github.com/mongodb-js/compass/releases/tag/v1.36.4
+    - VS code extension > mongodb for vscode. when prompt for server is mongodb://localhost/playground
+    - download Mongo tool
+        - Env Variables > Path > C:\Program Files\MongoDB\Tools\100\bin 
 ## INFO
     - jshint app1.js  // To show errors
     - https://nodejs.org/api/modules.html

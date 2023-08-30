@@ -19,9 +19,9 @@
     "app13": "nodemon app13_pug.js",
     "app14": "nodemon app14_routing.js",
     "app15": "node app15_mongoose.js ",
-    "app16": "node app16_mongoose_exercise.js",
-    "app17": " ",
-    "app18": " "
+    "app16": "node app16_mongoose_crud.js",
+    "app17": "node app17_mongoose_validate.js ",
+    "app18": "node app18_mongoose_vidly.js"
   },
   "keywords": [],
   "author": "",

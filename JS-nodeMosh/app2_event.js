@@ -3,49 +3,49 @@ const print = require('./printHeader')
 ///////////////////////////////////////////////////
 
 // EVENT EMITTER
-// ORDER OF IMPLEMENTATION - ON: DEFINE A LISTENER, EMIT: TRIGGER THE EVENT
+// ORDER OF IMPLEMENTATION - ON: DEFINE THE FUNCTION, EMIT: TRIGGER THE EVENT
 
 print.header("EVENT EMITTER EG1")
 
 const EventEmitter = require("events") // NOTE : check that EventEmitter text has to turn green
-const emitter = new EventEmitter();
+const myConn = new EventEmitter();
 
 // REGISTER A LISTENER (callback name, function)
-emitter.on('eg1',function(){
-    console.log('eg1, listener called')
+myConn.on('connect',function(){
+    console.log('connect, listener called')
 })
 // RAISE AN EVENT 
-emitter.emit('eg1')
+myConn.emit('connect')
 
 ///////////////////////////////////////////////////
 
 print.header("EVENT EMITTER ARGUMENTS")
 
 // allows multi definitions
-emitter.on('eventArg',function(arg){
+myConn.on('eventArg',function(arg){
     console.log(`id ${arg.id}`)
 })
-emitter.on('eventArg',function(arg){
+myConn.on('eventArg',function(arg){
     console.log(`name ${arg.name}`)
 })
 // RAISE AN EVENT 
-emitter.emit('eventArg',{id:1, name:"Holden"})
+myConn.emit('eventArg',{id:1, name:"Holden"})
 
 ///////////////////////////////////////////////////
 
 print.header("EVENT EMITTER ARGUMENTS")
 
-class Logger extends EventEmitter {
+class MyMongoose extends EventEmitter {
     
     // EXTENDS INHERITS THE EVENTEMITTER
-    log(message) {
+    connection(message) {
         console.log("sending")
-        this.emit('messageLogged', {message:"my message is...."}) // call messageLogged func
+        this.emit('messageLogged', {message:`my message is....${message}`}) // call messageLogged func
     }
 
 }
 
-const logger = new Logger()
+const mongoose = new MyMongoose()
 
-logger.on('messageLogged',arg=> console.log(arg.message))  // define messageLogged func
-logger.log("message logged")
+mongoose.on('messageLogged',arg=> console.log(arg.message))  // define messageLogged func
+mongoose.log("message logged")

@@ -76,7 +76,7 @@
 };
 .item4{
     @include box;
-    // grid-area: FOOT; // for container 3
+    grid-area: FOOT; // for container 3
     // grid-row: 2 / 4 
 
 }
