@@ -20,5 +20,6 @@
     - https://expressjs.com/en/4x/api.html
     - https://medium.com/@monibbormon14/what-is-mongoose-c1bc3031cc08
     - https://mongoosejs.com/docs/api/mongoose.html
+    - https://joi.dev/api/?v=17.9.1
 
 
