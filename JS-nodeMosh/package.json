@@ -22,7 +22,8 @@
     "app16": "node app16_mongoose_crud.js",
     "app17": "node app17_mongoose_validate.js ",
     "app18": "nodemon project_vidly/index.js",
-    "app19": "node app19_relationship.js"
+    "app19": "node app19_relationship.js",
+    "app20": "node app20_embedding.js"
 
   },
   "keywords": [],
