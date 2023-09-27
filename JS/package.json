@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "live-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "oop": "node OOP.js"
   },
   "keywords": [],
   "author": "",
