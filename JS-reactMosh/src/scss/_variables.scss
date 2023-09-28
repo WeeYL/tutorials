@@ -1,0 +1,35 @@
+// Colors
+$colorText: rgb(58, 70, 100);
+$colorHoverLink: rgba(100, 81, 58, 0.5);
+$colorDivider: rgba(170, 170, 170, 0.75);
+$colorBlogSpot: rgb(218,1,102);
+$colorBlogSpot2: rgba(218,1,102,0.75);
+
+
+// Font Sizes
+$fontSm: 1rem;
+$fontMed: 1.5rem;
+$fontLg: 2rem;
+$fontXlg: 4rem;
+$fontXXlg: 8rem;
+$fontXXXlg: 12rem;
+$mapFontWeight: (
+    "regular": 400,
+    "medium": 500,
+    "bold":700
+);
+$screenSizeMobile: 800px;
+
+
+@mixin bgColor($color) {
+    background: $color;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
