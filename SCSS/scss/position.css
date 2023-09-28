@@ -1,35 +1,41 @@
 .parentStatic {
-  background-color: hsl(233, 8%, 62%);
+  background-color: #9698a6;
 }
+
 .parentStatic .child1 {
   background-color: orange;
 }
 
 .parentRelative {
   position: relative;
-  background-color: hsl(233, 8%, 62%);
+  background-color: #9698a6;
 }
+
 .parentRelative .child1 {
   position: absolute;
   top: 15px;
   left: 15px;
-  background-color: rgb(231, 73, 32);
+  background-color: #e74920;
 }
+
 .parentRelative .child2 {
   position: relative;
   top: 15px;
   left: 15px;
-  background-color: rgb(231, 73, 32);
+  background-color: #e74920;
 }
 
 .parentRelativeBig {
   position: relative;
-  background-color: hsl(233, 8%, 62%);
+  background-color: #9698a6;
   height: 150vh;
 }
+
 .parentRelativeBig .child3 {
   display: inline;
+  position: -webkit-sticky;
   position: sticky;
   top: 30px;
-  background-color: rgb(231, 73, 32);
-}/*# sourceMappingURL=position.css.map */
+  background-color: #e74920;
+}
+/*# sourceMappingURL=position.css.map */

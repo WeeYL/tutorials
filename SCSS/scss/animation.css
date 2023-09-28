@@ -1,5 +1,5 @@
 .parent {
-  background-color: rgb(231, 73, 32);
+  background-color: #e74920;
   height: 200px;
   width: 200px;
 }
@@ -11,28 +11,57 @@
   background-color: orange;
   height: 100px;
   width: 100px;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .container1 .child {
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .container2 .child {
-  animation: Left-Right 1s ease-in-out 500ms 3 alternate forwards;
+  -webkit-animation: Left-Right 1s ease-in-out 500ms 3 alternate forwards;
+          animation: Left-Right 1s ease-in-out 500ms 3 alternate forwards;
+}
+
+@-webkit-keyframes Left-Right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  33% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  66% {
+    -webkit-transform: translateY(100%) translateX(100%);
+            transform: translateY(100%) translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
 }
 
 @keyframes Left-Right {
   0% {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   33% {
-    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
   66% {
-    transform: translateY(100%) translateX(100%);
+    -webkit-transform: translateY(100%) translateX(100%);
+            transform: translateY(100%) translateX(100%);
   }
   100% {
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
-}/*# sourceMappingURL=animation.css.map */
+}
+/*# sourceMappingURL=animation.css.map */

@@ -1,20 +1,28 @@
 * {
   margin: 0px;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .container {
-  scroll-snap-type: y mandatory;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
 }
 
 section {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   scroll-snap-align: start;
 }
 
@@ -34,4 +42,5 @@ section {
 
 .four {
   background-color: pink;
-}/*# sourceMappingURL=scroll-snap.css.map */
+}
+/*# sourceMappingURL=scroll-snap.css.map */

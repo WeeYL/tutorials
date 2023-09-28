@@ -1,8 +1,11 @@
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 .evenColumns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1em;
 }
+
 .evenColumns > * {
   border: 1px solid black;
   padding: 6px;
@@ -10,7 +13,8 @@
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 
 /* flex: 
@@ -23,9 +27,13 @@ an element before the remaining space is distributed.
 
 */
 .gridish1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 .gridish1 > * {
   border: 1px solid black;
   padding: 6px;
@@ -33,15 +41,21 @@ an element before the remaining space is distributed.
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex: 1 1 33%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
   height: 15vh;
 }
 
 .gridish2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 1em;
 }
+
 .gridish2 > * {
   border: 1px solid black;
   padding: 6px;
@@ -49,14 +63,20 @@ an element before the remaining space is distributed.
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex: 1 1 33%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
   height: 15vh;
 }
 
 .sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 .sidebar > *:nth-child(1) {
   border: 1px solid black;
   padding: 6px;
@@ -64,9 +84,12 @@ an element before the remaining space is distributed.
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex: 1 1 70%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 70%;
+          flex: 1 1 70%;
   min-width: 25ch;
 }
+
 .sidebar > *:nth-child(2) {
   border: 1px solid black;
   padding: 6px;
@@ -74,7 +97,9 @@ an element before the remaining space is distributed.
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex: 1 1 30%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
   min-width: 3ch;
 }
 
@@ -84,8 +109,12 @@ flex
 [max]       [min]         [ideal size]
 */
 .parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .child1 {
@@ -95,9 +124,13 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 .child2 {
@@ -107,9 +140,13 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 .child3 {
@@ -119,9 +156,13 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 3;
-  flex-shrink: 1;
-  flex-basis: auto;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 .child4 {
@@ -131,9 +172,13 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 .child5 {
@@ -143,9 +188,13 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: 500px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: 500px;
+      flex-basis: 500px;
 }
 
 .child6 {
@@ -155,14 +204,21 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 500px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: 500px;
+      flex-basis: 500px;
 }
 
 .parent2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .child7 {
@@ -172,7 +228,12 @@ flex
   font-variant: small-caps;
   color: white;
   background-color: gray;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 500px;
-}/*# sourceMappingURL=tutorial-flex.css.map */
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: 500px;
+      flex-basis: 500px;
+}
+/*# sourceMappingURL=tutorial-flex.css.map */

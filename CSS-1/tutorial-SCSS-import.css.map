@@ -1,1 +1,9 @@
-{"version":3,"sources":["tutorial-SCSS-import.scss","tutorial-SCSS-import.css"],"names":[],"mappings":"AACA;EACI,uBAAA;ACAJ","file":"tutorial-SCSS-import.css"}
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,KAAK;CACxB",
+    "sources": [
+        "tutorial-SCSS-import.scss"
+    ],
+    "names": [],
+    "file": "tutorial-SCSS-import.css"
+}

@@ -5,7 +5,8 @@
   border-top: 6px solid green;
   background: red;
   width: 100%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .verLine {
@@ -13,10 +14,12 @@
   border-left: 6px solid green;
   left: 50%;
   height: 100%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 @font-face {
   font-family: ultmiaAvatar;
   src: url(./fonts/Avatar.ttf);
-}/*# sourceMappingURL=template.css.map */
+}
+/*# sourceMappingURL=template.css.map */

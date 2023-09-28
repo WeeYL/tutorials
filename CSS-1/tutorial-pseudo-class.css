@@ -1,5 +1,8 @@
 .container-flex {
-  flex-flow: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
   border-bottom: 1px solid black;
   margin-bottom: 24px;
   padding-bottom: 12px;
@@ -18,6 +21,7 @@
   height: 100px;
   display: inline-block;
 }
+
 .active a:active {
   color: red;
 }
@@ -31,6 +35,7 @@
   height: 100px;
   display: inline-block;
 }
+
 .hover a:hover {
   color: red;
 }
@@ -44,12 +49,14 @@
   height: 100px;
   display: inline-block;
 }
+
 .visited a:link {
   /* Specify non-transparent defaults to certain properties,
-     allowing them to be styled with the :visited state */
+       allowing them to be styled with the :visited state */
   background: blue;
   color: white;
 }
+
 .visited a:visited {
   background-color: white;
   color: hotpink;
@@ -63,6 +70,7 @@
 .auto input {
   border: 3px solid red;
 }
+
 .auto input:-webkit-autofill {
   border: 3px solid blue;
 }
@@ -71,12 +79,14 @@
   color: green;
   background-color: lightgreen;
 }
+
 .enabled input:disabled {
   color: gray;
 }
 
 input:default {
-  box-shadow: 0px 0px 5px 2px green;
+  -webkit-box-shadow: 0px 0px 5px 2px green;
+          box-shadow: 0px 0px 5px 2px green;
 }
 
 input:default + label {
@@ -87,6 +97,7 @@ input:default + label {
   background-color: pink;
   color: red;
 }
+
 .valid input:valid {
   background-color: lightcyan;
   color: green;
@@ -95,6 +106,7 @@ input:default + label {
 .required input:required {
   border: 2px dashed red;
 }
+
 .required input:valid {
   border: 2px dashed green;
 }
@@ -106,12 +118,15 @@ input:default + label {
 .child-1 {
   color: green;
 }
+
 .child-1:not(:last-child) {
   color: blue;
 }
+
 .child-1:nth-child(odd) {
   color: red;
 }
+
 .child-1:first-child {
   font-size: 20px;
 }
@@ -119,6 +134,8 @@ input:default + label {
 .nthType p {
   margin: 0px;
 }
+
 .nthType p:nth-of-type(4) {
   color: green;
-}/*# sourceMappingURL=tutorial-pseudo-class.css.map */
+}
+/*# sourceMappingURL=tutorial-pseudo-class.css.map */

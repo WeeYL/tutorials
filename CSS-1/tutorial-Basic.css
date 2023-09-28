@@ -6,21 +6,31 @@
   border-radius: 1.5rem;
   padding: 6px;
   display: inline-block;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
 .btn-signup:hover {
   background-color: green;
   color: white;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-  transform: translateY(-10px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
+
 .btn-signup:active {
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-  transform: translateY(0);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .container-flex {
-  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   border-bottom: 1px solid black;
 }
 
@@ -31,12 +41,15 @@
 .child-1 {
   color: green;
 }
+
 .child-1:not(:last-child) {
   color: blue;
 }
+
 .child-1:nth-child(odd) {
   color: red;
 }
+
 .child-1:first-child {
   font-size: 20px;
 }
@@ -61,12 +74,12 @@
   color: black;
 }
 
-[class=C1] {
+[class="C1"] {
   color: yellow;
 }
 
-[class^=A] {
-  color: rgb(255, 0, 13);
+[class^="A"] {
+  color: #ff000d;
 }
 
 .box {
@@ -76,6 +89,7 @@
   background-color: green;
   line-height: 0;
 }
+
 .box::before {
   content: "";
   height: 100%;
@@ -84,6 +98,7 @@
   left: 1px;
   border-left: red 5px solid;
 }
+
 .box::after {
   content: "";
   width: 100%;
@@ -98,22 +113,28 @@
   width: 400px;
   height: 200px;
 }
+
 .table-left {
   width: 33.33333%;
   border: red 1px solid;
   display: table-cell;
 }
+
 .table-right {
   width: 66.66667%;
   border: red 1px solid;
   display: table-cell;
   vertical-align: middle;
 }
+
 .table-img {
   position: relative;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   -webkit-hyphens: auto;
+      -ms-hyphens: auto;
           hyphens: auto;
-}/*# sourceMappingURL=tutorial-Basic.css.map */
+}
+/*# sourceMappingURL=tutorial-Basic.css.map */

@@ -6,15 +6,23 @@
   border-radius: 1.5rem;
   padding: 6px;
   display: inline-block;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
 .btn-signup:hover {
   background-color: green;
   color: white;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-  transform: translateY(-10px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
+
 .btn-signup:active {
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-  transform: translateY(0);
-}/*# sourceMappingURL=tutorial-animate.css.map */
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+/*# sourceMappingURL=tutorial-animate.css.map */

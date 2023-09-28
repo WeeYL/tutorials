@@ -5,7 +5,8 @@
   border-top: 6px solid green;
   background: red;
   width: 100%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .verLine {
@@ -13,47 +14,64 @@
   border-left: 6px solid green;
   left: 50%;
   height: 100%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 @font-face {
   font-family: ultmiaAvatar;
   src: url(./fonts/Avatar.ttf);
 }
+
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   background-color: orange;
 }
+
 .container .item1 {
   font-family: myFirstFont;
   width: 200px;
   height: 100px;
   margin: 10px;
-  background-color: hsl(0, 0%, 100%);
-  border: 3px solid hsl(233, 26%, 24%);
-  flex-grow: 4;
+  background-color: white;
+  border: 3px solid #2d314d;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
 }
+
 .container .item2 {
   width: 200px;
   height: 200px;
   margin: 10px;
-  background-color: hsl(0, 0%, 100%);
-  border: 3px solid hsl(233, 26%, 24%);
-  flex-shrink: 4;
+  background-color: white;
+  border: 3px solid #2d314d;
+  -ms-flex-negative: 4;
+      flex-shrink: 4;
 }
+
 .container .item3 {
   width: 200px;
   height: 300px;
   margin: 10px;
-  background-color: hsl(0, 0%, 100%);
-  border: 3px solid hsl(233, 26%, 24%);
+  background-color: white;
+  border: 3px solid #2d314d;
 }
+
 .container .item4 {
   width: 200px;
   height: 100px;
   margin: 10px;
-  background-color: hsl(0, 0%, 100%);
-  border: 3px solid hsl(233, 26%, 24%);
-  align-self: center;
-}/*# sourceMappingURL=flex.css.map */
+  background-color: white;
+  border: 3px solid #2d314d;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+/*# sourceMappingURL=flex.css.map */

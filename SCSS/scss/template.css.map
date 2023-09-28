@@ -1,1 +1,11 @@
-{"version":3,"sources":["_global.scss","template.css"],"names":[],"mappings":"AACA;EACI,kBAAA;EACA,QAAA;EACA,OAAA;EACA,2BAAA;EACA,eAAA;EACA,WAAA;EACA,2BAAA;ACAJ;;ADGA;EACI,kBAAA;EACA,4BAAA;EACA,SAAA;EACA,YAAA;EACA,2BAAA;ACAJ;;ADGA;EACI,yBAAA;EACA,4BAAA;ACAJ","file":"template.css"}
+{
+    "version": 3,
+    "mappings": "AEeA,AAAA,QAAQ,CAAC;EACL,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,CAAC;EACP,UAAU,EAAE,eAAe;EAC3B,UAAU,EAAE,GAAG;EACf,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,gBAAgB;CAC9B;;AAED,AAAA,QAAQ,CAAC;EACL,QAAQ,EAAE,QAAQ;EAClB,WAAW,EAAE,eAAe;EAC5B,IAAI,EAAE,GAAG;EACT,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,gBAAgB;CAC9B;;AAED,UAAU;EACN,WAAW,EAAE,YAAY;EACzB,GAAG,EAAE,uBAAuB",
+    "sources": [
+        "template.scss",
+        "_variables.scss",
+        "_global.scss"
+    ],
+    "names": [],
+    "file": "template.css"
+}

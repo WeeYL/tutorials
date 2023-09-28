@@ -1,3 +1,4 @@
+@use "sass:string";
 /* $variablename: value;*/
 /* Use the variables */
 body {
@@ -18,9 +19,11 @@ nav ul {
   padding: 0;
   list-style: none;
 }
+
 nav li {
   display: inline-block;
 }
+
 nav a {
   display: block;
   padding: 6px 12px;
@@ -75,6 +78,7 @@ allows default values*/
 /* Using a Mixin For Vendor Prefixes
  */
 .myBox {
+  -webkit-transform: rotate(20deg);
   transform: rotate(20deg);
   font-size: 24px;
   color: black;
@@ -85,7 +89,7 @@ allows default values*/
 /* The @extend directive lets you share class properties from one selector to another.
 
  */
-.button-basic, .button-submit, .button-report {
+.button-basic, .button-report, .button-submit {
   border: none;
   padding: 1.5 rem 30px;
   text-align: center;
@@ -98,11 +102,12 @@ allows default values*/
 }
 
 .button-submit {
-  background-color: rgb(41, 66, 31);
-  color: rgb(176, 228, 97);
+  background-color: #29421f;
+  color: #b0e461;
 }
 
 /* string module. @use "sass:string" */
 .quote {
   color: blue;
-}/*# sourceMappingURL=tutorial-SCSS.css.map */
+}
+/*# sourceMappingURL=tutorial-SCSS.css.map */

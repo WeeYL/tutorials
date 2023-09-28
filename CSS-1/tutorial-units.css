@@ -1,6 +1,11 @@
 .container1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 1em;
   padding: 6px;
 }
@@ -64,4 +69,5 @@
   font-size: 24px;
   font-size: unset;
   width: 40%;
-}/*# sourceMappingURL=tutorial-units.css.map */
+}
+/*# sourceMappingURL=tutorial-units.css.map */
