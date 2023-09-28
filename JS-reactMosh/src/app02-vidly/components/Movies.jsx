@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useEffect } from "react";
 import * as movieService from "../services/fakeMovieService";
 
 class Movies extends Component {
