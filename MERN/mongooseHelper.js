@@ -1,9 +1,8 @@
-const express = require("express");
 
-module.exports.connection = function (mongoose,databaseName) {
+module.exports.connection = function (mongoose,URL,databaseName) {
   // check connection
   mongoose
-    .connect(`mongodb://127.0.0.1:27017/${databaseName}`, {
+    .connect(`${URL}/${databaseName}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
@@ -11,18 +10,24 @@ module.exports.connection = function (mongoose,databaseName) {
     .catch((err) => console.log("could not connect"));
 };
 
-module.exports.createModel = function (mongoose,name,schema) {
+module.exports.createSchema = function (mongoose, schema) {
+
+  const Schema = new mongoose.Schema(schema)
+  return Schema
+}
+
+module.exports.createModel = function (mongoose,collectionName,schema) {
   // create model class and name of class
   // change to singular collection name eg, 'Courses' to 'Course'
   // eg {  name:String,  bio:String,  website:String }
-  const Schema = mongoose.model(`${name}`, schema)
+  const Schema = mongoose.model(`${collectionName}`, schema)
   return Schema
 }
 
 module.exports.saveDataToModel = async function (SchemaModel,data){
   // eg {  name:"yl", bio:"bio",website:"websites"}
   const createdModel = new SchemaModel (data)
-  console.log(createdModel)
+  console.log("saved to DB",createdModel)
   await createdModel.save()
 }
 
@@ -33,6 +38,7 @@ module.exports.saveDataToModel = async function (SchemaModel,data){
 module.exports.queryGetAll = async function (Model){
   const result = await Model.find()
   console.log(result)
+  return result
 } 
 
 module.exports.updateData = async function (Model,id,newData) {
