@@ -9,7 +9,8 @@ import reportWebVitals from './reportWebVitals';
 
 // import App from './app01-counter/App';
 // import App from './app02-vidly/App';
-import App from './app03-props-state'
+import App from './app03-props-state/App';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
