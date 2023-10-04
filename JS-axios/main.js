@@ -2,8 +2,7 @@
 
 const urlTodos = "https://jsonplaceholder.typicode.com/todos";
 const urlPosts = "https://jsonplaceholder.typicode.com/posts";
-const urlBus =
-  "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139";
+const urlBus =  "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139";
 const APIKEY = "xHrBZD3HTbqeGcgRVnd/1A==";
 
 // GET REQUEST

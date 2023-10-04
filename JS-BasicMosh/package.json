@@ -1,0 +1,19 @@
+{
+  "name": "js-basicmosh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app01-control.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app01":"node app01-control.js",
+    "app02":"node app02-obj.js",
+    "app03":"node app03-array.js",
+    "app04":"node app04-OOP.js",
+    "app05":"node app05-OOP-ES6.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
