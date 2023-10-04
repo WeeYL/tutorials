@@ -48,4 +48,4 @@ class MyMongoose extends EventEmitter {
 const mongoose = new MyMongoose()
 
 mongoose.on('messageLogged',arg=> console.log(arg.message))  // define messageLogged func
-mongoose.log("message logged")
+mongoose.connection("message logged")
