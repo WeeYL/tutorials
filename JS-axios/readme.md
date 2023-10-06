@@ -7,3 +7,6 @@
 | DESCRIPTION      | LINK | 
 | :---        |    :----   |    
 | youtube    | https://www.youtube.com/watch?v=6LyagkoRWYA&t=1658s    |
+
+### RUN
+- open server index.html

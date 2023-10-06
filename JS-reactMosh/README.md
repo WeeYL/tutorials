@@ -12,3 +12,4 @@
 | DESCRIPTION      | LINK | 
 | :---        |    :----   |    
 | bootstrap       |    https://getbootstrap.com/docs/5.2/examples/   |  
+| fontawesome-icon | https://fontawesome.com/v4/icons/|

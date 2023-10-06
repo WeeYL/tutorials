@@ -26,12 +26,15 @@ const courseSchema = new mongoose.Schema({
 const Author = mongooseHelper.createModel(mongoose, "Author", authorSchema);
 const Course = mongooseHelper.createModel(mongoose, "Course", courseSchema);
 
-// save model
-// const createAuthor = mongooseHelper.saveDataToModel(Author,{
-//   name:"yl", bio:"bio",website:"websites"
-// });
-// const createCourse = mongooseHelper.saveDataToModel(Course,{
-//   name:"node",author:"65127797e7c88703c4b53199"
+// mongooseHelper.saveDataToModel(Author, {
+//   name: 'leon',
+//   bio: 'bioLeon',
+//   website: 'websitesLeon',
+// })
+
+// mongooseHelper.saveDataToModel(Course, {
+//   name: "react",
+//   author: "651e08f1d2ce7f0e1cf8aa46",
 // });
 
 mongooseHelper.findData(Author, "name");

@@ -1,16 +1,11 @@
 // first import the json file > go to cmd > mongoimport --db mongo-exercises --collection courses --file app_16_exercise-data.json --jsonArray
 
+const { connection } = require("./mongooseHelper");
 const print = require("./printHeader");
 const mongoose = require('mongoose');
 
 // check connection and create if not available
-mongoose
-  .connect("mongodb://127.0.0.1:27017/mongo-exercises", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("connected to mongoDB"))
-  .catch((err) => console.error(err));
+connection(mongoose,'mongo-exercises')
 
 // create schema
 const courseSchema = new mongoose.Schema({
@@ -34,7 +29,7 @@ async function getAllCourses (){
 
 
 // GET SORTED
-const getFrontBackend = async () => {
+const getSorted = async () => {
   const result = await Course.find()
     .and({ isPublished: true, tags: { $in: ["frontend", "backend"] } })
     .sort("-price") // descending
@@ -77,7 +72,7 @@ async function removeCourse(id) {
 //RUN
 
 getAllCourses()
-// getFrontBackend()
+// getSorted()
 // createCourse()
 // updateCourse('64d4a9293355020608b0dd5b')
 // removeCourse('64d4a9293355020608b0dd5b')

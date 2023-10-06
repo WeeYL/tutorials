@@ -1,6 +1,8 @@
-import { printHeader } from "../JS-helper/printHeader.js";
+const print = require('./printHeader')
 ///////////////////////////////////////////////////
 
+const express = require("express");
+const app = express();
 const http = require("http");
 
 const server = http.createServer((req, res) => {
@@ -18,7 +20,7 @@ server.on("connection", () => {
   console.log("New connection...");
 });
 
-server.listen(3000);
+const port = process.env.PORT || 3000;
 app.listen(port, () =>
   console.log(`listening to ${port} http://localhost:3000`)
 );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Counter from './counter';
 
+// HOLDS ALL THE COUNTERS
+
 class Counters extends Component {
     state = { 
         counters:[

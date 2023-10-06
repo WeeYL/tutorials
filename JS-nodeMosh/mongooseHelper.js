@@ -31,6 +31,7 @@ module.exports.saveDataToModel = async function (SchemaModel,data){
 
 // #######################################################
 
+
 module.exports.queryGetAll = async function (Model){
   const result = await Model.find()
   console.log(result)

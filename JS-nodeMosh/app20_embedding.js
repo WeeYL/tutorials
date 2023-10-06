@@ -35,3 +35,4 @@ const Course = mongooseHelper.createModel(mongoose, "Course", courseSchema);
 
 mongooseHelper.findData(Course, "name author.name");
 mongooseHelper.updateData(Course,"65127b3c7d40e226ecc63efa",{author:{name:"Gunn"}})
+mongooseHelper.findDataPopulate(Course, "author", "name author");

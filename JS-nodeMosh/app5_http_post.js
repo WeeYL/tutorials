@@ -15,7 +15,6 @@ const courses = [
   { id: 2, name: "mobile" },
 ];
 
-// HTTP method
 // GET
 app.get("/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id)); // parseInt is used because req.params.id returns as string

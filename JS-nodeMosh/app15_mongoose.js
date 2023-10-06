@@ -3,15 +3,10 @@ const express = require("express");
 //const app = express();
 
 const mongoose = require("mongoose");
+const { connection, createModel } = require("./mongooseHelper");
 
 // check connection
-mongoose
-  .connect("mongodb://127.0.0.1:27017/playground2", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("connected to mongoDB"))
-  .catch((err) => console.log("could not connect"));
+connection(mongoose,"app15db")
 
 // create schema
 const courseSchema = new mongoose.Schema({
@@ -24,7 +19,7 @@ const courseSchema = new mongoose.Schema({
 });
 
 // create model class and name of class
-const Course = mongoose.model("myCourse", courseSchema);
+const Course = createModel(mongoose,courseSchema,"course")
 
 // create new class
 async function createCourse() {
@@ -37,20 +32,20 @@ async function createCourse() {
   });
 
   const result = await myCourse.save();
-  printHeader("create course");
+  print.header("create course");
   console.log(result);
 }
 
 async function getCourses() {
   const courses = await Course.find();
-  printHeader("find all courses");
+  print.header("find all courses");
   console.log(courses);
 }
 async function filterCourse() {
   const courses = await Course.find({ isPublished: true })
     .sort({ name: 1 }) // 1 is ascending, -1 is descending
     .select({ tags: 1, name: 1 }); // display the columns to display
-  printHeader("filter courses");
+  print.header("filter courses");
   console.log(courses);
 }
 
@@ -58,11 +53,15 @@ async function logicOperator() {
   const courses = await Course.find({ price: { $gte: 11 } }) // greater and equal than
     .sort({ name: 1 }) // 1 is ascending, -1 is descending
     .select({ tags: 1, price: 1 }); // display the columns to display
-  printHeader("logicOperator");
+  print.header("logicOperator");
   console.log(courses);
 }
 
-// createCourse() // Do it only once. To create a database, requires to create a class
+// ---------
+// RUN 
+// ---------
+
+createCourse() // Do it only once. To create a database, requires to create a class
 // getCourses();
 // filterCourse();
 // logicOperator();

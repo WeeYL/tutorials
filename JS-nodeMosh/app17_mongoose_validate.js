@@ -1,15 +1,10 @@
 const { date } = require("joi");
 const print = require("./printHeader");
 const mongoose = require('mongoose');
+const { connection } = require("./mongooseHelper");
 
 // check connection
-mongoose
-  .connect("mongodb://127.0.0.1:27017/playground", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("connected to mongoDB"))
-  .catch((err) => console.error(err));
+connection(mongoose,'playground')
 
 // create schema
 const courseSchema = new mongoose.Schema({
@@ -76,7 +71,7 @@ async function createCourse() {
   const course = new Course({
     name: "Flask",
     author: "Mosh",
-    tags: ["Flask", "Backend"],
+    tags: [],
     category:'cloud',
     isPublished: 'true',
   });
@@ -84,7 +79,7 @@ async function createCourse() {
   // Save
   try {
     const result = await course.save();
-    // console.log(result);
+    console.log(result);
   } catch (ex) {
       for (field in ex.errors) {
           console.log(`field: ${field}`)

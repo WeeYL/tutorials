@@ -28,28 +28,9 @@ app.put("/courses/:id", (req, res) => {
 
   // put
   course.name = req.body.name;
-  res.send(course);
-});
-// POST
-app.post("/courses", (req, res) => {
-  // joi validations
-  const { error } = validateCourse(req.body);
-  if (error) res.send(error.details[0].message);
-
-  const course = {
-    id: courses.length + 1, // id will be incremental
-    name: req.body.name,
-  };
-  courses.push(course);
-  res.send(course);
+  res.send(courses)
 });
 
-// GET
-app.get("/courses/:id", (req, res) => {
-  const course = courses.find((c) => c.id === parseInt(req.params.id)); // parseInt is used because req.params.id returns as string
-  if (!course) res.status(404).send("course with given id not found!");
-  else res.send(course);
-});
 
 // LISTEN TO PORT
 const port = process.env.PORT || 3000;

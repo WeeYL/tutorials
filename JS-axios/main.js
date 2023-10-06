@@ -2,133 +2,61 @@
 
 const urlTodos = "https://jsonplaceholder.typicode.com/todos";
 const urlPosts = "https://jsonplaceholder.typicode.com/posts";
-const urlBus =  "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139";
+const urlBus =
+  "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=83139";
 const APIKEY = "xHrBZD3HTbqeGcgRVnd/1A==";
 
 // GET REQUEST
-function getTodos() {
-  axios({
-    method: "get",
-    url: urlTodos,
-    _limit: 5,
-  })
-    .then((res) => showOutput(res))
-    .catch((err) => console.log(err));
+
+async function getWithParams(url, params) {
+  const res = await axios.get(url, { params });
+  showOutput(res);
 }
 
 // POST REQUEST
-function addTodo() {
-  axios({
-    method: "post",
-    url: urlTodos,
-    data: {
-      title: "new todo",
-      completed: false,
-    },
-  })
-    .then((res) => showOutput(res))
-    .catch((err) => console.log(err));
+async function add(url, addData) {
+  const res = await axios.post(url, { data: addData });
+  showOutput(res);
 }
 
 // PUT/PATCH REQUEST
 // PATCH UPDATE PARTIAL, PUT UPDATE AND REPLACE ALL
-function updateTodo() {
-  axios({
-    method: "put",
-    url: urlTodos + "/1",
-    data: {
-      title: "updated todo",
-      completed: true,
-    },
-  })
-    .then((res) => showOutput(res))
-    .catch((err) => console.log(err));
+async function updateTodo() {
+  const data = {
+    title: "updated todo",
+    completed: true,
+  };
+
+  const res = await axios.put(urlTodos + "/1", { data });
+  showOutput(res);
 }
 
 // DELETE REQUEST
-function removeTodo() {
-  axios({
-    method: "delete",
-    url: urlTodos + "/1",
-  })
-    .then((res) => showOutput(res))
-    .catch((err) => console.log(err));
+async function deleteItem(url, id) {
+  const res = await axios.delete(url + "/" + id)
+  .catch(function (error) {
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
+  });
+  console.log(res);
+  showOutput(res);
 }
 
 // SIMULTANEOUS DATA
-function getData() {
-  axios
-    .all([
-      axios({
-        method: "get",
-        url: urlTodos,
-      }),
-      axios({
-        method: "get",
-        url: urlPosts,
-      }),
-    ])
-    .then((res) => {
-      console.log(res[0]);
-      console.log(res[1]);
-    })
-    .catch((err) => console.log(err));
+async function getAll(url) {
+  const res = await axios.get(url);
+  console.log(res);
+  showOutput(res);
 }
 
 // CUSTOM HEADERS
-function customHeaders() {
-
-  const myHeader = {
-    headers: {
-      'Content-Type': 'application/json',
-      AccessKeys: APIKEY
-    }
-  };
-
-  axios.post(
-      url=urlTodos,
-      data={
-        title: 'New Todo',
-        completed: false
-      },
-      headers=myHeader
-    )
-    .then((res) => showOutput(res))
-    .catch((err) => console.log(err));
+async function getOne(url, id) {
+  const res = await axios.get(url + "/" + id);
+  showOutput(res);
 }
-
-// TRANSFORMING REQUESTS & RESPONSES
-function transformResponse() {
-  console.log("Transform Response");
-}
-
-// ERROR HANDLING
-function errorHandling() {
-  console.log("Error Handling");
-}
-
-// CANCEL TOKEN
-function cancelToken() {
-  console.log("Cancel Token");
-}
-
-// INTERCEPTING REQUESTS & RESPONSES.
-// CHECK BROWSER CONSOLE
-axios.interceptors.request.use(
-  config => {
-    console.log(
-      `${config.method.toUpperCase()} request sent to ${
-        config.url
-      } at ${new Date().getTime()}`
-    );
-
-    return config;
-  },
-  error => {
-    return Promise.reject(error);
-  }
-);
-// AXIOS INSTANCES
 
 // Show output in browser
 function showOutput(res) {
@@ -145,7 +73,16 @@ function showOutput(res) {
       <pre>${JSON.stringify(res.headers, null, 2)}</pre>
     </div>
   </div>
-
+  
+  <div class="card mt-3">
+    <div class="card-header">
+      Config
+    </div>
+    <div class="card-body">
+      <pre>${JSON.stringify(res.config, null, 2)}</pre>
+    </div>
+  </div>
+  
   <div class="card mt-3">
     <div class="card-header">
       Data
@@ -155,26 +92,29 @@ function showOutput(res) {
     </div>
   </div>
 
-  <div class="card mt-3">
-    <div class="card-header">
-      Config
-    </div>
-    <div class="card-body">
-      <pre>${JSON.stringify(res.config, null, 2)}</pre>
-    </div>
-  </div>
 `;
 }
 
 // Event listeners
-document.getElementById("get").addEventListener("click", getTodos);
-document.getElementById("post").addEventListener("click", addTodo);
-document.getElementById("update").addEventListener("click", updateTodo);
-document.getElementById("delete").addEventListener("click", removeTodo);
-document.getElementById("sim").addEventListener("click", getData);
-document.getElementById("headers").addEventListener("click", customHeaders);
+const params = { _limit: 6 };
+const addData = {
+  title: "new todo",
+  completed: false,
+};
+
 document
-  .getElementById("transform")
-  .addEventListener("click", transformResponse);
-document.getElementById("error").addEventListener("click", errorHandling);
-document.getElementById("cancel").addEventListener("click", cancelToken);
+  .getElementById("get")
+  .addEventListener("click", () => getWithParams(urlTodos, params));
+document
+  .getElementById("post")
+  .addEventListener("click", () => add(urlTodos, addData));
+document.getElementById("update").addEventListener("click", updateTodo);
+document
+  .getElementById("delete")
+  .addEventListener("click", () => deleteItem(urlTodos, 5));
+document
+  .getElementById("getOne")
+  .addEventListener("click", () => getOne(urlTodos, 5));
+document
+  .getElementById("getAll")
+  .addEventListener("click", () => getAll(urlTodos));
