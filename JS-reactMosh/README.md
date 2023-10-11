@@ -1,5 +1,6 @@
 ### SETUP
 - npx create-react-app my-app
+- npm i react-router-dom
 - turn on "watch sass"
 - create scss folder > main.scss
 - for new project, add folder name > index.js > import App 
@@ -13,3 +14,4 @@
 | :---        |    :----   |    
 | bootstrap       |    https://getbootstrap.com/docs/5.2/examples/   |  
 | fontawesome-icon | https://fontawesome.com/v4/icons/|
+|react router | https://reactrouter.com/en/main
