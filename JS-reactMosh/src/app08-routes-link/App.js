@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import NavBar from "./components/navbar";
-import Posts from "./components/posts";
-import Home from "./components/home";
-import ProductRoute from "./routes/productsRoute";
-import AdminRoute from "./routes/adminRoute";
-import NotFound from "./components/notFound";
-import "./App.css";
+import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import "./App.css";
+import Home from "./components/home";
+import NavBar from "./components/navbar";
+import NotFound from "./components/notFound";
+import Posts from "./components/posts";
+import AdminRoute from "./routes/adminRoute";
+import ProductRoute from "./routes/productsRoute";
 
 // refactor product routes
 // usenavigate, uselocation in ./notfound
