@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import SignInScreen from "./screens/SignInScreen"
+import SignInScreen from "./screens/SignInScreen";
 import AccountScreen from "./screens/AccountScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
