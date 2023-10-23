@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [number, setNumber] = useState(0);
 
+
   // run when number is the dependency, it runs again and again
   // useEffect(() => {
   //   console.count("run effects")

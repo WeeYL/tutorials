@@ -21,9 +21,11 @@ export default function App() {
 
   return (
     <>
-      <button onClick={() => setNumber((prev) => prev + 1)}>increase</button>
-      <span style={{ marginLeft: "12px" }}>{number}</span>
-      <input style={{ marginLeft: "12px" }} onChange={(e)=>setName(e.target.value)}></input>
+      <div style={{padding:"12px"}}>
+        <button onClick={() => setNumber((prev) => prev + 1)}>increase</button>
+        <span style={{ marginLeft: "12px" }}>{number}</span>
+        <input style={{ marginLeft: "12px" }} onChange={(e)=>setName(e.target.value)}></input><span style={{paddingLeft:"12px"}}>{name}</span>
+      </div>
     </>
   );
 }
