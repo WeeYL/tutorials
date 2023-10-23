@@ -1,25 +1,25 @@
-import { printUCHeader} from "../JS-helper/printHeader.js";
+import { printUCHeader, ppp} from "../JS-helper/printHeader.js";
 import * as json from"./json.js";
 
 printUCHeader("push, unshift, splice")
 const newArr = [1,2,3]
 newArr.push("end")
-console.log(newArr)
+ppp("push",newArr)
 newArr.unshift("front")
-console.log(newArr)
+ppp("front",newArr)
 newArr.splice(2,0,"s","p")
-console.log(newArr)
+ppp('splice',newArr)
 
 printUCHeader("find primitve")
 
 const numArr = [1,2,2,1,3,4,5]
-console.log(numArr.indexOf(5))
+ppp('indexOf(5)',numArr.indexOf(5))
 
 printUCHeader("find object")
 const Tommy = json.nameList.find(function(c){return c.name == "Tommy"})
 const Jane = json.nameList.find(c=>c.name==="Jane")
 
-console.log(Tommy, Jane)
+console.log('find',Tommy,'find', Jane)
 
 printUCHeader("combine array")
 
@@ -28,7 +28,7 @@ const second = [4,5]
 const combined = first.concat(second)
 const sliced = combined.slice(2,4)
 const spread = [...first,...second]
-console.log(combined,spread,sliced )
+ppp('combined',combined,'spread',spread,'spliced',sliced)
 
 printUCHeader("checking some and every")
 const chkArr = [1, 2, 13, 4, 15]
@@ -37,16 +37,16 @@ function checkMoreThan10(num) {
     console.log(num)
     return num >10
 }
-console.log("some element meet criteria? ",chkArr.some(n=>checkMoreThan10(n)))
-console.log("every element meet criteria?",chkArr.every(n=>checkMoreThan10(n)))
+ppp("some element meet criteria? ",chkArr.some(n=>checkMoreThan10(n)))
+ppp("every element meet criteria?",chkArr.every(n=>checkMoreThan10(n)))
 
 printUCHeader("iterate forEach, map")
 
 const myAwesomeArray = [1, 2, 3, 4, 5]
-const newArray1 = myAwesomeArray.forEach(x => x * x) // undefined
+const newArray1 = myAwesomeArray.forEach(x => x * x) // undefined, can only console.log()
 const newArray2 = myAwesomeArray.map(x => x * x) 
 const newArray3 = myAwesomeArray.map(x => x * x).filter(n=>checkMoreThan10(n)) // chaining
-console.log(newArray1,newArray2, newArray3)
+ppp('foreach',newArray1,'map',newArray2, 'chaining',newArray3,)
 
 printUCHeader("scoping")
 
@@ -58,10 +58,10 @@ function start() {
 }
 start()
 
-printUCHeader("this")
+printUCHeader("this binding")
 
 // method -> obj
-// function > gloval (window, global)
+// function > global (window, global)
 
 const video = {
     tags:['a','b','c'],
@@ -73,3 +73,10 @@ const video = {
 
 video.play()
 video.showTags()
+
+
+
+
+
+
+    

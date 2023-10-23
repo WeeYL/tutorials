@@ -19,11 +19,12 @@ class Shape {
     console.log("shape name is " + this.name);
   }
 
+  // add sources to target
   static mixin(target, ...sources) {
     Object.assign(target, ...sources)
   }
 
-  // force user to create a proper function
+  // abstractmethod
   sellingPrice() {
     throw new Error("to be defined by subclass");
   }
@@ -51,6 +52,7 @@ class Circle extends Shape {
 }
 
 ///////////////////////////////////////////////////
+
 const spray = { 
   sprayRed (){ 
     return 'sprayed red' 

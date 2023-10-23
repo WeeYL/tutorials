@@ -66,7 +66,7 @@ console.log(dynamicCircle)
 
 printUCHeader("value reference")
 // primitive are copied by value
-// reference are copied by their reference
+// objects are copied by their reference
 
 const arrA = [1,2,3]
 console.log('arrA:',arrA) 
