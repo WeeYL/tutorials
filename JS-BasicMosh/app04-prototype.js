@@ -1,3 +1,5 @@
+
+
 // classical and prototypical inheritance
 // prototype is a parent, and is a typical object
 
@@ -30,21 +32,27 @@ console.log("Circle.prototype.toString",circle.toString())
 
   function Person (name){this.name=name}
   Object.assign(Person.prototype,canEat, canWalk)
-
   const person = new Person("yl")
   person.eat()
+
 
   // refactor to mixin
   function mixin(target, ...sources) {
     Object.assign(target, ...sources)
   }
   
-  function Fish () {}
-  mixin(Fish.prototype, canEat, canSwim)
 
+  class Fish  {
+      mixin( ...sources) {
+        Object.assign(Fish.prototype, ...sources)
+    }
+  }
   const fish1 = new Fish()
+  fish1.mixin(canSwim, canEat)
   fish1.swim()
-
+  fish1.eat()
+  fish1.print = function(){console.log('print');}
+  fish1.print()
 
 
 

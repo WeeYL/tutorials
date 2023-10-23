@@ -7,8 +7,8 @@ class Shape {
 
   calcCost(area) {
     // let is scope based. multiplier and calculate is not accessible
-    let multipler = 3.4;
-    let calculate = function () {
+    const multipler = 3.4;
+    const calculate = function () {
       console.log(multipler, area);
       return multipler * area;
     };
