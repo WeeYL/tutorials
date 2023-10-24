@@ -23,7 +23,7 @@ console.log("defineProperty",Object.getOwnPropertyDescriptor(circle,"radius"))
 console.log("Circle.prototype.toString",circle.toString())
 
 
-  printUCHeader("Composition Mixin assign const to func")
+  pph("Composition Mixin assign const to func")
 
   // basic
   const canEat = { eat (){ console.log('eat') }  }
@@ -58,7 +58,7 @@ console.log("Circle.prototype.toString",circle.toString())
 
 
 
-  function printUCHeader(header) { 
+  function pph(header) { 
 
     console.log("\n\n#----------------------------#")
     console.log(header.toUpperCase());

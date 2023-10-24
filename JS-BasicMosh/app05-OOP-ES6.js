@@ -1,4 +1,4 @@
-printUCHeader("Encapsulation");
+pph("Encapsulation");
 
 class Shape {
   constructor(name) {
@@ -78,7 +78,7 @@ function mixin(target, ...sources) {
   Object.assign(target, sources);
 }
 
-function printUCHeader(header) {
+function pph(header) {
   console.log("\n\n#----------------------------#");
   console.log(header.toUpperCase());
   console.log("#----------------------------#\n");

@@ -6,7 +6,7 @@ export function printHeader(header) {
 
 };
 
-export function printUCHeader(header) { 
+export function pph(header) { 
 
     console.log("\n\n#----------------------------#")
     console.log(header.toUpperCase());
