@@ -1,4 +1,4 @@
-import { pph, ppp, ppf} from "../JS-helper/printer.js";
+import { pph, ppp, ppf, ppw} from "../JS-helper/printer.js";
 
 export const nameList = [
   {
@@ -54,3 +54,4 @@ function greet_let() {
 
 greet_var()
 greet_let()
+
