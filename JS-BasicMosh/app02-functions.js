@@ -5,7 +5,7 @@ pph("const")
 
 const circle = {
     radius: 2, 
-    area: function (){
+    area (){
         return 'area is',3.142 * this.radius * this.radius
     }
 }

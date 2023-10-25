@@ -40,7 +40,7 @@ const arrB = [...arrA,4]
 const arrC = [4,5]
 const arrD = [...arrA,arrC]
 const [a,b,c] = [...arrA]
-ppp('copy',arrB,'combied',arrD, 'destructuring',[a,b,c])
+ppp('copy',arrB,'combined',arrD, 'destructuring',[a,b,c])
 
 
 // CHECK ARRAY

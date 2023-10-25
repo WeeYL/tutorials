@@ -25,15 +25,7 @@ console.log("Circle.prototype.toString",circle.toString())
 
   pph("Composition Mixin assign const to func")
 
-  // basic
-  const canEat = { eat (){ console.log('eat') }  }
-  const canWalk = { walk (){ console.log('walk') }  }
-  const canSwim = { swim (){ console.log('swim') }  }
 
-  function Person (name){this.name=name}
-  Object.assign(Person.prototype,canEat, canWalk)
-  const person = new Person("yl")
-  person.eat()
 
 
   // refactor to mixin
