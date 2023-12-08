@@ -47,6 +47,7 @@ export function ppf(...args) {
 
 export function pwh (value) {
     const container = document.getElementById("container")
+    // container.innerHTML=""
     let div = document.createElement('h4')
     container.appendChild(div)
     div.innerHTML = value
@@ -70,5 +71,7 @@ export function ppw (...args) {
         div.innerHTML = `<span style="color:red;">${args[n]}:</span> <span>${args[n+1]} </span> `
 
     }
+
+    container.removeChild(container.firstChild)
 }
 

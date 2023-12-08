@@ -1,4 +1,4 @@
-import { pph, ppp, ppf, ppw} from "../JS-helper/printer.js";
+import { pph, ppp, ppf, ppw, pwh} from "../JS-helper/printer.js";
 
 export const nameList = [
   {
@@ -18,7 +18,7 @@ export const nameList = [
   }
 ]
 
-pph("Loop let-in");
+pwh("Loop let-in");
 
 for (let index in nameList) {
     console.log(index, nameList[index])
